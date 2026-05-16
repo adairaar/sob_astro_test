@@ -95,7 +95,25 @@ python3 sob_mc_refined.py --n1 2000000    # change sweep 1 sample count
 
 ---
 
-#### 3. `sob_fig_update.py` — Regenerate main paper figures
+#### 3. `sob_fig_sky.py` — Paper Figure 1 (sky geometry)
+
+Generates the two-panel sky-geometry figure showing the observational constraints from Matthew 2:9. Independent of all other figure scripts; can be run at any time.
+
+**Panel (a):** Full polar sky chart (altazimuth projection, North up, azimuth clockwise) showing the azimuth corridor [190°, 210°], the guidance-phase track (arrow), and the stopping-point star symbol.
+
+**Panel (b):** Azimuth corridor diagram from Bethlehem — road bearing 203°, corridor sweep 190°–210°, with Jerusalem marked to the NNE.
+
+**Output:** `figure_paper1_sky_geometry.png` — Paper Fig. 1 (600 DPI)
+
+**Runtime:** < 5 seconds.
+
+```bash
+python3 sob_fig_sky.py
+```
+
+---
+
+#### 4. `sob_fig_update.py` — Regenerate main paper figures
 
 Produces the main paper figures and caches the full scatter dataset. **Must be run before `sob_fig_proof.py`.**
 
@@ -312,6 +330,7 @@ python3 guiding_star_bayes.py
 python3 corpus_pvalue.py
 
 # Step 5 — Figures (run in order; sob_fig_update.py must precede sob_fig_proof.py)
+python3 sob_fig_sky.py               # Paper Fig. 1 — independent, < 5 s
 python3 sob_fig_update.py            # ~20–60 min; writes scatter_cache.npz
 python3 sob_fig_proof.py             # requires scatter_cache.npz
 python3 sob_flyby_figure.py

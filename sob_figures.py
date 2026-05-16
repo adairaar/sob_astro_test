@@ -7,9 +7,12 @@ Strategy: precompute ENU rotation matrices from ICRS for each time step
 (one astropy call per step), then do all orbit evaluations in pure numpy.
 """
 import warnings; warnings.filterwarnings('ignore')
+import os
 import numpy as np
 import matplotlib; matplotlib.use('Agg')
 import matplotlib.pyplot as plt
+
+OUTDIR = os.path.dirname(os.path.abspath(__file__)) + os.sep
 from astropy.time import Time
 from astropy.coordinates import SkyCoord, AltAz, EarthLocation, get_body_barycentric, get_sun
 import astropy.units as u
@@ -329,8 +332,8 @@ for ax, (title, azs, color, txt, bkgd) in zip(axes, [
     ax.grid(True, alpha=0.25)
 
 plt.tight_layout()
-out3 = '/sessions/beautiful-affectionate-planck/mnt/Orbital Mechanics and the Star of Bethlehem/figure3_motion_comparison.png'
-plt.savefig(out3, dpi=150, bbox_inches='tight')
+out3 = OUTDIR + 'figure3_motion_comparison.png'
+plt.savefig(out3, dpi=600, bbox_inches='tight')
 plt.close(); print(f"  Saved: {out3}")
 
 # ═══════════════════════════════════════════════════════════════════════════
@@ -381,8 +384,8 @@ ax.text(0.55, 0.60,
         transform=ax.transAxes, fontsize=10,
         bbox=dict(boxstyle='round', facecolor='lightyellow', alpha=0.9))
 plt.tight_layout()
-out4 = '/sessions/beautiful-affectionate-planck/mnt/Orbital Mechanics and the Star of Bethlehem/figure4_param_survey.png'
-plt.savefig(out4, dpi=150, bbox_inches='tight')
+out4 = OUTDIR + 'figure4_param_survey.png'
+plt.savefig(out4, dpi=600, bbox_inches='tight')
 plt.close(); print(f"  Saved: {out4}")
 
 # ═══════════════════════════════════════════════════════════════════════════
@@ -429,8 +432,8 @@ ax.text(0.05, 0.08,
         bbox=dict(boxstyle='round', facecolor='lightblue', alpha=0.80))
 
 plt.tight_layout()
-out5 = '/sessions/beautiful-affectionate-planck/mnt/Orbital Mechanics and the Star of Bethlehem/figure5_dec_requirement.png'
-plt.savefig(out5, dpi=150, bbox_inches='tight')
+out5 = OUTDIR + 'figure5_dec_requirement.png'
+plt.savefig(out5, dpi=600, bbox_inches='tight')
 plt.close(); print(f"  Saved: {out5}")
 
 print("\nAll done.")

@@ -482,8 +482,8 @@ if __name__ == '__main__':
     pdf_path = os.path.join(out_dir, 'figure_flyby_bestorbit.pdf')
     png_path = os.path.join(out_dir, 'figure_flyby_bestorbit.png')
 
-    fig.savefig(pdf_path, dpi=200, bbox_inches='tight')
-    fig.savefig(png_path, dpi=150, bbox_inches='tight')
+    fig.savefig(pdf_path, dpi=600, bbox_inches='tight')
+    fig.savefig(png_path, dpi=600, bbox_inches='tight')
     print(f"  Saved: {os.path.basename(pdf_path)}")
     print(f"  Saved: {os.path.basename(png_path)}")
     plt.close(fig)

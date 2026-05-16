@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.3.22)  16 MAY 2026 17:11
+This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.3.22)  16 MAY 2026 19:17
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -780,18 +780,18 @@ LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
 (Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 60.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 (Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 60.
-LaTeX Font Info:    Calculating math sizes for size <12.045> on input line 106.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 106.
+LaTeX Font Info:    Calculating math sizes for size <12.045> on input line 104.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 104.
  (/usr/local/texlive/2026/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 106.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 104.
  (/usr/local/texlive/2026/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Calculating math sizes for size <11.04124> on input line 106.
-LaTeX Font Info:    Calculating math sizes for size <9.03374> on input line 106.
-LaTeX Font Info:    Calculating math sizes for size <10.03749> on input line 106.
+LaTeX Font Info:    Calculating math sizes for size <11.04124> on input line 104.
+LaTeX Font Info:    Calculating math sizes for size <9.03374> on input line 104.
+LaTeX Font Info:    Calculating math sizes for size <10.03749> on input line 104.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -813,24 +813,50 @@ File: figure_paper1_sky_geometry.png Graphic file (type bmp)
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [4]
-LaTeX Font Info:    Calculating math sizes for size <8.03> on input line 342.
+LaTeX Font Info:    Calculating math sizes for size <8.03> on input line 339.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Underfull \hbox (badness 1603) in paragraph at lines 360--394
-\TU/lmr/m/n/10.03749 hyperbolic, spanning the eccentricity range of the known interstellar objects
+Underfull \hbox (badness 1072) in paragraph at lines 357--391
+\TU/lmr/m/n/10.03749 The null result is driven primarily by the geometric incompatibility between
  []
 
 
-Overfull \hbox (51.52463pt too wide) in paragraph at lines 360--394
-\OMS/cmsy/m/n/10.03749 f\OT1/cmr/m/n/10.03749 0\OML/cmm/m/it/10.03749 :\OT1/cmr/m/n/10.03749 02\OML/cmm/m/it/10.03749 ; \OT1/cmr/m/n/10.03749 0\OML/cmm/m/it/10.03749 :\OT1/cmr/m/n/10.03749 03\OML/cmm/m/it/10.03749 ; \OT1/cmr/m/n/10.03749 0\OML/cmm/m/it/10.03749 :\OT1/cmr/m/n/10.03749 04\OML/cmm/m/it/10.03749 ; \OT1/cmr/m/n/10.03749 0\OML/cmm/m/it/10.03749 :\OT1/cmr/m/n/10.03749 05\OML/cmm/m/it/10.03749 ; \OT1/cmr/m/n/10.03749 0\OML/cmm/m/it/10.03749 :\OT1/cmr/m/n/10.03749 07\OML/cmm/m/it/10.03749 ; \OT1/cmr/m/n/10.03749 0\OML/cmm/m/it/10.03749 :\OT1/cmr/m/n/10.03749 10\OML/cmm/m/it/10.03749 ; \OT1/cmr/m/n/10.03749 0\OML/cmm/m/it/10.03749 :\OT1/cmr/m/n/10.03749 15\OML/cmm/m/it/10.03749 ; \OT1/cmr/m/n/10.03749 0\OML/cmm/m/it/10.03749 :\OT1/cmr/m/n/10.03749 20\OML/cmm/m/it/10.03749 ; \OT1/cmr/m/n/10.03749 0\OML/cmm/m/it/10.03749 :\OT1/cmr/m/n/10.03749 25\OML/cmm/m/it/10.03749 ; \OT1/cmr/m/n/10.03749 0\OML/cmm/m/it/10.03749 :\OT1/cmr/m/n/10.03749 30\OML/cmm/m/it/10.03749 ; \OT1/cmr/m/n/10.03749 0\OML/cmm/m/it/10.03749 :\OT1/cmr/m/n/10.03749 35\OML/cmm/m/it/10.03749 ; \OT1/cmr/m/n/10.03749 0\OML/cmm/m/it/10.03749 :\OT1/cmr/m/n/10.03749 40\OML/cmm/m/it/10.03749 ; \OT1/cmr/m/n/10.03749 0\OML/cmm/m/it/10.03749 :\OT1/cmr/m/n/10.03749 50\OML/cmm/m/it/10.03749 ; \OT1/cmr/m/n/10.03749 0\OML/cmm/m/it/10.03749 :\OT1/cmr/m/n/10.03749 60\OML/cmm/m/it/10.03749 ; \OT1/cmr/m/n/10.03749 0\OML/cmm/m/it/10.03749 :\OT1/cmr/m/n/10.03749 70\OML/cmm/m/it/10.03749 ; \OT1/cmr/m/n/10.03749 0\OML/cmm/m/it/10.03749 :\OT1/cmr/m/n/10.03749 80\OML/cmm/m/it/10.03749 ; \OT1/cmr/m/n/10.03749 0\OML/cmm/m/it/10.03749 :\OT1/cmr/m/n/10.03749 90\OML/cmm/m/it/10.03749 ; \OT1/cmr/m/n/10.03749 1\OML/cmm/m/it/10.03749 :\OT1/cmr/m/n/10.03749 00\OMS/cmsy/m/n/10.03749 g$\TU/lmr/m/n/10.03749 AU
+Underfull \hbox (badness 1629) in paragraph at lines 357--391
+\TU/lmr/m/n/10.03749 sustained southward motion and corridor confinement; the stopping criterion
  []
 
 
-Underfull \hbox (badness 1983) in paragraph at lines 360--394
-\TU/lmr/m/n/10.03749 (9 values), yielding $\OT1/cmr/m/n/10.03749 18 \OMS/cmsy/m/n/10.03749 ^^B \OT1/cmr/m/n/10.03749 15 \OMS/cmsy/m/n/10.03749 ^^B \OT1/cmr/m/n/10.03749 42 \OMS/cmsy/m/n/10.03749 ^^B \OT1/cmr/m/n/10.03749 9 = 102[]060$ \TU/lmr/m/n/10.03749 outer combinations and
+Underfull \hbox (badness 1173) in paragraph at lines 357--391
+\TU/lmr/m/n/10.03749 then eliminates the small residual near-matches that pass azimuth screening.
+ []
+
+
+Underfull \hbox (badness 1137) in paragraph at lines 357--391
+\TU/lmr/m/n/10.03749 I conducted an exhaustive heliocentric survey with a fine angular grid. The
+ []
+
+
+Underfull \hbox (badness 1418) in paragraph at lines 357--391
+\TU/lmr/m/n/10.03749 longitude of ascending node $\OT1/cmr/m/n/10.03749 
+$ \TU/lmr/m/n/10.03749 and argument of perihelion $\OML/cmm/m/it/10.03749 !$ \TU/lmr/m/n/10.03749 were sampled
+ []
+
+
+Underfull \hbox (badness 6063) in paragraph at lines 357--391
+\TU/lmr/m/n/10.03749 eccentricities $\OML/cmm/m/it/10.03749 e \OMS/cmsy/m/n/10.03749 2 f\OT1/cmr/m/n/10.03749 0\OML/cmm/m/it/10.03749 ; \OT1/cmr/m/n/10.03749 0\OML/cmm/m/it/10.03749 :\OT1/cmr/m/n/10.03749 1\OML/cmm/m/it/10.03749 ; \OT1/cmr/m/n/10.03749 0\OML/cmm/m/it/10.03749 :\OT1/cmr/m/n/10.03749 2\OML/cmm/m/it/10.03749 ; \OT1/cmr/m/n/10.03749 0\OML/cmm/m/it/10.03749 :\OT1/cmr/m/n/10.03749 3\OML/cmm/m/it/10.03749 ; \OT1/cmr/m/n/10.03749 0\OML/cmm/m/it/10.03749 :\OT1/cmr/m/n/10.03749 5\OML/cmm/m/it/10.03749 ; \OT1/cmr/m/n/10.03749 0\OML/cmm/m/it/10.03749 :\OT1/cmr/m/n/10.03749 7\OML/cmm/m/it/10.03749 ; \OT1/cmr/m/n/10.03749 0\OML/cmm/m/it/10.03749 :\OT1/cmr/m/n/10.03749 8\OML/cmm/m/it/10.03749 ; \OT1/cmr/m/n/10.03749 0\OML/cmm/m/it/10.03749 :\OT1/cmr/m/n/10.03749 9\OML/cmm/m/it/10.03749 ; \OT1/cmr/m/n/10.03749 0\OML/cmm/m/it/10.03749 :\OT1/cmr/m/n/10.03749 95\OML/cmm/m/it/10.03749 ; \OT1/cmr/m/n/10.03749 0\OML/cmm/m/it/10.03749 :\OT1/cmr/m/n/10.03749 99\OML/cmm/m/it/10.03749 ; \OT1/cmr/m/n/10.03749 1\OML/cmm/m/it/10.03749 :\OT1/cmr/m/n/10.03749 0\OML/cmm/m/it/10.03749 ; \OT1/cmr/m/n/10.03749 1\OML/cmm/m/it/10.03749 :\OT1/cmr/m/n/10.03749 1\OML/cmm/m/it/10.03749 ; \OT1/cmr/m/n/10.03749 1\OML/cmm/m/it/10.03749 :\OT1/cmr/m/n/10.03749 5\OML/cmm/m/it/10.03749 ; \OT1/cmr/m/n/10.03749 2\OML/cmm/m/it/10.03749 :\OT1/cmr/m/n/10.03749 0\OML/cmm/m/it/10.03749 ; \OT1/cmr/m/n/10.03749 5\OML/cmm/m/it/10.03749 :\OT1/cmr/m/n/10.03749 0\OMS/cmsy/m/n/10.03749 g$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 357--391
+\TU/lmr/m/n/10.03749 perihelion distances $\OML/cmm/m/it/10.03749 q \OMS/cmsy/m/n/10.03749 2 f\OT1/cmr/m/n/10.03749 0\OML/cmm/m/it/10.03749 :\OT1/cmr/m/n/10.03749 02\OML/cmm/m/it/10.03749 ; \OT1/cmr/m/n/10.03749 0\OML/cmm/m/it/10.03749 :\OT1/cmr/m/n/10.03749 03\OML/cmm/m/it/10.03749 ; \OT1/cmr/m/n/10.03749 0\OML/cmm/m/it/10.03749 :\OT1/cmr/m/n/10.03749 04\OML/cmm/m/it/10.03749 ; \OT1/cmr/m/n/10.03749 0\OML/cmm/m/it/10.03749 :\OT1/cmr/m/n/10.03749 05\OML/cmm/m/it/10.03749 ; \OT1/cmr/m/n/10.03749 0\OML/cmm/m/it/10.03749 :\OT1/cmr/m/n/10.03749 07\OML/cmm/m/it/10.03749 ; \OT1/cmr/m/n/10.03749 0\OML/cmm/m/it/10.03749 :\OT1/cmr/m/n/10.03749 10\OML/cmm/m/it/10.03749 ; \OT1/cmr/m/n/10.03749 0\OML/cmm/m/it/10.03749 :\OT1/cmr/m/n/10.03749 15\OML/cmm/m/it/10.03749 ; \OT1/cmr/m/n/10.03749 0\OML/cmm/m/it/10.03749 :\OT1/cmr/m/n/10.03749 20\OML/cmm/m/it/10.03749 ; \OT1/cmr/m/n/10.03749 0\OML/cmm/m/it/10.03749 :\OT1/cmr/m/n/10.03749 25\OML/cmm/m/it/10.03749 ; \OT1/cmr/m/n/10.03749 0\OML/cmm/m/it/10.03749 :\OT1/cmr/m/n/10.03749 30\OML/cmm/m/it/10.03749 ;
+ []
+
+
+Underfull \hbox (badness 1163) in paragraph at lines 357--391
+\OT1/cmr/m/n/10.03749 0\OML/cmm/m/it/10.03749 :\OT1/cmr/m/n/10.03749 35\OML/cmm/m/it/10.03749 ; \OT1/cmr/m/n/10.03749 0\OML/cmm/m/it/10.03749 :\OT1/cmr/m/n/10.03749 40\OML/cmm/m/it/10.03749 ; \OT1/cmr/m/n/10.03749 0\OML/cmm/m/it/10.03749 :\OT1/cmr/m/n/10.03749 50\OML/cmm/m/it/10.03749 ; \OT1/cmr/m/n/10.03749 0\OML/cmm/m/it/10.03749 :\OT1/cmr/m/n/10.03749 60\OML/cmm/m/it/10.03749 ; \OT1/cmr/m/n/10.03749 0\OML/cmm/m/it/10.03749 :\OT1/cmr/m/n/10.03749 70\OML/cmm/m/it/10.03749 ; \OT1/cmr/m/n/10.03749 0\OML/cmm/m/it/10.03749 :\OT1/cmr/m/n/10.03749 80\OML/cmm/m/it/10.03749 ; \OT1/cmr/m/n/10.03749 0\OML/cmm/m/it/10.03749 :\OT1/cmr/m/n/10.03749 90\OML/cmm/m/it/10.03749 ; \OT1/cmr/m/n/10.03749 1\OML/cmm/m/it/10.03749 :\OT1/cmr/m/n/10.03749 00\OMS/cmsy/m/n/10.03749 g$\TU/lmr/m/n/10.03749 AU (18 values, reaching Earth’s orbital
  []
 
 
@@ -851,11 +877,6 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [8]
-Overfull \hbox (34.86484pt too wide) in paragraph at lines 572--601
- [] 
- []
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -879,13 +900,13 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [12]
 
 Package hyperref Warning: Difference (3) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 759.
+(hyperref)                than one, level fixed on input line 756.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [13]
-Underfull \hbox (badness 1033) in paragraph at lines 814--823
+Underfull \hbox (badness 1033) in paragraph at lines 811--820
 \TU/lmr/m/n/10.03749 throughout the guidance window (08:00–10:00 local time, nine 15-min steps).
  []
 
@@ -898,21 +919,41 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [15]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [16] (./sob_paper.bbl
+ [16]
+Underfull \hbox (badness 1189) in paragraph at lines 991--1004
+\TU/lmr/m/n/10.03749 All orbital-mechanics and statistical analyses were performed in Python 3.12
+ []
+
+
+Underfull \hbox (badness 4846) in paragraph at lines 991--1004
+\TU/lmr/m/n/10.03749 using \TU/lmtt/m/n/10.03749 astropy\TU/lmr/m/n/10.03749 [[]] (coordinate transformations, ephemeris access, time sys-
+ []
+
+
+Underfull \hbox (badness 1275) in paragraph at lines 991--1004
+\TU/lmr/m/n/10.03749 tems), \TU/lmtt/m/n/10.03749 NumPy\TU/lmr/m/n/10.03749 [[]] (vectorised array operations), \TU/lmtt/m/n/10.03749 SciPy\TU/lmr/m/n/10.03749 [[]] (Fisher’s exact test,
+ []
+
+
+Underfull \hbox (badness 5893) in paragraph at lines 991--1004
+\TU/lmr/m/n/10.03749 to reproduce all figures and tables are available at [][]$[][][][][] [] [] [] [][][][][][] [] [][][] []
+ []
+
+(./sob_paper.bbl
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [17]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [18]
 Underfull \hbox (badness 1132) in paragraph at lines 98--101
 []\TU/lmr/m/n/10.03749 Astropy Collaboration.  The Astropy Project: Sustaining and growing a
  []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [18])
+)
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [19]
@@ -939,12 +980,12 @@ Package rerunfilecheck Info: File `sob_paper.out' has not changed.
 (rerunfilecheck)             Checksum: 8E6619384B287957C8F6EE1DEBEF2594;4999.
  ) 
 Here is how much of TeX's memory you used:
- 14854 strings out of 468168
- 282025 string characters out of 5432815
- 761700 words of memory out of 5000000
- 43290 multiletter control sequences out of 15000+600000
- 655601 words of font info for 207 fonts, out of 8000000 for 9000
+ 14850 strings out of 468168
+ 281917 string characters out of 5432815
+ 761708 words of memory out of 5000000
+ 43288 multiletter control sequences out of 15000+600000
+ 655585 words of font info for 205 fonts, out of 8000000 for 9000
  1358 hyphenation exceptions out of 8191
- 87i,14n,93p,2290b,576s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 87i,19n,93p,2290b,544s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on sob_paper.pdf (21 pages).

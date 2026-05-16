@@ -79,25 +79,23 @@
 
 %% ── Abstract ────────────────────────────────────────────────────────────────
 \abstract{%
-The Star of Bethlehem (Matthew~2:9) describes a celestial body guiding
-travellers to a specific house and stopping above it.
-Two independent linguistic analyses yield a joint Bayes factor of
-${\approx}\,5.3\times10^8$ (conservative lower bound ${\approx}\,9\times10^7$)
-favoring the legendary guiding-star tradition over astronomical discourse.
-The external factor ($\mathrm{BF}_\text{corpus}\approx6{,}000$) reflects
-Matthew's four-feature vocabulary (\grk{προάγω}, \grk{ἵστημι}, \grk{ἐπάνω},
-\grk{ἔρχομαι}) being unattested across 25 surveyed Greek astronomical texts
-(${\approx}\,622{,}000$ words, 4th~century~BCE to 4th~century~CE;
-Fisher combined $p\approx6.3\times10^{-3}$).
-The internal factor ($\mathrm{BF}_\text{Matthew}\approx88{,}000$) reflects
-the same four words never appearing in astronomical senses across Matthew's
-other 118 occurrences.
-The datasets are disjoint and treated as conditionally independent,
-as they derive from non-overlapping corpora and distinct sampling frames.
-Orbital mechanics independently confirms: no Keplerian body can exhibit both
-the sustained guidance and the punctual stopping the text requires, across
-529~million tested orbital configurations.
-The linguistic and mechanical evidence converge.}
+The Star of Bethlehem (Matthew~2:9) depicts a celestial body guiding
+travellers southward for two hours, then stopping above a specific house.
+We show these requirements are mechanically incompatible for any Keplerian orbit.
+A survey of 529~million heliocentric orbital configurations---spanning
+elliptic, parabolic, and hyperbolic orbits across all proposed candidates
+and epochs---finds zero satisfying sustained guidance motion, punctual
+stopping, and the required azimuth corridor simultaneously.
+Monte~Carlo refinement, geocentric surveys, and a close-flyby analysis
+of 10~million orbits confirm the null result.
+An independent corpus-linguistic analysis of Matthew's four motion terms
+(\grk{προάγω}, \grk{ἵστημι}, \grk{ἐπάνω}, \grk{ἔρχομαι}) finds all four
+unattested in astronomical discourse across 25~Greek texts
+(${\approx}\,622{,}000$~words; Fisher combined $p\approx6.3\times10^{-3}$),
+yielding a joint Bayes factor of ${\approx}\,5.3\times10^8$ favoring the
+legendary guiding-star narrative.
+These two independent lines of evidence converge: Matthew~2:9 is a legendary
+narrative, not an astronomical event.}
 
 \keywords{Star of Bethlehem, orbital mechanics, corpus linguistics, Matthew
 2:9, archaeoastronomy, ancient Greek astronomy}
@@ -368,7 +366,7 @@ $e \in \{0, 0.1, 0.2, 0.3, 0.5, 0.7, 0.8, 0.9, 0.95, 0.99, 1.0, 1.1,
 range of the known interstellar objects
 1I/\textquoteleft{}Oumuamua ($e \approx 1.20$)\cite{meech2017} and
 2I/Borisov ($e \approx 3.36$)\cite{guzik2020}), perihelion distances
-$q \in \{0.02, 0.03, 0.04, 0.05, 0.07, 0.10, 0.15, 0.20, 0.25, 0.30,
+$q \in \{0.02, 0.03, 0.04, 0.05, 0.07, 0.10, 0.15, 0.20, 0.25, 0.30,\allowbreak
 0.35, 0.40, 0.50, 0.60, 0.70, 0.80, 0.90, 1.00\}$\,AU (18 values,
 reaching Earth's orbital distance), inclinations $0^\circ$ to $180^\circ$
 in $5^\circ$ steps with additional fine sampling near $0^\circ$
@@ -580,7 +578,7 @@ Feature & Matthew usage & Corpus count & Matthew & $p$ (Fisher) \\
 (C) \grk{ἐπάνω}              & Above specific earthly point & 0\,/\,29   & 1  & $0.033$ \\
 (D) \grk{ἔρχομαι}            & Spatial arrival of Star      & 0\,/\,7    & 1  & $0.125$ \\
 \midrule
-\textbf{Joint (A–D)} & — & — & — & $\mathbf{\chi^2(8)=21.4,\ p \approx 6.3\times10^{-3}}$ \\
+\textbf{Joint (A–D)} & — & — & — & \begin{tabular}[t]{@{}l@{}} $\mathbf{\chi^2(8)=21.4,}$ \\ $\mathbf{p \approx 6.3\times10^{-3}}$ \end{tabular} \\
 \bottomrule
 \end{tabular}
 \footnotetext{Corpus: 25 texts, $\approx\!622{,}000$ words, 4th~c.~BCE–4th~c.~CE
@@ -996,13 +994,39 @@ ephemeris access, time systems), \texttt{NumPy}\cite{harris2020} (vectorised
 array operations), \texttt{SciPy}\cite{virtanen2020} (Fisher's exact test,
 Newton--Raphson utilities), and \texttt{matplotlib}\cite{hunter2007}
 (figures). Code and data needed to reproduce all figures and tables are
-available at [repository URL]. Key scripts include:
+available at \url{https://github.com/adairaar/sob_astro_test}. Key scripts include:
 \texttt{sob\_proof\_fine.py} (529-million-configuration heliocentric survey);
 \texttt{sob\_mc\_refined.py} (Monte Carlo refinement);
 \texttt{sob\_epoch\_robustness.py} (multi-epoch analysis);
 \texttt{corpus\_pvalue.py} (Gaussian copula independence test);
 \texttt{corpus\_linguistics.py} (Fisher's test and Bayes factor computation);
 \texttt{guiding\_star\_bayes.py} (guiding-star tradition scoring).
+
+%%%% ═══════════════════════════════════════════════════════════════════════
+%% REQUIRED NATURE SECTIONS
+%%%% ═══════════════════════════════════════════════════════════════════════
+
+\section*{Data availability}
+The Greek corpus search results, TLG hit records, and Monte Carlo output data
+supporting this study are available in the GitHub repository at
+\url{https://github.com/adairaar/sob_astro_test}.
+
+\section*{Code availability}
+All Python scripts used for the orbital-mechanics surveys, Monte Carlo
+analyses, and corpus-linguistic calculations are available at
+\url{https://github.com/adairaar/sob_astro_test}. Full reproduction
+instructions are provided in the repository \texttt{README}.
+
+\section*{Author contributions}
+A.A.\ conceived the study, designed and implemented all orbital-mechanics and
+corpus-linguistic analyses, produced all figures and tables, and wrote the
+manuscript.
+
+\section*{Competing interests}
+The author declares no competing interests.
+
+\section*{Acknowledgements}
+None.
 
 %%%% ═══════════════════════════════════════════════════════════════════════
 %% BIBLIOGRAPHY

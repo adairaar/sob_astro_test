@@ -27,7 +27,8 @@ from astropy.coordinates import SkyCoord, AltAz, EarthLocation, get_body_barycen
 import astropy.units as u
 import time as walltime
 
-OUTDIR = '/sessions/beautiful-affectionate-planck/mnt/Orbital Mechanics and the Star of Bethlehem/'
+import os as _os
+OUTDIR = _os.path.dirname(_os.path.abspath(__file__)) + _os.sep
 
 # ── Constants (must match sob_fig_update.py exactly) ──────────────────────
 K_GAUSS   = 0.01720209895
@@ -399,7 +400,7 @@ ax.legend(fontsize=8); ax.grid(True, which='both', alpha=0.2)
 
 plt.tight_layout()
 outpath = OUTDIR + 'figure6_impossibility_proof.png'
-fig.savefig(outpath, dpi=150, bbox_inches='tight')
+fig.savefig(outpath, dpi=600, bbox_inches='tight')
 plt.close()
 print(f"  Saved figure6_impossibility_proof.png")
 print(f"  Panel A: {n_total:,} visible configs (was 50,347)")

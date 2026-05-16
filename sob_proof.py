@@ -8,9 +8,12 @@ sob_figures.py. Key results match the full version; parameter grids are coarser.
 """
 
 import warnings; warnings.filterwarnings('ignore')
+import os
 import numpy as np
 import matplotlib; matplotlib.use('Agg')
 import matplotlib.pyplot as plt
+
+OUTDIR = os.path.dirname(os.path.abspath(__file__)) + os.sep
 from astropy.time import Time
 from astropy.coordinates import SkyCoord, AltAz, EarthLocation, get_body_barycentric
 import astropy.units as u
@@ -576,8 +579,8 @@ ax.set_title('(D) Required Δv for Transition vs. Available Forces\n'
 ax.legend(fontsize=8); ax.grid(True, which='both', alpha=0.2)
 
 plt.tight_layout()
-out6 = '/sessions/beautiful-affectionate-planck/mnt/Orbital Mechanics and the Star of Bethlehem/figure6_impossibility_proof.png'
-plt.savefig(out6, dpi=150, bbox_inches='tight')
+out6 = OUTDIR + 'figure6_impossibility_proof.png'
+plt.savefig(out6, dpi=600, bbox_inches='tight')
 plt.close()
 print(f"  Saved Figure 6")
 

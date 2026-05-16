@@ -500,7 +500,7 @@ ax.legend(fontsize=9)
 ax.grid(True, axis='y', alpha=0.3)
 
 plt.tight_layout()
-plt.savefig(FIGFILE, dpi=150, bbox_inches='tight')
+plt.savefig(FIGFILE, dpi=600, bbox_inches='tight')
 plt.close()
 log(f"Figure saved to {FIGFILE}")
 

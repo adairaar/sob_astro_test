@@ -405,7 +405,7 @@ ax2.set_title(
     fontsize=10.5, fontweight='bold')
 ax2.grid(True, which='both', alpha=0.22)
 fig2.tight_layout()
-fig2.savefig(OUTDIR + 'figure_paper2_az_motion.png', dpi=150, bbox_inches='tight')
+fig2.savefig(OUTDIR + 'figure_paper2_az_motion.png', dpi=600, bbox_inches='tight')
 plt.close()
 print("  Saved figure_paper2_az_motion.png")
 
@@ -534,7 +534,7 @@ ax.set_title(
     fontsize=10.5, fontweight='bold')
 ax.grid(True, which='both', alpha=0.22)
 fig.tight_layout()
-fig.savefig(OUTDIR + 'figure_paper2_impossibility_scatter.png', dpi=150, bbox_inches='tight')
+fig.savefig(OUTDIR + 'figure_paper2_impossibility_scatter.png', dpi=600, bbox_inches='tight')
 plt.close()
 print("  Saved figure_paper2_impossibility_scatter.png")
 
@@ -595,7 +595,7 @@ fig.suptitle(
     'Orbits in the corridor are orders of magnitude too slow to guide; fast orbits point the wrong way',
     fontsize=11, fontweight='bold')
 fig.tight_layout()
-fig.savefig(OUTDIR + 'figure_mc_diagnostic.png', dpi=150, bbox_inches='tight')
+fig.savefig(OUTDIR + 'figure_mc_diagnostic.png', dpi=600, bbox_inches='tight')
 plt.close()
 print("  Saved figure_mc_diagnostic.png")
 
@@ -710,7 +710,7 @@ ax2.text(0.50, 0.10,
 fig.suptitle('Linguistic incompatibility of Matthew 2:9\nwith Greek astronomical discourse',
              fontsize=11.5, fontweight='bold', y=1.01)
 fig.tight_layout()
-fig.savefig(OUTDIR + 'figure9_corpus_linguistics.png', dpi=150, bbox_inches='tight')
+fig.savefig(OUTDIR + 'figure9_corpus_linguistics.png', dpi=600, bbox_inches='tight')
 plt.close()
 print("  Saved figure9_corpus_linguistics.png")
 
