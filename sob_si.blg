@@ -1,0 +1,47 @@
+This is BibTeX, Version 0.99e (TeX Live 2026)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: sob_si.aux
+The style file: sn-nature.bst
+Database file #1: sob_refs.bib
+sn-nature.bst [2024/07/19 v1.1 bibliography style]
+You've used 21 entries,
+            2732 wiz_defined-function locations,
+            1189 strings with 12487 characters,
+and the built_in function-call counts, 6882 in all, are:
+= -- 473
+> -- 117
+< -- 0
++ -- 57
+- -- 29
+* -- 843
+:= -- 757
+add.period$ -- 58
+call.type$ -- 21
+change.case$ -- 19
+chr.to.int$ -- 0
+cite$ -- 21
+duplicate$ -- 624
+empty$ -- 727
+format.name$ -- 34
+if$ -- 1409
+int.to.chr$ -- 0
+int.to.str$ -- 21
+missing$ -- 163
+newline$ -- 110
+num.names$ -- 24
+pop$ -- 137
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 82
+stack$ -- 0
+substring$ -- 244
+swap$ -- 620
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 1
+type$ -- 0
+warning$ -- 0
+while$ -- 43
+width$ -- 23
+write$ -- 224

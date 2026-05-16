@@ -1,0 +1,91 @@
+[     0.0s] ══════════════════════════════════════════════════════════════════════
+[     0.0s] sob_mc_refined.py — Monte Carlo refinement of best-case SoB orbits
+[     0.0s]   Sweep 1 (best-fit neighbourhood): 1,500,000 samples
+[     0.0s]   Sweep 2 (Matney neighbourhood)  : 750,000 samples
+[     0.0s]   Batch size: 150,000   Seed: 42
+[     0.0s] ══════════════════════════════════════════════════════════════════════
+[     0.0s] Pre-computing ENU matrices and Earth positions …
+[     0.8s]   9 guidance + 8 stopping steps.  Earth x-range [0.213, 0.216] AU
+[     0.9s] 
+── Sweep 1: Neighbourhood of best-fit grid orbit: e=1.1, q=0.03 AU, i=10°, full Ω/ω, ΔT ∈ [−60,+60] d
+[     3.7s]   [best_fit_n]  10.0%  sampled=  150,000  vis=  60,160  all_ok=0  best_az=0.4691°  best_mot=14.484°/h  0.05M/s
+[     5.8s]   [best_fit_n]  20.0%  sampled=  300,000  vis= 120,124  all_ok=0  best_az=0.4691°  best_mot=14.484°/h  0.06M/s
+[     7.5s]   [best_fit_n]  30.0%  sampled=  450,000  vis= 180,571  all_ok=0  best_az=0.3792°  best_mot=14.484°/h  0.07M/s
+[     9.4s]   [best_fit_n]  40.0%  sampled=  600,000  vis= 240,416  all_ok=0  best_az=0.3792°  best_mot=14.484°/h  0.07M/s
+[    11.1s]   [best_fit_n]  50.0%  sampled=  750,000  vis= 300,553  all_ok=0  best_az=0.3792°  best_mot=14.484°/h  0.07M/s
+[    12.8s]   [best_fit_n]  60.0%  sampled=  900,000  vis= 360,661  all_ok=0  best_az=0.3792°  best_mot=93.490°/h  0.08M/s
+[    14.5s]   [best_fit_n]  70.0%  sampled=1,050,000  vis= 420,499  all_ok=0  best_az=0.3792°  best_mot=93.490°/h  0.08M/s
+[    16.4s]   [best_fit_n]  80.0%  sampled=1,200,000  vis= 480,803  all_ok=0  best_az=0.1671°  best_mot=93.490°/h  0.08M/s
+[    18.5s]   [best_fit_n]  90.0%  sampled=1,350,000  vis= 540,863  all_ok=0  best_az=0.1671°  best_mot=93.490°/h  0.08M/s
+[    20.5s]   [best_fit_n] 100.0%  sampled=1,500,000  vis= 601,150  all_ok=0  best_az=0.1671°  best_mot=93.490°/h  0.08M/s
+[    20.5s] 
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[    20.5s] SWEEP: best_fit_nbhd
+[    20.5s]   Neighbourhood of best-fit grid orbit: e=1.1, q=0.03 AU, i=10°, full Ω/ω, ΔT ∈ [−60,+60] d
+[    20.5s] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[    20.5s]   Sampled              :     1,500,000
+[    20.5s]   Visible              :       601,150
+[    20.5s]   All three criteria   :             0
+[    20.5s] 
+[    20.5s]   Best azimuth score   : 0.16709°  (threshold < 5.0°;  0 = corridor centre)
+[    20.5s]     orbit: q=0.04156 AU  e=2.4652  i=37.298°  Ω=92.19°  ω=1.38°  ΔT=+54.27 d
+[    20.5s]     at best-az orbit: guidance motion = 0.00570 °/h  (need > 2.0)  stopping = 0.006 °/h
+[    20.5s] 
+[    20.5s]   Best guidance motion : 93.49050 °/h  (threshold > 2.0 °/h)
+[    20.5s]     orbit: q=0.06689 AU  e=0.9787  i=32.581°  Ω=135.44°  ω=331.59°  ΔT=-44.65 d
+[    20.5s]     azimuth score at this orbit: 177.9846° (OUTSIDE corridor)
+[    20.5s] 
+[    20.5s]   Best stopping score  : 0.00009 °/h  (threshold < 2.0 °/h)
+[    20.5s] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[    20.5s] 
+── Sweep 2: Neighbourhood of Matney 2025 comet: q=0.0407 AU, e=1.0, i=1.43°, ΔT≈+29.7 d
+[    22.6s]   [matney_nbh]  20.0%  sampled=  150,000  vis=  58,733  all_ok=0  best_az=10.5695°  best_mot=0.816°/h  0.07M/s
+[    24.8s]   [matney_nbh]  40.0%  sampled=  300,000  vis= 117,570  all_ok=0  best_az=10.0723°  best_mot=0.816°/h  0.07M/s
+[    27.1s]   [matney_nbh]  60.0%  sampled=  450,000  vis= 176,402  all_ok=0  best_az=9.8819°  best_mot=0.816°/h  0.07M/s
+[    29.3s]   [matney_nbh]  80.0%  sampled=  600,000  vis= 235,619  all_ok=0  best_az=9.5761°  best_mot=0.838°/h  0.07M/s
+[    31.5s]   [matney_nbh] 100.0%  sampled=  750,000  vis= 294,672  all_ok=0  best_az=9.4893°  best_mot=0.838°/h  0.07M/s
+[    31.5s] 
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[    31.5s] SWEEP: matney_nbhd
+[    31.5s]   Neighbourhood of Matney 2025 comet: q=0.0407 AU, e=1.0, i=1.43°, ΔT≈+29.7 d
+[    31.5s] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[    31.5s]   Sampled              :       750,000
+[    31.5s]   Visible              :       294,672
+[    31.5s]   All three criteria   :             0
+[    31.5s] 
+[    31.5s]   Best azimuth score   : 9.48935°  (threshold < 5.0°;  0 = corridor centre)
+[    31.5s]     orbit: q=0.01180 AU  e=1.3689  i=7.828°  Ω=108.85°  ω=12.79°  ΔT=+53.48 d
+[    31.5s]     at best-az orbit: guidance motion = 0.00626 °/h  (need > 2.0)  stopping = 0.006 °/h
+[    31.5s] 
+[    31.5s]   Best guidance motion : 0.83790 °/h  (threshold > 2.0 °/h)
+[    31.5s]     orbit: q=0.01027 AU  e=1.4956  i=6.131°  Ω=66.05°  ω=345.21°  ΔT=+7.58 d
+[    31.5s]     azimuth score at this orbit: 140.6382° (OUTSIDE corridor)
+[    31.5s] 
+[    31.5s]   Best stopping score  : 0.00066 °/h  (threshold < 2.0 °/h)
+[    31.5s] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[    31.5s] 
+Results saved → /sessions/beautiful-affectionate-planck/mnt/Orbital Mechanics and the Star of Bethlehem/sob_mc_results.json
+[    31.5s] 
+══════════════════════════════════════════════════════════════════════
+[    31.5s] FINAL VERDICT
+[    31.5s] ══════════════════════════════════════════════════════════════════════
+[    31.5s]   Total configurations sampled  :     2,250,000
+[    31.5s]   Total visible                 :       895,822
+[    31.5s]   Satisfying all three criteria :             0
+[    31.5s] 
+[    31.5s]   [best_fit_nbhd]
+[    31.5s]     Best az score:    0.16709°  (threshold < 5.0°)
+[    31.5s]     Motion at best-az: 0.00570 °/h  (need > 2.0; ratio = 0.003×)
+[    31.5s]     Best guidance motion anywhere: 93.49050 °/h  az_score of that orbit: 177.9846°
+[    31.5s]   [matney_nbhd]
+[    31.5s]     Best az score:    9.48935°  (threshold < 5.0°)
+[    31.5s]     Motion at best-az: 0.00626 °/h  (need > 2.0; ratio = 0.003×)
+[    31.5s]     Best guidance motion anywhere: 0.83790 °/h  az_score of that orbit: 140.6382°
+[    31.5s] 
+[    31.5s]   CONCLUSION: Zero configurations satisfying all three criteria
+[    31.5s]   found in either Monte Carlo sweep.
+[    31.5s]   The grid-survey null result is confirmed in continuous
+[    31.5s]   parameter space: no fine-tuning around the best-fit guidance
+[    31.5s]   orbit or Matney's proposed comet reveals a viable candidate.
+[    31.5s]   The impossibility is not an artefact of grid spacing.
+[    31.5s] ══════════════════════════════════════════════════════════════════════

@@ -1,0 +1,102 @@
+{
+  "description": "Monte Carlo refinement around best-case SoB orbital candidates",
+  "reference_jd": 1719755.898,
+  "omega_thresh": 2.0,
+  "az_corridor": [
+    190.0,
+    210.0
+  ],
+  "az_tolerance": 5.0,
+  "alt_floor": 5.0,
+  "matney_params": {
+    "q": 0.0407,
+    "e": 1.0,
+    "i": 1.43,
+    "om": 335.58,
+    "asc": 75.81,
+    "jd": 1719785.565,
+    "dT": 29.666999999899417
+  },
+  "sweeps": [
+    {
+      "name": "best_fit_nbhd",
+      "description": "Neighbourhood of best-fit grid orbit: e=1.1, q=0.03 AU, i=10\u00b0, full \u03a9/\u03c9, \u0394T \u2208 [\u221260,+60] d",
+      "n_sampled": 1500000,
+      "n_visible": 601150,
+      "n_all_ok": 0,
+      "best_az_score": 0.16709268006721345,
+      "best_az_guidance_motion": 0.005699974970708678,
+      "best_guidance_motion": 93.49049580326609,
+      "best_mot_az_score": 177.9845828084803,
+      "best_stopping_score": 9.227077461425269e-05,
+      "best_az_orbit": {
+        "q_au": 0.04156412315433753,
+        "e": 2.4652006022558677,
+        "i_deg": 37.29819502794554,
+        "Om_deg": 92.1942220740337,
+        "om_deg": 1.381827947609886,
+        "Tp_jd": 1719810.1639951654,
+        "dT_days": 54.26599516533315
+      },
+      "best_mot_orbit": {
+        "q_au": 0.06689046791250935,
+        "e": 0.9787048752819154,
+        "i_deg": 32.58063961111803,
+        "Om_deg": 135.43612749083238,
+        "om_deg": 331.58744076120996,
+        "Tp_jd": 1719711.2460150777,
+        "dT_days": -44.65198492235504
+      },
+      "best_stop_orbit": {
+        "q_au": 0.026185345949424788,
+        "e": 1.7481589220720806,
+        "i_deg": 20.933574383178154,
+        "Om_deg": 343.38355620435823,
+        "om_deg": 309.3095132325915,
+        "Tp_jd": 1719718.9507709006,
+        "dT_days": -36.947229099459946
+      },
+      "best_all_orbit": null
+    },
+    {
+      "name": "matney_nbhd",
+      "description": "Neighbourhood of Matney 2025 comet: q=0.0407 AU, e=1.0, i=1.43\u00b0, \u0394T\u2248+29.7 d",
+      "n_sampled": 750000,
+      "n_visible": 294672,
+      "n_all_ok": 0,
+      "best_az_score": 9.489349790228061,
+      "best_az_guidance_motion": 0.00625535614051659,
+      "best_guidance_motion": 0.8379049225613032,
+      "best_mot_az_score": 140.63815572997896,
+      "best_stopping_score": 0.0006551020264739575,
+      "best_az_orbit": {
+        "q_au": 0.011799860056132915,
+        "e": 1.3689137308733759,
+        "i_deg": 7.82764757746952,
+        "Om_deg": 108.84977636148548,
+        "om_deg": 12.79207537094635,
+        "Tp_jd": 1719809.3767447982,
+        "dT_days": 53.47874479810707
+      },
+      "best_mot_orbit": {
+        "q_au": 0.010268345481393971,
+        "e": 1.495637588291019,
+        "i_deg": 6.131062459170978,
+        "Om_deg": 66.04836831441233,
+        "om_deg": 345.21058070095694,
+        "Tp_jd": 1719763.4820783003,
+        "dT_days": 7.584078300278634
+      },
+      "best_stop_orbit": {
+        "q_au": 0.047131521144466504,
+        "e": 0.7559405081659902,
+        "i_deg": 3.337421892188871,
+        "Om_deg": 118.54168335287099,
+        "om_deg": 7.766090428452628,
+        "Tp_jd": 1719806.23818385,
+        "dT_days": 50.34018384991214
+      },
+      "best_all_orbit": null
+    }
+  ]
+}

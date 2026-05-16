@@ -1,0 +1,128 @@
+\begin{thebibliography}{10}
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\burl{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+\providecommand{\bibinfo}[2]{#2}
+\providecommand{\eprint}[2][]{\url{#2}}
+\providecommand{\doi}[1]{\url{https://doi.org/#1}}
+\bibcommenthead
+
+\bibitem{Kokkinos1989}
+\bibinfo{author}{Kokkinos, N.}
+\newblock \bibinfo{title}{ in \textit{Crucifixion in {A.D.} 36: The keystone for dating the birth of {Jesus}}} (eds \bibinfo{editor}{Vardaman, J.} \& \bibinfo{editor}{Yamauchi, E.~M.}) \emph{\bibinfo{booktitle}{Chronos, Kairos, Christos: Nativity and Chronological Studies Presented to {Jack Finegan}}} \bibinfo{pages}{133--164} (\bibinfo{publisher}{Eisenbrauns}, \bibinfo{address}{Winona Lake, IN}, \bibinfo{year}{1989}).
+
+\bibitem{hughes1976}
+\bibinfo{author}{Hughes, D.~W.}
+\newblock \bibinfo{title}{The star of bethlehem}.
+\newblock \emph{\bibinfo{journal}{Nature}} \textbf{\bibinfo{volume}{264}}, \bibinfo{pages}{513--517} (\bibinfo{year}{1976}).
+\newblock \urlprefix\url{https://doi.org}.
+
+\bibitem{hughes1979}
+\bibinfo{author}{Hughes, D.~W.}
+\newblock \emph{\bibinfo{title}{The Star of Bethlehem: An Astronomer's Confirmation}}  (\bibinfo{publisher}{Walker and Company}, \bibinfo{address}{New York}, \bibinfo{year}{1979}).
+
+\bibitem{kidger1999}
+\bibinfo{author}{Kidger, M.}
+\newblock \emph{\bibinfo{title}{The Star of Bethlehem: An Astronomer's View}}  (\bibinfo{publisher}{Princeton University Press}, \bibinfo{address}{Princeton}, \bibinfo{year}{1999}).
+
+\bibitem{clark1977}
+\bibinfo{author}{Clark, D.~H.}, \bibinfo{author}{Parkinson, J.~H.} \& \bibinfo{author}{Stephenson, F.~R.}
+\newblock \bibinfo{title}{An astronomical re-appraisal of the {Star of Bethlehem}---a nova in 5~{BC}}.
+\newblock \emph{\bibinfo{journal}{Quarterly Journal of the Royal Astronomical Society}} \textbf{\bibinfo{volume}{18}}, \bibinfo{pages}{443--449} (\bibinfo{year}{1977}).
+
+\bibitem{molnar1999}
+\bibinfo{author}{Molnar, M.~R.}
+\newblock \emph{\bibinfo{title}{The Star of Bethlehem: The Legacy of the Magi}}  (\bibinfo{publisher}{Rutgers University Press}, \bibinfo{address}{New Brunswick}, \bibinfo{year}{1999}).
+
+\bibitem{humphreys1992star}
+\bibinfo{author}{Humphreys, C.~J.}
+\newblock \bibinfo{title}{The {Star of Bethlehem}, a comet in 5 {BC} and the date of {Christ's} birth}.
+\newblock \emph{\bibinfo{journal}{Tyndale Bulletin}} \textbf{\bibinfo{volume}{43}}, \bibinfo{pages}{31--56} (\bibinfo{year}{1992}).
+
+\bibitem{matney2025jbaa}
+\bibinfo{author}{Matney, M.}
+\newblock \bibinfo{title}{The star that stopped: {The Star of Bethlehem} and the comet of 5~{BCE}}.
+\newblock \emph{\bibinfo{journal}{Journal of the British Astronomical Association}} \textbf{\bibinfo{volume}{135}}, \bibinfo{pages}{387--406} (\bibinfo{year}{2025}).
+
+\bibitem{adair2013star}
+\bibinfo{author}{Adair, A.}
+\newblock \emph{\bibinfo{title}{The Star of Bethlehem: A Skeptical View}}  (\bibinfo{publisher}{Onus Books}, \bibinfo{address}{Fareham, Hampshire}, \bibinfo{year}{2013}).
+
+\bibitem{brown1993}
+\bibinfo{author}{Brown, R.~E.}
+\newblock \emph{\bibinfo{title}{The Birth of the Messiah: A Commentary on the Infancy Narratives in the {Gospels of Matthew and Luke}}} \bibinfo{edition}{2} edn (\bibinfo{publisher}{Doubleday}, \bibinfo{address}{New York}, \bibinfo{year}{1993}).
+
+\bibitem{barthel2015}
+\bibinfo{editor}{Barthel, P.} \& \bibinfo{editor}{van Kooten, G.~H.} (eds) \emph{\bibinfo{title}{The Star of Bethlehem and the Magi: Interdisciplinary Perspectives from Experts on the Ancient Near East, the {Greco-Roman} World, and Modern Astronomy}}  (\bibinfo{publisher}{Brill}, \bibinfo{address}{Leiden}, \bibinfo{year}{2015}).
+
+\bibitem{bdag2000}
+\bibinfo{editor}{Bauer, W.}, \bibinfo{editor}{Danker, F.~W.}, \bibinfo{editor}{Arndt, W.~F.} \& \bibinfo{editor}{Gingrich, F.~W.} (eds) \emph{\bibinfo{title}{A {Greek--English Lexicon of the New Testament} and Other Early {Christian} Literature}} \bibinfo{edition}{3} edn (\bibinfo{publisher}{University of Chicago Press}, \bibinfo{address}{Chicago}, \bibinfo{year}{2000}).
+\newblock \bibinfo{note}{S.v.\ \emph{epan\={o}}, \emph{hist\={e}mi}, \emph{proag\={o}}}.
+
+\bibitem{meech2017}
+\bibinfo{author}{Meech, K.~J.} \emph{et~al.}
+\newblock \bibinfo{title}{A brief visit from a red and extremely elongated interstellar asteroid}.
+\newblock \emph{\bibinfo{journal}{Nature}} \textbf{\bibinfo{volume}{552}}, \bibinfo{pages}{378--381} (\bibinfo{year}{2017}).
+
+\bibitem{guzik2020}
+\bibinfo{author}{Guzik, P.} \emph{et~al.}
+\newblock \bibinfo{title}{Initial characterization of interstellar comet {2I/Borisov}}.
+\newblock \emph{\bibinfo{journal}{Nature Astronomy}} \textbf{\bibinfo{volume}{4}}, \bibinfo{pages}{53--57} (\bibinfo{year}{2020}).
+
+\bibitem{adair2012}
+\bibinfo{author}{Adair, A.}
+\newblock \bibinfo{title}{The {Star of Christ} in the light of astronomy}.
+\newblock \emph{\bibinfo{journal}{Zygon: Journal of Religion and Science}} \textbf{\bibinfo{volume}{47}}, \bibinfo{pages}{7--29} (\bibinfo{year}{2012}).
+
+\bibitem{adair_jsnt}
+\bibinfo{author}{Adair, A.}
+\newblock \bibinfo{title}{\textit{De stella splendida et matutina}: Language, identity, and the {Star of Matthew}}.
+\newblock \emph{\bibinfo{journal}{Journal for the Study of the New Testament}}  (\bibinfo{year}{submitted}).
+\newblock \bibinfo{note}{Manuscript under review}.
+
+\bibitem{heilen2015}
+\bibinfo{author}{Heilen, S.}
+\newblock \bibinfo{title}{ in \textit{The star of {Bethlehem} and {Greco-Roman} astrology, especially astrological geography}} (eds \bibinfo{editor}{Barthel, P.} \& \bibinfo{editor}{van Kooten, G.~H.}) \emph{\bibinfo{booktitle}{The Star of Bethlehem and the Magi}}  (\bibinfo{publisher}{Brill}, \bibinfo{address}{Leiden}, \bibinfo{year}{2015}).
+
+\bibitem{Micheli2018}
+\bibinfo{author}{Micheli, M.} \emph{et~al.}
+\newblock \bibinfo{title}{Non-gravitational acceleration in the trajectory of 1i/2017 u1 (‘oumuamua)}.
+\newblock \emph{\bibinfo{journal}{Nature}} \textbf{\bibinfo{volume}{559}}, \bibinfo{pages}{223--226} (\bibinfo{year}{2018}).
+
+\bibitem{morrison2004}
+\bibinfo{author}{Morrison, L.~V.} \& \bibinfo{author}{Stephenson, F.~R.}
+\newblock \bibinfo{title}{Historical values of the {Earth's} clock error {$\Delta T$} and the calculation of eclipses}.
+\newblock \emph{\bibinfo{journal}{Journal for the History of Astronomy}} \textbf{\bibinfo{volume}{35}}, \bibinfo{pages}{327--336} (\bibinfo{year}{2004}).
+
+\bibitem{astropy2022}
+\bibinfo{author}{{Astropy Collaboration}}.
+\newblock \bibinfo{title}{The {Astropy Project}: Sustaining and growing a community-developed open-source project and status of the v2.0 core package}.
+\newblock \emph{\bibinfo{journal}{Astrophysical Journal}} \textbf{\bibinfo{volume}{935}}, \bibinfo{pages}{167} (\bibinfo{year}{2022}).
+
+\bibitem{folkner2014}
+\bibinfo{author}{Folkner, W.~M.}, \bibinfo{author}{Williams, J.~G.}, \bibinfo{author}{Boggs, D.~H.}, \bibinfo{author}{Park, R.~S.} \& \bibinfo{author}{Kuchynka, P.}
+\newblock \bibinfo{title}{The planetary and lunar ephemerides {DE430} and {DE431}}.
+\newblock \emph{\bibinfo{journal}{IPN Progress Report}} \textbf{\bibinfo{volume}{42-196}}, \bibinfo{pages}{1--81} (\bibinfo{year}{2014}).
+
+\bibitem{harris2020}
+\bibinfo{author}{Harris, C.~R.} \emph{et~al.}
+\newblock \bibinfo{title}{Array programming with {NumPy}}.
+\newblock \emph{\bibinfo{journal}{Nature}} \textbf{\bibinfo{volume}{585}}, \bibinfo{pages}{357--362} (\bibinfo{year}{2020}).
+
+\bibitem{tlg}
+\bibinfo{author}{{Thesaurus Linguae Graecae}}.
+\newblock \bibinfo{title}{Thesaurus {Linguae Graecae} digital library}.
+\newblock \bibinfo{howpublished}{University of California, Irvine. https://stephanus.tlg.uci.edu} (\bibinfo{year}{2025}).
+\newblock \bibinfo{note}{Accessed 2025}.
+
+\bibitem{virtanen2020}
+\bibinfo{author}{Virtanen, P.} \emph{et~al.}
+\newblock \bibinfo{title}{{SciPy} 1.0: Fundamental algorithms for scientific computing in {Python}}.
+\newblock \emph{\bibinfo{journal}{Nature Methods}} \textbf{\bibinfo{volume}{17}}, \bibinfo{pages}{261--272} (\bibinfo{year}{2020}).
+
+\bibitem{hunter2007}
+\bibinfo{author}{Hunter, J.~D.}
+\newblock \bibinfo{title}{Matplotlib: A 2{D} graphics environment}.
+\newblock \emph{\bibinfo{journal}{Computing in Science \& Engineering}} \textbf{\bibinfo{volume}{9}}, \bibinfo{pages}{90--95} (\bibinfo{year}{2007}).
+
+\end{thebibliography}

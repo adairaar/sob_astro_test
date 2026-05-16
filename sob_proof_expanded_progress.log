@@ -1,0 +1,44 @@
+[0.0s] Precomputing reference frames (ENU matrices + Earth positions)...
+[0.8s] ENU done: 45 time steps, 9 guidance, 8 stopping.
+[0.8s] Survey grid: Ω/ω at 5° (24×24=576 pairs/call)
+[0.8s]   e=15 × q=18 × i=42 × T=9 = 102060 outer calls
+[0.8s]   Estimated total configurations: 58,786,560
+[0.8s] Resuming from checkpoint: 56133/102060 outer done (55%)
+[0.8s] Total outer combinations: 102,060  (resuming from 56133)
+[0.8s] Remaining this run: 45,927 × 576 Ω/ω = 26,453,952 configs
+[0.8s] Using 3 worker processes (cpu_count=4)
+[5.0s]   61236/102060 outer (60%) | vis=12,255,622 az_ok=1,683 both=0 | ETA 34s
+[10.4s]   66339/102060 outer (65%) | vis=13,508,904 az_ok=2,241 both=0 | ETA 34s
+[13.1s]   71442/102060 outer (70%) | vis=14,806,223 az_ok=2,962 both=0 | ETA 24s
+[15.6s]   76545/102060 outer (75%) | vis=16,103,477 az_ok=3,930 both=0 | ETA 18s
+[18.8s]   81648/102060 outer (80%) | vis=17,400,857 az_ok=4,666 both=0 | ETA 14s
+[22.3s]   86751/102060 outer (85%) | vis=18,674,025 az_ok=6,458 both=0 | ETA 11s
+[25.6s]   91854/102060 outer (90%) | vis=19,947,573 az_ok=8,686 both=0 | ETA 7s
+[28.6s]   96957/102060 outer (95%) | vis=21,211,970 az_ok=11,149 both=0 | ETA 3s
+[31.9s]   102060/102060 outer (100%) | vis=22,474,190 az_ok=13,983 both=0 | ETA 0s
+[31.9s] Survey complete.
+[31.9s]   Total visible configurations : 22,474,190
+[31.9s]   Satisfying azimuth (<5.0° outside corridor) : 13,983
+[31.9s]   Satisfying guidance motion (>2.0°/h)     : 1,053
+[31.9s]   Satisfying stopping (<2.0°/h)            : 22,381,277
+[31.9s]   ALL THREE simultaneously     : 0
+[31.9s]   Best guidance score : 0.058°  |  best stopping: 0.029°/h
+[31.9s] 
+Sensitivity: zero result vs. angular-velocity threshold
+[31.9s]     thresh    n_both
+[31.9s]       2.00         0  (survey threshold)
+[31.9s] Results saved to /sessions/beautiful-affectionate-planck/mnt/Orbital Mechanics and the Star of Bethlehem/sob_proof_expanded_results.json
+[31.9s] Generating figure...
+[32.8s] Figure saved to /sessions/beautiful-affectionate-planck/mnt/Orbital Mechanics and the Star of Bethlehem/figure6_expanded_impossibility.png
+[32.8s] ============================================================
+[32.8s] FINAL RESULT
+[32.8s] ============================================================
+[32.8s]   Grid: Ω, ω at 5° (16× finer than original 20°)
+[32.8s]   Parameter space: e∈{0.0...5.0}, q∈{0.02...1.00 AU},
+[32.8s]     i∈{0°...180° in 5° steps}, T_off∈{-60...+60 d}
+[32.8s]   Outer calls: 15e × 18q × 42i × 9T = 102,060
+[32.8s]   Inner: 24×24 = 576 Ω/ω pairs per call
+[32.8s]   Total configurations surveyed   : 58,786,560
+[32.8s]   Total visible                   : 22,474,190
+[32.8s]   Satisfying all three criteria   : 0
+[32.8s]   Elapsed time                    : 33 s

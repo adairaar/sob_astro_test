@@ -1,0 +1,47 @@
+{
+  "latex-workshop.latex.tools": [
+    {
+      "name": "xelatex",
+      "command": "/usr/local/texlive/2026/bin/universal-darwin/xelatex",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "%DOC%"
+      ]
+    },
+    {
+      "name": "latexmk-xelatex",
+      "command": "/usr/local/texlive/2026/bin/universal-darwin/latexmk",
+      "args": [
+        "-xelatex",
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "-cd",
+        "%DOC%"
+      ]
+    },
+    {
+      "name": "bibtex",
+      "command": "/usr/local/texlive/2026/bin/universal-darwin/bibtex",
+      "args": ["%DOCFILE%"]
+    }
+  ],
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "XeLaTeX",
+      "tools": ["xelatex"]
+    },
+    {
+      "name": "latexmk (XeLaTeX)",
+      "tools": ["latexmk-xelatex"]
+    },
+    {
+      "name": "XeLaTeX + BibTeX",
+      "tools": ["xelatex", "bibtex", "xelatex", "xelatex"]
+    }
+  ],
+  "latex-workshop.latex.recipe.default": "XeLaTeX",
+  "latex-workshop.latex.autoBuild.recipe.default": "first"
+}

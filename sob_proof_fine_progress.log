@@ -1,0 +1,55 @@
+[0.0s] Precomputing reference frames (ENU matrices + Earth positions)...
+[0.6s] ENU done: 45 time steps, 9 guidance, 8 stopping.
+[0.6s] Survey grid: Ω/ω at 5° (72×72=5184 pairs/call)
+[0.6s]   e=15 × q=18 × i=42 × T=9 = 102060 outer calls
+[0.6s]   Estimated total configurations: 529,079,040
+[0.7s] Checkpoint found but parameters differ (Om_step=0° vs 5°, n_outer=102060 vs 102060) — starting fresh.
+[0.7s] Total outer combinations: 102,060  (resuming from 0)
+[0.7s] Remaining this run: 102,060 × 5,184 Ω/ω = 529,079,040 configs
+[0.7s] Using 7 worker processes (cpu_count=8)
+[5.0s]   5103/102060 outer (5%) | vis=5,497,664 az_ok=0 both=0 | ETA 83s
+[9.3s]   10206/102060 outer (10%) | vis=11,673,850 az_ok=0 both=0 | ETA 78s
+[13.7s]   15309/102060 outer (15%) | vis=19,295,094 az_ok=62 both=0 | ETA 74s
+[18.1s]   20412/102060 outer (20%) | vis=29,414,804 az_ok=245 both=0 | ETA 70s
+[23.2s]   25515/102060 outer (25%) | vis=36,090,918 az_ok=245 both=0 | ETA 68s
+[28.5s]   30618/102060 outer (30%) | vis=43,975,453 az_ok=522 both=0 | ETA 65s
+[33.2s]   35721/102060 outer (35%) | vis=53,564,120 az_ok=1,383 both=0 | ETA 60s
+[38.2s]   40824/102060 outer (40%) | vis=65,068,043 az_ok=3,380 both=0 | ETA 56s
+[43.1s]   45927/102060 outer (45%) | vis=75,518,806 az_ok=4,732 both=0 | ETA 52s
+[47.7s]   51030/102060 outer (50%) | vis=86,941,097 az_ok=7,324 both=0 | ETA 47s
+[52.6s]   56133/102060 outer (55%) | vis=98,603,491 az_ok=10,997 both=0 | ETA 43s
+[57.8s]   61236/102060 outer (60%) | vis=110,282,276 az_ok=15,596 both=0 | ETA 38s
+[62.8s]   66339/102060 outer (65%) | vis=121,718,725 az_ok=19,964 both=0 | ETA 33s
+[67.0s]   71442/102060 outer (70%) | vis=133,390,140 az_ok=26,507 both=0 | ETA 28s
+[72.4s]   76545/102060 outer (75%) | vis=145,055,290 az_ok=34,944 both=0 | ETA 24s
+[77.4s]   81648/102060 outer (80%) | vis=156,730,756 az_ok=41,488 both=0 | ETA 19s
+[82.2s]   86751/102060 outer (85%) | vis=168,194,253 az_ok=58,378 both=0 | ETA 14s
+[86.9s]   91854/102060 outer (90%) | vis=179,644,379 az_ok=78,843 both=0 | ETA 10s
+[92.1s]   96957/102060 outer (95%) | vis=191,013,508 az_ok=101,226 both=0 | ETA 5s
+[97.0s]   102060/102060 outer (100%) | vis=202,372,076 az_ok=126,720 both=0 | ETA 0s
+[97.0s] Survey complete.
+[97.0s]   Total visible configurations : 202,372,076
+[97.0s]   Satisfying azimuth (<5.0° outside corridor) : 126,720
+[97.0s]   Satisfying guidance motion (>2.0°/h)     : 6,278
+[97.0s]   Satisfying stopping (<2.0°/h)            : 201,505,224
+[97.0s]   ALL THREE simultaneously     : 0
+[97.0s]   Best guidance score : 0.041°  |  best stopping: 0.038°/h
+[97.0s] 
+Sensitivity: zero result vs. angular-velocity threshold
+[97.0s]     thresh    n_both
+[97.0s]       2.00         0  (survey threshold)
+[97.0s] Results saved to /Users/aaronadair/Documents/Claude/Projects/Orbital Mechanics and the Star of Bethlehem/sob_proof_fine_results.json
+[97.0s] Generating figure...
+[97.6s] Figure saved to /Users/aaronadair/Documents/Claude/Projects/Orbital Mechanics and the Star of Bethlehem/figure6_fine_impossibility.png
+[97.6s] ============================================================
+[97.6s] FINAL RESULT
+[97.6s] ============================================================
+[97.6s]   Grid: Ω, ω at 5° (16× finer than original 20°)
+[97.6s]   Parameter space: e∈{0.0...5.0}, q∈{0.02...1.00 AU},
+[97.6s]     i∈{0°...180° in 5° steps}, T_off∈{-60...+60 d}
+[97.6s]   Outer calls: 15e × 18q × 42i × 9T = 102,060
+[97.6s]   Inner: 72×72 = 5,184 Ω/ω pairs per call
+[97.6s]   Total configurations surveyed   : 529,079,040
+[97.6s]   Total visible                   : 202,372,076
+[97.6s]   Satisfying all three criteria   : 0
+[97.6s]   Elapsed time                    : 98 s

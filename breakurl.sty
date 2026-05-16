@@ -1,0 +1,8 @@
+%% breakurl.sty — local stub: the real breakurl injects PostScript literals
+%% that are incompatible with XeLaTeX + hyperref. Since hyperref already
+%% handles URL line-breaking via breaklinks=true, breakurl is not needed.
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{breakurl}[2013/04/10 v1.40 Breakable URLs (XeLaTeX stub)]
+\DeclareOption*{}\ProcessOptions\relax
+\providecommand{\burl}[1]{\url{#1}}
+\providecommand{\burlalt}[2]{\href{#1}{#2}}
