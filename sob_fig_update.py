@@ -17,6 +17,8 @@ Aaron Adair / 2026
 import warnings; warnings.filterwarnings('ignore')
 import numpy as np
 import matplotlib; matplotlib.use('Agg')
+matplotlib.rcParams['font.family'] = 'sans-serif'
+matplotlib.rcParams['font.sans-serif'] = ['Arial', 'Helvetica', 'DejaVu Sans']
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 from matplotlib.lines import Line2D

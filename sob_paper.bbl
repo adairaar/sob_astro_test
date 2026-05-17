@@ -7,10 +7,6 @@
 \providecommand{\doi}[1]{\url{https://doi.org/#1}}
 \bibcommenthead
 
-\bibitem{Kokkinos1989}
-\bibinfo{author}{Kokkinos, N.}
-\newblock \bibinfo{title}{ in \textit{Crucifixion in {A.D.} 36: The keystone for dating the birth of {Jesus}}} (eds \bibinfo{editor}{Vardaman, J.} \& \bibinfo{editor}{Yamauchi, E.~M.}) \emph{\bibinfo{booktitle}{Chronos, Kairos, Christos: Nativity and Chronological Studies Presented to {Jack Finegan}}} \bibinfo{pages}{133--164} (\bibinfo{publisher}{Eisenbrauns}, \bibinfo{address}{Winona Lake, IN}, \bibinfo{year}{1989}).
-
 \bibitem{hughes1976}
 \bibinfo{author}{Hughes, D.~W.}
 \newblock \bibinfo{title}{The star of bethlehem}.
@@ -20,6 +16,10 @@
 \bibitem{hughes1979}
 \bibinfo{author}{Hughes, D.~W.}
 \newblock \emph{\bibinfo{title}{The Star of Bethlehem: An Astronomer's Confirmation}}  (\bibinfo{publisher}{Walker and Company}, \bibinfo{address}{New York}, \bibinfo{year}{1979}).
+
+\bibitem{kokkinos1989}
+\bibinfo{author}{Kokkinos, N.}
+\newblock \bibinfo{title}{ in \textit{Crucifixion in {A.D.} 36: The keystone for dating the birth of {Jesus}}} (eds \bibinfo{editor}{Vardaman, J.} \& \bibinfo{editor}{Yamauchi, E.~M.}) \emph{\bibinfo{booktitle}{Chronos, Kairos, Christos: Nativity and Chronological Studies Presented to {Jack Finegan}}} \bibinfo{pages}{133--164} (\bibinfo{publisher}{Eisenbrauns}, \bibinfo{address}{Winona Lake, IN}, \bibinfo{year}{1989}).
 
 \bibitem{kidger1999}
 \bibinfo{author}{Kidger, M.}
@@ -55,6 +55,10 @@
 \bibitem{barthel2015}
 \bibinfo{editor}{Barthel, P.} \& \bibinfo{editor}{van Kooten, G.~H.} (eds) \emph{\bibinfo{title}{The Star of Bethlehem and the Magi: Interdisciplinary Perspectives from Experts on the Ancient Near East, the {Greco-Roman} World, and Modern Astronomy}}  (\bibinfo{publisher}{Brill}, \bibinfo{address}{Leiden}, \bibinfo{year}{2015}).
 
+\bibitem{heilen2015}
+\bibinfo{author}{Heilen, S.}
+\newblock \bibinfo{title}{ in \textit{The star of {Bethlehem} and {Greco-Roman} astrology, especially astrological geography}} (eds \bibinfo{editor}{Barthel, P.} \& \bibinfo{editor}{van Kooten, G.~H.}) \emph{\bibinfo{booktitle}{The Star of Bethlehem and the Magi}}  (\bibinfo{publisher}{Brill}, \bibinfo{address}{Leiden}, \bibinfo{year}{2015}).
+
 \bibitem{bdag2000}
 \bibinfo{editor}{Bauer, W.}, \bibinfo{editor}{Danker, F.~W.}, \bibinfo{editor}{Arndt, W.~F.} \& \bibinfo{editor}{Gingrich, F.~W.} (eds) \emph{\bibinfo{title}{A {Greek--English Lexicon of the New Testament} and Other Early {Christian} Literature}} \bibinfo{edition}{3} edn (\bibinfo{publisher}{University of Chicago Press}, \bibinfo{address}{Chicago}, \bibinfo{year}{2000}).
 \newblock \bibinfo{note}{S.v.\ \emph{epan\={o}}, \emph{hist\={e}mi}, \emph{proag\={o}}}.
@@ -77,14 +81,10 @@
 \bibitem{adair_jsnt}
 \bibinfo{author}{Adair, A.}
 \newblock \bibinfo{title}{\textit{De stella splendida et matutina}: Language, identity, and the {Star of Matthew}}.
-\newblock \emph{\bibinfo{journal}{Journal for the Study of the New Testament}}  (\bibinfo{year}{submitted}).
-\newblock \bibinfo{note}{Manuscript under review}.
+\newblock \emph{\bibinfo{journal}{Journal for the Study of the New Testament}}  (\bibinfo{year}{2026}).
+\newblock \bibinfo{note}{Manuscript submitted for publication. Preprint available at \url{https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6778638}}.
 
-\bibitem{heilen2015}
-\bibinfo{author}{Heilen, S.}
-\newblock \bibinfo{title}{ in \textit{The star of {Bethlehem} and {Greco-Roman} astrology, especially astrological geography}} (eds \bibinfo{editor}{Barthel, P.} \& \bibinfo{editor}{van Kooten, G.~H.}) \emph{\bibinfo{booktitle}{The Star of Bethlehem and the Magi}}  (\bibinfo{publisher}{Brill}, \bibinfo{address}{Leiden}, \bibinfo{year}{2015}).
-
-\bibitem{Micheli2018}
+\bibitem{micheli2018}
 \bibinfo{author}{Micheli, M.} \emph{et~al.}
 \newblock \bibinfo{title}{Non-gravitational acceleration in the trajectory of 1i/2017 u1 (‘oumuamua)}.
 \newblock \emph{\bibinfo{journal}{Nature}} \textbf{\bibinfo{volume}{559}}, \bibinfo{pages}{223--226} (\bibinfo{year}{2018}).

@@ -115,19 +115,35 @@ python3 sob_fig_sky.py
 
 #### 4. `sob_fig_update.py` — Regenerate main paper figures
 
-Produces the main paper figures and caches the full scatter dataset. **Must be run before `sob_fig_proof.py`.**
+Produces the main paper figures and caches the full scatter dataset. **Must be run before `sob_fig_proof.py` and `sob_fig_scatter_v2.py`.**
 
 **Outputs:**
 - `figure_paper2_az_motion.png` — Paper Fig. 2
-- `figure_paper2_impossibility_scatter.png` — Paper Fig. 3
+- `figure_paper2_impossibility_scatter.png` — Paper Fig. 3 (original; retained as backup)
 - `figure9_corpus_linguistics.png` — corpus linguistics heatmap
 - `figure_mc_diagnostic.png` — MC diagnostic (SI Fig. S1)
-- `scatter_cache.npz` — cached scatter data for `sob_fig_proof.py`
+- `scatter_cache.npz` — cached scatter data for `sob_fig_proof.py` and `sob_fig_scatter_v2.py`
 
 **Runtime:** 20–60 minutes (re-runs orbit computations for the scatter plots).
 
 ```bash
 python3 sob_fig_update.py
+```
+
+---
+
+#### 4b. `sob_fig_scatter_v2.py` — Paper Figure 3 (revised version)
+
+Loads `scatter_cache.npz` and produces the revised impossibility scatter plot used in the submitted manuscript. Key differences from the original: non-corridor points are coloured by eccentricity (plasma colourmap), and the purple Keplerian constraint band (empirical 1st–99th percentile of stopping/guidance speed ratio: ×0.995–×1.033) makes the structural nature of the exclusion visually explicit.
+
+**Requires:** `scatter_cache.npz` must exist (produced by `sob_fig_update.py`).
+
+**Output:** `figure_paper2_impossibility_scatter_v2.png` — Paper Fig. 3 (600 DPI)
+
+**Runtime:** < 30 seconds.
+
+```bash
+python3 sob_fig_scatter_v2.py
 ```
 
 ---
@@ -260,9 +276,9 @@ python3 sob_figures.py
 
 ---
 
-#### `guiding_star_bayes.py` — Bayesian corpus linguistics (BF_corpus)
+#### `guiding_star_bayes.py` — Corpus and within-Matthew Bayes factor computation
 
-Computes the Bayes factor comparing Matthew 2:9's four-feature vocabulary profile under the guiding-star narrative hypothesis versus the astronomical hypothesis. Implements Laplace smoothing over the four guiding-star traditions (N=4) and produces sensitivity analyses over the smoothing parameter k and over extended corpus definitions.
+Computes two Bayes factors: BF_corpus (comparing Matthew 2:9's four-feature TLG vocabulary profile under the guiding-star narrative hypothesis vs. the astronomical hypothesis, using Laplace smoothing over N=4 guiding-star traditions with sensitivity analyses over the smoothing parameter k and over extended corpus definitions) and BF_Matthew (within-Matthew register analysis).
 
 **Key output:** BF_corpus ≈ 6,012 (baseline, k=1); range 4,546–6,818 for k ∈ [0.5, 3]; conservative lower bound 1,040 when all eight omen texts are pooled.
 
@@ -272,9 +288,9 @@ python3 guiding_star_bayes.py
 
 ---
 
-#### `corpus_pvalue.py` — Fisher combined p-value
+#### `corpus_pvalue.py` — Fisher combined p-value and Gaussian copula independence robustness test
 
-Computes the Fisher combined p-value for the four TLG corpus features using TLG-verified hit counts. Implements a one-sided Fisher exact test (p = 1/(N+1)) for each feature and combines them using the Fisher chi-squared method.
+Computes the Fisher combined p-value for the four TLG corpus features using TLG-verified hit counts. Implements a one-sided Fisher exact test (p = 1/(N+1)) for each feature and combines them using the Fisher chi-squared method. Also runs a Gaussian copula independence-assumption robustness analysis (Brown's method with variance-corrected chi-squared combination) over a range of equicorrelation coefficients ρ.
 
 **Key output:** Combined p ≈ 0.006.
 

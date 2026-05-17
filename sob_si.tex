@@ -34,9 +34,8 @@
 \setlength{\parskip}{6pt}
 
 \title{\textbf{Supplementary Information}\\[6pt]
-  \large The Star of Bethlehem belongs to the guiding-star legendary narrative
-  tradition: evidence from orbital mechanics and Greek corpus linguistics}
-\author{Aaron Adair\\
+  \large Orbital mechanics and corpus linguistics rule out the Star of Bethlehem}
+\author{Aaron M. Adair\\
   Department of Physics, Massachusetts Institute of Technology}
 \date{}
 
@@ -216,7 +215,8 @@ objects that coincidentally lie near $200^\circ$ azimuth.
   \caption{Orbital parameter grid for the heliocentric survey.}
   \label{tab:hgrid}
   \centering
-  \begin{tabular}{@{}ll@{}}
+  \small
+  \begin{tabular}{@{}lp{10cm}@{}}
     \toprule
     Parameter & Value \\
     \midrule
@@ -248,7 +248,8 @@ objects that coincidentally lie near $200^\circ$ azimuth.
   \caption{Orbital parameter grids for the geocentric survey.}
   \label{tab:ggrid}
   \centering
-  \begin{tabular}{@{}ll@{}}
+  \small
+  \begin{tabular}{@{}lp{10cm}@{}}
     \toprule
     Parameter & Values \\
     \midrule
@@ -313,12 +314,14 @@ $\Omega=75.81^\circ$, $T_\text{peri}=\text{JD}\,1{,}719{,}785.565$
 as a candidate Star of Bethlehem.
 Sweep~2 sampled 750,000 configurations uniformly from
 \[
-  q \in [0.01, 0.16]\;\text{AU},\quad
-  e \in [0.7, 1.5],\quad
-  i \in [0^\circ, 8^\circ],\quad
-  \Omega \in [26^\circ, 126^\circ],\quad
-  \omega \in [286^\circ, 386^\circ],\quad
-  \Delta T \in [-10, +70]\;\text{days},
+  \begin{aligned}
+    q &\in [0.01, 0.16]\;\text{AU},\quad
+    e \in [0.7, 1.5],\quad
+    i \in [0^\circ, 8^\circ],\quad \\
+    \Omega &\in [26^\circ, 126^\circ],\quad
+    \omega \in [286^\circ, 386^\circ],\quad
+    \Delta T \in [-10, +70]\;\text{days},
+  \end{aligned}
 \]
 bracketing Matney's parameters with generous margins in every dimension.
 Of 294,672 visible configurations, zero satisfied all three criteria.
@@ -342,7 +345,7 @@ grid spacing.
   \label{tab:mc_refined}
   \centering
   \small
-  \begin{tabular}{@{}lrrrrl@{}}
+  \begin{tabular}{@{}lrrrp{2.8cm}p{3.2cm}@{}}
     \toprule
     Sweep & Sampled & Visible & All OK & Best az score & Best motion \\
     \midrule
@@ -483,7 +486,8 @@ midpoints of the guidance and stopping windows.
   \caption{Upper bound $\varepsilon$ on $|\ln(\omega_\mathrm{stop}/\omega_\mathrm{guide})|$
     for representative heliocentric orbits, $\Delta t = 4\,\mathrm{h}$.}
   \label{tab:epsilon}
-  \begin{tabular}{@{}lcccc@{}}
+  \small
+  \begin{tabular}{@{}p{5.5cm}cccc@{}}
     \toprule
     Body type & $r_\mathrm{obs}$ (AU) & $d_\mathrm{obs}$ (AU) & $4n_c\,\Delta t$ & $V_\mathrm{geo}\Delta t/d$ \\
     \midrule
@@ -522,7 +526,7 @@ absorbed into the bounds above.
 \paragraph{When can the diagonal be violated?}
 The bound $\varepsilon \lesssim 4\%$ assumes $d \gtrsim 0.5$\,AU.
 For a body to move \emph{dramatically} slower during the stopping window
-than during guidance — the Matthew scenario — it must pass through an
+than during guidance—the Matthew scenario—it must pass through an
 \emph{apparent stationary point} (the transition from prograde to retrograde
 motion) within the four-hour window. At a stationary point the transverse
 geocentric velocity $V_\perp$ passes through zero, and $\omega_\mathrm{app}$
@@ -530,7 +534,7 @@ drops far below the guidance value.
 
 Retrograde motion for outer planets occurs near opposition, when the planet
 rises in the east at sunset and transits near midnight. At the 5\,BCE epoch,
-opposition directions lie well east of south — geometrically incompatible with
+opposition directions lie well east of south—geometrically incompatible with
 the southward road corridor $[190^\circ,210^\circ]$ required for the Magi's
 journey from Jerusalem to Bethlehem. For inner planets, retrograde occurs near
 inferior conjunction (near the Sun, hence not visible in the pre-dawn sky
@@ -589,7 +593,8 @@ transverse geocentric velocity. The stopping state therefore requires
     at representative geocentric distances. Since $V_\perp = \omega_\mathrm{stop}\times d$,
     more distant objects require proportionally larger velocities.}
   \label{tab:vperp}
-  \begin{tabular}{@{}lrrr@{}}
+  \small
+  \begin{tabular}{@{}p{5.5cm}rrr@{}}
     \toprule
     Object / distance & $d$ (AU) & $V_\perp^\mathrm{(stop)}$ (km\,s$^{-1}$) & Fraction of $c$ \\
     \midrule
@@ -662,7 +667,7 @@ magnitude over hours. A separate numerical survey is therefore required.
 The Moon is the only natural geocentric body known in antiquity.
 Its specific angular momentum gives angular velocities of
 $0.61^\circ\,\mathrm{h}^{-1}$ at perigee and $0.49^\circ\,\mathrm{h}^{-1}$
-at apogee — a factor of ${\sim}3$ below the $2^\circ\,\mathrm{h}^{-1}$
+at apogee—a factor of ${\sim}3$ below the $2^\circ\,\mathrm{h}^{-1}$
 guidance threshold at every point in its orbit. The Moon never satisfies
 the guidance criterion.
 
@@ -700,7 +705,7 @@ This is identical to the transit effect analyzed for Matney's comet in the
 main Discussion. It is not an orbital deceleration.
 
 \paragraph{Conclusion.}
-No Earth-orbiting body — natural or hypothetical — can satisfy all criteria of
+No Earth-orbiting body—natural or hypothetical—can satisfy all criteria of
 the Matthew~2:9 narrative. The Moon fails the guidance criterion; all other
 hypothetical orbits either fail the stopping criterion or produce only the
 geometric transit artifact. Combined with the heliocentric result, the
@@ -984,7 +989,8 @@ genre classes were distinguished:
 \caption{Ancient Greek astronomical corpus used in the linguistic
   analysis.}\label{tab:corpus}
 \centering
-\begin{tabular}{@{}llcrr@{}}
+\small
+\begin{tabular}{@{}lp{5cm}crr@{}}
 \toprule
 Author & Work & Century & Word count & Genre \\
 \midrule
@@ -1054,16 +1060,16 @@ any reader with TLG access.
 The following verbal and prepositional lemmas were searched:
 
 \begin{itemize}
-  \item Feature A: \grk{προάγω} — all inflected forms; classified for
+  \item Feature A: \grk{προάγω}—all inflected forms; classified for
     spatial/narrative guidance of a person toward a destination versus
     purely positional/temporal antecedence.
-  \item Feature B: \grk{ἵστημι} and \grk{στηρίζω} — all inflected forms
+  \item Feature B: \grk{ἵστημι} and \grk{στηρίζω}—all inflected forms
     with celestial subjects; classified for stationary-point technical usage
     versus other senses.
-  \item Feature C: \grk{ἐπάνω} and \grk{ὑπὲρ} — all positional prepositional
+  \item Feature C: \grk{ἐπάνω} and \grk{ὑπὲρ}—all positional prepositional
     uses with celestial bodies; classified for locating a celestial body
     above a specific terrestrial point versus more general above-usage.
-  \item Feature D: \grk{ἔρχομαι/ἐλθεῖν} — all inflected forms with
+  \item Feature D: \grk{ἔρχομαι/ἐλθεῖν}—all inflected forms with
     celestial subjects; classified for arrival at a terrestrial geographic
     point versus other spatial or temporal senses.
 \end{itemize}
@@ -1071,10 +1077,10 @@ The following verbal and prepositional lemmas were searched:
 \noindent Feature E (\grk{ὁδηγέω} and \grk{ἡγέομαι}) was excluded from the
 statistical analysis because neither verb appears in Matthew's star-motion
 description (Matt~2:9). \grk{Ἡγέομαι} occurs in Matt~2:6 referring to a
-messianic ruler, not the star; \grk{ὁδηγέω} is absent entirely.
+messianic ruler, not the Star; \grk{ὁδηγέω} is absent entirely.
 Testing the frequency of words Matthew did not use would be a category
 error: the four retained features (A--D) test exclusively words Matthew
-\emph{does} employ for the star's motion, giving a clean comparison with the
+\emph{does} employ for the Star's motion, giving a clean comparison with the
 corpus.
 
 %%%%  ─────────────────────────────────────────────────────────────────────
@@ -1115,7 +1121,7 @@ Author (TLG ID) & Count & Locus & Usage in context & Pos? \\
 \endlastfoot
 
 %%──────────────────────────────────────────────────────────────────────────
-\multicolumn{5}{@{}l}{\textbf{Feature A: \grk{προάγω} (lemma search).}
+\multicolumn{5}{@{}p{\linewidth}@{}}{\textbf{Feature A: \grk{προάγω} (lemma search).}
   \textit{Matthew sense}: star actively leads/guides human travellers toward a
   destination throughout a journey. All corpus uses are positional or temporal
   precedence in astrological ranking, not spatial narrative guidance.} \\[3pt]
@@ -1148,7 +1154,7 @@ Cleomedes, Hipparchus, Geminus,
   — & No instances of \grk{προάγω} or cognates in any of these corpus texts. & Neg \\[6pt]
 
 %%──────────────────────────────────────────────────────────────────────────
-\multicolumn{5}{@{}l}{\textbf{Feature B: \grk{στηρίζω} (lemma search; proxy for \grk{ἵστημι}).}
+\multicolumn{5}{@{}p{\linewidth}@{}}{\textbf{Feature B: \grk{στηρίζω} (lemma search; proxy for \grk{ἵστημι}).}
   \textit{Matthew sense}: celestial body comes to rest above a specific
   terrestrial location. \grk{Στηρίζω} is the standard Greek term for a
   planetary \emph{stationary point} (apparent reversal in the zodiac),
@@ -1186,7 +1192,7 @@ Vettius Valens, Cleomedes, Hipparchus,
   — & No instances of \grk{στηρίζω} in any of these corpus texts. & Neg \\[6pt]
 
 %%──────────────────────────────────────────────────────────────────────────
-\multicolumn{5}{@{}l}{\textbf{Feature C: \grk{ἐπάνω} (lemma search).}
+\multicolumn{5}{@{}p{\linewidth}@{}}{\textbf{Feature C: \grk{ἐπάνω} (lemma search).}
   \textit{Matthew sense}: celestial body localized \grk{ἐπάνω} (``above/over'')
   a specific named terrestrial point (building, person, city).
   Contrast with standard astronomical usage: \grk{ὑπὲρ} for a body
@@ -1248,7 +1254,7 @@ Cleomedes, Hipparchus, Geminus,
   — & No instances of \grk{ἐπάνω} in any of these corpus texts. & Neg \\[6pt]
 
 %%──────────────────────────────────────────────────────────────────────────
-\multicolumn{5}{@{}l}{\textbf{Feature D: \grk{ἔρχομαι} (lemma search).}
+\multicolumn{5}{@{}p{\linewidth}@{}}{\textbf{Feature D: \grk{ἔρχομαι} (lemma search).}
   \textit{Matthew sense}: a celestial body arrives at a specific terrestrial
   location (a house, a person's location). All corpus hits use the verb for
   a planet ``coming to'' a zodiacal degree, sign, or angular aspect---purely
@@ -1568,7 +1574,7 @@ excluded from the primary corpus but shown in the sensitivity analysis.
 Tradition (constituent texts) & A & B & C & D \\
 \midrule
 \endfirsthead
-\multicolumn{5}{@{}l}{\footnotesize\textit{Table~\thetable\ continued}}\\[2pt]
+\multicolumn{5}{@{}p{\linewidth}@{}}{\footnotesize\textit{Table~\thetable\ continued}}\\[2pt]
 \toprule
 Tradition (constituent texts) & A & B & C & D \\
 \midrule
@@ -1580,7 +1586,7 @@ Tradition (constituent texts) & A & B & C & D \\
 \endlastfoot
 %%
 %% ── Primary corpus ────────────────────────────────────────────────────────
-\multicolumn{5}{@{}l}{\textit{Primary corpus: four independent guiding-star traditions ($N=4$)}} \\
+\multicolumn{5}{@{}p{\linewidth}@{}}{\textit{Primary corpus: four independent guiding-star traditions ($N=4$)}} \\
 \midrule
 Virgil, \textit{Aeneid} 2.687--711
   & 1 & 1 & 0 & 1 \\
@@ -1593,7 +1599,7 @@ Virgil, \textit{Aeneid} 2.687--711
 Timoleon flame tradition
   & 1 & 1 & 0 & 1 \\
 \multicolumn{5}{@{}p{\linewidth}@{}}{\quad\footnotesize\textit{Plutarch,
-  \textit{Tim.}~8.7 + Diodorus 16.66.3 — same event, common source.
+  \textit{Tim.}~8.7 + Diodorus 16.66.3—same event, common source.
   Plutarch: ``a light from heaven'' (\grk{φέγγος οὐράνιον}) runs with fleet (A),
   darts down on destination (B); Diodorus: light provided by the goddesses (A, D).
   Fleet arrives in Sicily (D).}}\\[2pt]
@@ -1603,7 +1609,7 @@ Lucian, \textit{Navigium} 7; 9
   are explicit that the guide is a star (\grk{ἀστήρ}); \textit{Nav.}~7 calls
   it a saviour star and~\textit{Nav.}~9 describes its motions.
   Star first stands over (\grk{ἐπικαθίσαι}) the masthead (\grk{τῷ καρχησίῳ})
-  — the prefix \grk{ἐπι-} is the same root as Matthew's \grk{ἐπάνω}
+  —the prefix \grk{ἐπι-} is the same root as Matthew's \grk{ἐπάνω}
   (\grk{ἐπί}~+~\grk{ἄνω}), and JosAsen manuscripts alternate \grk{ἐπί} and
   \grk{ἐπάνω} for the same angelic localization scene, confirming they are
   stylistic variants (C=1). Sequence: standing over $\to$ guiding (reverse of
@@ -1612,7 +1618,7 @@ Lucian, \textit{Navigium} 7; 9
 Israelite pillar-of-fire tradition
   & 1 & 0 & 1 & 0 \\
 \multicolumn{5}{@{}p{\linewidth}@{}}{\quad\footnotesize\textit{LXX Exodus 13.21
-  + Numbers 14.14 — same convention. Pillar goes before (\grk{προπορεύεσθαι});
+  + Numbers 14.14—same convention. Pillar goes before (\grk{προπορεύεσθαι});
   ongoing guidance only, no discrete stop or arrival.
   \textbf{C=1:} the cloud/pillar stands over (\grk{ἐπί}) the Tabernacle in three
   explicit passages using the same preposition as Matthew's \grk{ἐπάνω}: Exod~40.38
@@ -1630,7 +1636,7 @@ Israelite pillar-of-fire tradition
 %%
 %% ── Omen texts ────────────────────────────────────────────────────────────
 \midrule
-\multicolumn{5}{@{}l}{\textit{Stellar-omen texts (sensitivity analysis only; excluded from primary corpus)}} \\
+\multicolumn{5}{@{}p{\linewidth}@{}}{\textit{Stellar-omen texts (sensitivity analysis only; excluded from primary corpus)}} \\
 \midrule
 Josephus, \textit{Jewish War} 6.289
   & 0 & 1 & 0 & 0 \\
@@ -1653,7 +1659,7 @@ Cicero, \textit{De Divinatione} 1.75
 %%
 %% ── Matthean derivative ───────────────────────────────────────────────────
 \midrule
-\multicolumn{5}{@{}l}{\textit{Matthean derivative (excluded)}} \\
+\multicolumn{5}{@{}p{\linewidth}@{}}{\textit{Matthean derivative (excluded)}} \\
 \midrule
 Protoevangelium of James 21
   & --- & --- & --- & --- \\
@@ -1661,20 +1667,20 @@ Protoevangelium of James 21
 %%
 %% ── Supernatural descent texts ────────────────────────────────────────────
 \midrule
-\multicolumn{5}{@{}l}{\textit{Supernatural descent texts (feature~C commentary only; not in BF corpora)}} \\
+\multicolumn{5}{@{}p{\linewidth}@{}}{\textit{Supernatural descent texts (feature~C commentary only; not in BF corpora)}} \\
 \midrule
 PGM~I.54--95
   & 0 & 1 & 0 & 1 \\
 \multicolumn{5}{@{}p{\linewidth}@{}}{\quad\footnotesize\textit{Descending
   star-god stands \grk{ἐν μέσῳ τοῦ δώματος} (``in the middle of the
-  housetop'') — \grk{ἐν μέσῳ}, not \grk{ἐπάνω} (C=0). No guidance (A=0).}}\\[2pt]
+  housetop'')—\grk{ἐν μέσῳ}, not \grk{ἐπάνω} (C=0). No guidance (A=0).}}\\[2pt]
 \textit{Joseph and Aseneth} 14.4 (Burchard longer rec.)
   & 0 & 1 & 1 & 1 \\
 \multicolumn{5}{@{}p{\linewidth}@{}}{\quad\footnotesize\textit{Morning star
   descends as divine messenger (\grk{ἄγγελος}); stands \grk{ἔστη \textbf{ἐπάνω}
   τῆς κεφαλῆς αὐτῆς} (C=1). Departs eastward in solar chariot (star~=~messenger
   identity). Philonenko shorter rec.: \grk{ἐπί} (C=0). Genre: diaspora Jewish
-  \emph{novel} — same broad literary type as the gospels. No guidance (A=0).}}\\[4pt]
+  \emph{novel}—same broad literary type as the gospels. No guidance (A=0).}}\\[4pt]
 %%
 %% ── Summary rows ──────────────────────────────────────────────────────────
 \midrule
@@ -1713,33 +1719,33 @@ All orbital mechanics computations and statistical analyses were performed
 in Python~3.12. The principal libraries used were:
 
 \begin{itemize}
-  \item \texttt{astropy} v6.x\cite{astropy2022} — coordinate
+  \item \texttt{astropy} v6.x\cite{astropy2022}—coordinate
     transformations, JPL ephemeris access, time systems.
-  \item \texttt{NumPy}\cite{harris2020} — vectorised array operations
+  \item \texttt{NumPy}\cite{harris2020}—vectorised array operations
     and \texttt{einsum}-based orientation sweeps.
-  \item \texttt{SciPy}\cite{virtanen2020} — Fisher's exact test
+  \item \texttt{SciPy}\cite{virtanen2020}—Fisher's exact test
     (\texttt{scipy.stats.fisher\_exact}), Newton--Raphson utilities.
-  \item \texttt{matplotlib}\cite{hunter2007} — all figures.
+  \item \texttt{matplotlib}\cite{hunter2007}—all figures.
 \end{itemize}
 
 Code and data necessary to reproduce all figures and tables in the main
 paper and this Supplementary Information are available at \url{https://github.com/adairaar/sob_astro_test}.
 The repository includes:
 \begin{itemize}
-  \item \texttt{sob\_proof\_fine.py} — kinematic demonstration and exhaustive heliocentric orbital survey (5° angular grid, 529 million configurations)
-  \item \texttt{sob\_mc\_refined.py} — Monte Carlo refinement sweeps in continuous parameter space around the best-fit grid orbit and Matney's proposed 5~BCE comet; 2.25 million configurations sampled, zero satisfying all criteria
-  \item \texttt{sob\_epoch\_robustness.py} — multi-epoch survey across all
+  \item \texttt{sob\_proof\_fine.py}—kinematic demonstration and exhaustive heliocentric orbital survey (5° angular grid, 529 million configurations)
+  \item \texttt{sob\_mc\_refined.py}—Monte Carlo refinement sweeps in continuous parameter space around the best-fit grid orbit and Matney's proposed 5~BCE comet; 2.25 million configurations sampled, zero satisfying all criteria
+  \item \texttt{sob\_epoch\_robustness.py}—multi-epoch survey across all
     proposed Star of Bethlehem dates (12~BCE, 7~BCE, 5~BCE, 1~BCE), recomputing
     Earth positions and ENU matrices from the JPL ephemeris at each date;
     total 79,788 visible configurations across 7 epochs
-  \item \texttt{sob\_calcs.py} — Matney comet orbital analysis
-  \item \texttt{sob\_figures.py} — figure generation
-  \item \texttt{corpus\_pvalue.py} — Gaussian copula simulation and Brown's
+  \item \texttt{sob\_calcs.py}—Matney comet orbital analysis
+  \item \texttt{sob\_figures.py}—figure generation
+  \item \texttt{corpus\_pvalue.py}—Gaussian copula simulation and Brown's
     method for joint $p$-value robustness; $2\times10^6$ Monte Carlo draws
     per correlation level
-  \item \texttt{corpus\_linguistics.py} — Fisher's exact test and
+  \item \texttt{corpus\_linguistics.py}—Fisher's exact test and
     contingency tables
-  \item \texttt{data/} — parameter grids, survey outputs, corpus counts
+  \item \texttt{data/}—parameter grids, survey outputs, corpus counts
 \end{itemize}
 
 %%%%  ─────────────────────────────────────────────────────────────────────
@@ -2000,7 +2006,7 @@ Matt~28:2 is the key Matthean comparandum: the angel of the Lord descends and
 sits \grk{ἐπάνω} the stone---a heavenly being in point-contact with a physical
 object. This is the usage register of Matt~2:9 (\grk{ἐπάνω οὗ ἦν τὸ παιδίον},
 ``above where the child was''), where a divine entity is localized to the
-building-level. Neither the angel's position in Matt~28:2 nor the star's
+building-level. Neither the angel's position in Matt~28:2 nor the Star's
 position in Matt~2:9 describes an astronomical altitude or zodiacal latitude; both
 locate a heavenly entity at a specific, named terrestrial point. This is
 consistent with, and strongly supports, the TLG finding that \grk{ἐπάνω} with
@@ -2062,6 +2068,24 @@ an author writing legendary narrative prose would naturally use all four words i
 the senses consistently attested throughout Matthew, whereas an author writing
 astronomical description would be expected to use them in astronomical senses that
 Matthew never employs elsewhere.
+
+\paragraph{Historical validation of the genre classification.}
+
+The genre classification recovered by both Bayes factors---legendary narrative
+rather than astronomical report---is not a product of the statistical method.
+No ancient or medieval commentator interpreted the Star's motion in Matt~2:9
+as a natural astronomical phenomenon\cite{adair2012}. Patristic and medieval
+exegetes universally understood the Star as a miraculous divine guide, not a
+planet, comet, or conjunction subject to celestial mechanics. The astronomical
+interpretation is a post-Enlightenment reading with no foothold in the
+pre-modern exegetical tradition. This is precisely the result the corpus
+analysis recovers working from frequency data alone: the vocabulary of Matt~2:9
+belongs so consistently to the legendary narrative register that no ancient
+reader of Greek, familiar with both registers from the surrounding literature,
+ever reached an astronomical interpretation. The statistical method and the
+pre-modern exegetical consensus thus converge on the same conclusion by entirely
+independent routes, validating that the genre signal is carried by the text
+itself, not imposed by the analytical framework.
 
 \paragraph{Joint Bayes factor combining both datasets.}
 

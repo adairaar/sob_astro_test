@@ -10,6 +10,8 @@ import warnings; warnings.filterwarnings('ignore')
 import os
 import numpy as np
 import matplotlib; matplotlib.use('Agg')
+matplotlib.rcParams['font.family'] = 'sans-serif'
+matplotlib.rcParams['font.sans-serif'] = ['Arial', 'Helvetica', 'DejaVu Sans']
 import matplotlib.pyplot as plt
 
 OUTDIR = os.path.dirname(os.path.abspath(__file__)) + os.sep

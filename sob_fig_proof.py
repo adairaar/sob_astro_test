@@ -21,6 +21,8 @@ Aaron Adair / 2026
 import warnings; warnings.filterwarnings('ignore')
 import numpy as np
 import matplotlib; matplotlib.use('Agg')
+matplotlib.rcParams['font.family'] = 'sans-serif'
+matplotlib.rcParams['font.sans-serif'] = ['Arial', 'Helvetica', 'DejaVu Sans']
 import matplotlib.pyplot as plt
 from astropy.time import Time
 from astropy.coordinates import SkyCoord, AltAz, EarthLocation, get_body_barycentric

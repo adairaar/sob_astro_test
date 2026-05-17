@@ -61,11 +61,10 @@
 
 %% ── Title ──────────────────────────────────────────────────────────────────
 \title[The Star of Bethlehem as Legendary Narrative]{%
-  The Star of Bethlehem belongs to the guiding-star legendary narrative
-  tradition: evidence from orbital mechanics and Greek corpus linguistics}
+  Orbital mechanics and corpus linguistics rule out the Star of Bethlehem}
 
 %% ── Author ─────────────────────────────────────────────────────────────────
-\author*[1]{\fnm{Aaron} \sur{Adair}}\email{adairaar@gmail.com}
+\author*[1]{\fnm{Aaron} M. \sur{Adair}}\email{adairaar@gmail.com}
 
 \affil*[1]{%
   \orgdiv{Department of Physics},
@@ -80,44 +79,59 @@
 %% ── Abstract ────────────────────────────────────────────────────────────────
 \abstract{%
 The Star of Bethlehem (Matthew~2:9) depicts a celestial body guiding
-travellers southward for two hours, then stopping above a specific house.
-We show these requirements are mechanically incompatible for any Keplerian orbit.
-A survey of 529~million heliocentric orbital configurations---spanning
-elliptic, parabolic, and hyperbolic orbits across all proposed candidates
-and epochs---finds zero satisfying sustained guidance motion, punctual
-stopping, and the required azimuth corridor simultaneously.
-Monte~Carlo refinement, geocentric surveys, and a close-flyby analysis
-of 10~million orbits confirm the null result.
+travellers southward for two hours, then halting above a specific house.
+Rather than identifying the best candidate event, we derive kinematic constraints
+from the text and show the feasible set of orbital solutions is empty.
+A heliocentric survey of 529~million orbital configurations---spanning
+elliptic, parabolic, and hyperbolic orbits across all inclinations,
+eccentricities, perihelion distances, and orientations, tested at every
+major proposed epoch from 12~BCE to 1~BCE---finds zero satisfying sustained
+guidance motion ($>$2$^\circ$/h), punctual stopping ($<$2$^\circ$/h),
+and the required azimuth corridor simultaneously.
+Monte~Carlo refinement (2.25~million draws near the best-performing orbits),
+geocentric surveys of 51{,}200 Earth-orbiting configurations, and a
+close-flyby analysis of 10~million comet orbits confirm the null result.
+The impossibility is kinematic: no heliocentric body can maintain the
+required southward angular motion and subsequently halt above a fixed point.
 An independent corpus-linguistic analysis of Matthew's four motion terms
 (\grk{προάγω}, \grk{ἵστημι}, \grk{ἐπάνω}, \grk{ἔρχομαι}) finds all four
-unattested in astronomical discourse across 25~Greek texts
+absent from astronomical discourse across 25~Greek texts
 (${\approx}\,622{,}000$~words; Fisher combined $p\approx6.3\times10^{-3}$),
-yielding a joint Bayes factor of ${\approx}\,5.3\times10^8$ favoring the
-legendary guiding-star narrative.
-These two independent lines of evidence converge: Matthew~2:9 is a legendary
-narrative, not an astronomical event.}
+while all four are characteristic of guiding-star legendary narratives
+(joint Bayes factor ${\geq}\,10^7$ under maximally conservative assumptions;
+baseline ${\approx}\,5.3\times10^{8}$).
+Two independent lines of evidence converge: Matthew~2:9 is a legendary
+narrative, not a record of an astronomical event.}
 
 \keywords{Star of Bethlehem, orbital mechanics, corpus linguistics, Matthew
 2:9, archaeoastronomy, ancient Greek astronomy}
 
 \maketitle
 
-The identification of the Star of Bethlehem with a natural astronomical
-phenomenon has occupied scholars for centuries.
-Proposed candidates include Halley's Comet in 12~BCE\cite{Kokkinos1989},
-the triple Jupiter--Saturn conjunction in 7~BCE\cite{hughes1976,hughes1979},
-a nova\cite{kidger1999,clark1977}, the retrograde motion of
-Jupiter in Aries\cite{molnar1999}, a comet in 5~BCE\cite{humphreys1992star},
-and most recently a reconstructed orbital solution for that
-comet\cite{matney2025jbaa}. Each proposal is evaluated against Matthew~2, but systematic reviews
-demonstrate that no single candidate satisfies all criteria
-simultaneously\cite{adair2013star}. The majority position in New Testament
+Testing whether a historical narrative records a real celestial event is
+ordinarily a search problem: which known sky object best fits the account?
+Here we show that such questions can instead be resolved by \emph{demonstration}:
+by exhaustively surveying orbital parameter space and demonstrating that the
+feasible set is empty.
+We apply this paradigm to the most studied ancient astronomical claim
+in the Western record and show that two independent lines of evidence---orbital
+mechanics and corpus linguistics---converge on the same verdict.
+
+The Star of Bethlehem debate was placed on a renewed scientific footing when Hughes
+proposed in these pages that the triple Jupiter--Saturn conjunction of 7~BCE
+was the most probable candidate\cite{hughes1976,hughes1979}, a paper that has
+accumulated more than 400 citations and sustained the scientific conversation
+for five decades. Other proposals include Halley's Comet\cite{kokkinos1989},
+a nova\cite{kidger1999,clark1977}, the retrograde motion of Jupiter in
+Aries\cite{molnar1999}, and a 5~BCE comet whose possible orbital elements have most
+recently been reconstructed from East Asian records\cite{humphreys1992star,matney2025jbaa}.
+Systematic reviews show no single candidate satisfies all criteria
+simultaneously\cite{adair2013star}, and the majority position in New Testament
 criticism holds that Matthew's infancy narrative is legendary rather than
-historical\cite{brown1993}, though the astronomical debate
-continues\cite{barthel2015}. What has been lacking is a demonstration of incompatibility
-applicable to \emph{all} Keplerian orbit types simultaneously, and a
-quantitative---rather than merely qualitative---linguistic classification of
-Matthew's vocabulary.
+historical\cite{brown1993}, though active discussion remains within biblical studies (cf. \cite{barthel2015}). 
+What has been lacking is not a better candidate but a general demonstration that no orbital solution 
+of any class can satisfy the text's kinematic requirements, and a quantitative test of whether 
+Matthew's vocabulary belongs to the astronomical register at all.
 
 The critical constraints come from Matthew~2:9:
 \grk{ὁ ἀστὴρ οὗ εἶδον ἐν τῇ ἀνατολῇ προῆγεν αὐτούς, ἕως ἐλθὼν
@@ -128,10 +142,11 @@ The verb \grk{προῆγεν} (imperfect active of \grk{προάγω}) denotes 
 forward motion ahead of the travellers throughout their journey.
 The form \grk{ἐστάθη} (aorist passive of \grk{ἵστημι}), bounded by the
 temporal particle \grk{ἕως} (``until''), denotes a completed, punctual
-coming-to-rest---a change of state, not a prior condition\cite{adair2013star}. The phrase \grk{ἐπάνω οὗ} (``over where'') further
+coming-to-rest---a change of state, not a prior condition\cite{adair2013star}. 
+The phrase \grk{ἐπάνω οὗ} (``over where'') further
 specifies that the stopping occurred directly above a particular
-dwelling\cite{adair2013star,bdag2000}.
-These two verbs define two physically distinct phases of apparent motion:
+dwelling\cite{adair2013star,heilen2015,bdag2000}.
+The two verbs define two physically distinct phases of apparent motion:
 a \emph{guidance phase} in which the Star moves ahead of travellers walking
 from Jerusalem to Bethlehem, and a \emph{stopping phase} in which it becomes
 motionless above a specific house.
@@ -149,8 +164,8 @@ simultaneously.
 Third, external corpus-linguistic analysis of 25 Greek astronomical texts
 (${\approx}\,622{,}000$ words) places Matthew's vocabulary in the legendary
 guiding-star tradition ($\mathrm{BF} \approx 6{,}000$).
-The linguistic datasets are disjoint; their joint product is
-${\approx}\,5.3\times10^8$ (530~million to~1).
+The linguistic datasets are disjoint; their joint product exceeds $10^7$
+under maximally conservative assumptions (baseline ${\approx}\,5.3\times10^8$).
 
 %%%% ═══════════════════════════════════════════════════════════════════════
 \section{Results}\label{sec:results}
@@ -170,7 +185,7 @@ astronomical body (Methods; full passage data in Supplementary Information).
 always transitive with a human direct object---identical syntax to
 \grk{προῆγεν αὐτούς} in Matt~2:9; the intransitive positional-antecedence
 sense the astronomical reading requires is unattested in Matthew, nor does 
-Matthew use other terms for ``leading" that have an astronomical sense 
+Matthew use other terms for ``leading" that have an astronomical register 
 (e.g., the intransitive \grk{προηγέομαι}).
 \grk{Ἵστημι} appears 20 more times with persons or objects at named physical
 locations; the mathematical stationary point is never its referent, nor does 
@@ -204,9 +219,13 @@ Matthew's own vocabulary disfavors the astronomical reading at $\approx$88{,}000
 The key epistemic point is what BF\textsubscript{Matthew} measures: not that Matthew never
 discusses astronomy elsewhere---he rarely has occasion to---but that when
 describing the Star's motion he consistently reaches for words the external
-corpus identifies as belonging to the non-astronomical register. The following
-sections test the remaining escape route: whether colloquial or imprecise
-language could nonetheless describe a real celestial event.
+corpus identifies as belonging to the non-astronomical register. This reading
+is not a modern analytical artifact: no ancient or medieval commentator
+interpreted the Star's motion in Matt~2:9 as a natural astronomical
+phenomenon\cite{adair2012}; every pre-modern interpreter understood the Star
+as not astronomical or astrological, but miraculous. The
+following sections test the remaining escape route: whether colloquial or
+imprecise language could nonetheless describe a real celestial event.
 
 \subsection{Geometric and temporal constraints from Matthew 2:9}
 \label{subsec:constraints}
@@ -291,7 +310,8 @@ local horizontal frame (``stood over'') must, because the local AltAz
 frame co-rotates with Earth, sweep through ICRS at the sidereal rate.
 At a representative stopping altitude of $45^\circ$ (az\,$=\,200^\circ$,
 Bethlehem latitude $31.7^\circ$N), this is $\omega_\mathrm{stop} = 14.76^\circ\,\mathrm{h}^{-1}$
-(Table~\ref{tab:kinematics}).
+(Table~\ref{tab:kinematics}). Such a criterion already excludes fixed stars, novae, and planets, 
+which all move at approximately the sidereal rate.
 
 \textit{Guidance phase ($08{:}00$--$10{:}00$).}~An object visibly ``going before''
 travellers at the minimum rate $2^\circ\,\mathrm{h}^{-1}$ in local AltAz
@@ -422,7 +442,7 @@ The only configurations approaching even the loose threshold
 ($\omega_\mathrm{stop} < 0.50^\circ\,\mathrm{h}^{-1}$) are equatorial orbits
 near geosynchronous distance exhibiting the meridian-transit azimuth artifact:
 as any equatorial object crosses the meridian, its azimuth rate passes through
-zero briefly while altitude continues to change — the same geometric effect
+zero briefly while altitude continues to change—the same geometric effect
 described for Matney's comet, not a physical deceleration.
 All 28,800 physically admissible geocentric configurations have the object
 above $5^\circ$ altitude during at least one evaluated interval, so all
@@ -439,7 +459,7 @@ slope-1 diagonal in that figure is a rigorous consequence of Kepler's second
 law: apparent angular velocity $\omega_\mathrm{app} = V_\perp/d$ changes by at
 most $\lesssim\!4\%$ over any four-hour window for bodies with
 $d \gtrsim 0.5$\,AU (Supplementary~\S\,S1.8), so the sole mechanism that could
-break this conservation — a retrograde stationary point — is geometrically
+break this conservation—a retrograde stationary point—is geometrically
 excluded by the azimuth constraint.
 
 \begin{figure}[htbp]
@@ -471,11 +491,12 @@ excluded by the azimuth constraint.
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=\linewidth]{figure_paper2_impossibility_scatter}
+  \includegraphics[width=\linewidth]{figure_paper2_impossibility_scatter_v2}
   \caption{\textbf{Orbital impossibility of Matthew 2:9.}
     Each point represents one visible orbital configuration sampled from the
     full heliocentric parameter space (broad survey) and two Monte Carlo
-    refinement sweeps. The horizontal axis (log scale) shows the
+    refinement sweeps; non-corridor points are coloured by eccentricity
+    (plasma scale). The horizontal axis (log scale) shows the
     \emph{minimum} angular velocity during the guidance phase
     (08:00–10:00 local time; must exceed $2^\circ\,\mathrm{h}^{-1}$ to
     lead the Magi southward). The vertical axis (log scale) shows the
@@ -483,24 +504,24 @@ excluded by the azimuth constraint.
     (10:15–12:00; must fall \emph{below} $2^\circ\,\mathrm{h}^{-1}$ to
     appear stationary over Bethlehem). A configuration satisfying
     \grk{προάγειν} and \grk{ἐστάθη} simultaneously would occupy the
-    gold-shaded \emph{lower-right} region (guidance motion
-    $>2^\circ\,\mathrm{h}^{-1}$ \emph{and} stopping motion
-    $<2^\circ\,\mathrm{h}^{-1}$). That region contains zero orbits of any
-    type—heliocentric elliptic (blue), parabolic (light blue), hyperbolic
-    (orange), or the Monte Carlo sweeps (color-coded by orbit type).
+    gold-shaded \emph{lower-right} region; that region contains zero orbits
+    across every eccentricity class.
+    The purple diagonal band is the \emph{Keplerian constraint}: the
+    1st--99th percentile of the empirical stopping-to-guidance speed ratio,
+    spanning only $\times 0.995$--$\times 1.033$ around $y=x$.
+    Over any two-hour window the apparent angular velocity
+    $\omega_\mathrm{app} = V_\perp/d$ changes by at most ${\lesssim}\,4\%$
+    for heliocentric bodies (Supplementary \S\,S1.8); all points therefore
+    cluster invisibly close to the diagonal.
+    The required region lies orders of magnitude from this band, making the
+    exclusion structural rather than a consequence of sparse sampling.
     Green points (azimuth deviation $<5^\circ$, in-corridor) cluster near
-    the origin: they are quasi-stationary throughout both phases, confirming
-    the anti-correlation already visible in Fig.~\ref{fig:azmotion}. The
-    dashed diagonal ($y=x$) marks equal velocity in both phases; the
-    diagonal is enforced analytically by Kepler's second law — the apparent
-    angular velocity $\omega_\mathrm{app} = V_\perp/d$ (transverse geocentric
-    speed divided by geocentric distance) changes by at most $\lesssim\!4\%$ over
-    any four-hour window for heliocentric bodies with $d \gtrsim 0.5$\,AU
-    (Supplementary \S\,S1.8). All points therefore lie near this line. The single 
-    annotated outlier ($e=2.0$, $\Delta\mathrm{az}=2.1^\circ$), which just entered the 
-    two-criterion gold region of Fig.~\ref{fig:azmotion}, reaches
+    the origin: quasi-stationary throughout both phases, confirming the
+    anti-correlation visible in Fig.~\ref{fig:azmotion}. The single
+    annotated outlier ($e=2.0$, $\Delta\mathrm{az}=2.1^\circ$) reaches
     $2.89^\circ\,\mathrm{h}^{-1}$ during guidance but retains the same
-    speed during stopping, placing it well above the stopping threshold.
+    speed during stopping, placing it on the diagonal and well above the
+    stopping threshold.
     Supplementary Fig.~S1 shows each MC sweep separately.}
   \label{fig:scatter}
 \end{figure}
@@ -517,7 +538,7 @@ achieves an azimuth corridor score of $0.015^\circ$—within the corridor—yet 
 the guidance-motion criterion by an order of magnitude
 ($0.23^\circ\,\mathrm{h}^{-1}$ versus the required $2^\circ\,\mathrm{h}^{-1}$).
 When this orbit is propagated into the stopping window, the object rapidly sets
-below the horizon — the antithesis of the text's requirement
+below the horizon—the antithesis of the text's requirement
 (Extended Data Fig.~1).
 
 %% fig:proof moved to Extended Data Fig.~1 (see end of manuscript)
@@ -542,10 +563,10 @@ astronomical writing:
 \begin{enumerate}
   \item[(A)] \grk{προάγω} (\tr{proag\={o}}): a star leading human
     travellers toward a destination.
-  \item[(B)] \grk{ἵστημι} (\tr{hist\={e}mi}) rather than the technical
+  \item[(B)] \grk{ἵστημι} (\tr{hist\={e}mi}): rather than the technical
     \grk{στηρίζω}: a celestial body coming to rest, not undergoing a
     planetary stationary point.
-  \item[(C)] \grk{ἐπάνω} (\tr{epan\={o}}) rather than \grk{ὑπὲρ}:
+  \item[(C)] \grk{ἐπάνω} (\tr{epan\={o}}): rather than \grk{ὑπὲρ}:
     a celestial body localized above a specific terrestrial address.
   \item[(D)] \grk{ἔρχομαι} (\tr{erchomai}): a celestial body
     ``arriving'' at a specific location on Earth.
@@ -633,16 +654,16 @@ alternative hypothesis that Matthew~2:9 belongs to the ancient guiding-star
 narrative tradition~(\textit{H}\textsubscript{guide}). Four independent traditions
 attest this genre: Virgil's \textit{Aeneid}~2.687--711 (Servius \textit{ad
 Aen.}~2.694 identifies the guide as Venus/Lucifer, the morning star); Plutarch
-and Diodorus Siculus on the Timoleon guiding light (one tradition); Lucian's
+and Diodorus Siculus on the Timoleon guiding light; Lucian's
 \textit{Navigium}~7,~9 (explicitly a star); and the LXX pillar-of-fire
-(\textit{Exodus}~13.21; \textit{Wisdom}~10.17 describes it as star-like at night;
-one tradition) \cite{adair2012,adair_jsnt,heilen2015}. Each involves a
-divinely-sent luminous guide.
+(\textit{Exodus}~13.21; \textit{Wisdom}~10.17 describes it as star-like at night) 
+\cite{adair2012,adair_jsnt,heilen2015}. Each involves a divinely-sent luminous guide.
 I scored each tradition for features A--D and estimated
 $P(\text{feature}_i \mid H_\text{guide})$ with Laplace smoothing
 ($k=1$, $N=4$; Supplementary Table~S11).
 Feature~A is present in all four traditions; D in three; B in two;
-C in two (Lucian's \grk{ἐπικαθίσαι τῷ καρχησίῳ} and the Israelite pillar standing \grk{ἐπί} the Tabernacle, both using the same \grk{ἐπι-} root as Matthew's \grk{ἐπάνω}).
+C in two (Lucian's \grk{ἐπικαθίσαι τῷ καρχησίῳ} and the Israelite pillar standing \grk{ἐπί} 
+the Tabernacle, both using the same \grk{ἐπι-} root as Matthew's \grk{ἐπάνω}).
 Under the independence approximation:
 \begin{equation}
   P(A,B,C,D \mid H_\text{guide}) = \prod_{i} P_i \approx 1.39\times10^{-1}.
@@ -662,7 +683,7 @@ the product of the four individual Fisher exact probabilities---the correct
 joint data probability under independence---rather than the Fisher combined
 meta-test tail probability ($6.3\times10^{-3}$), which is a test statistic,
 not a joint data probability.
-This exceeds 100 on the Jeffreys scale, providing strong evidence in favor of
+This BF exceeds 100 on the Jeffreys scale, providing strong evidence in favor of
 the guiding-star narrative hypothesis over the astronomical one. Sensitivity analyses confirm robustness: adding four additional omen texts
 gives a conservative lower bound of $\mathrm{BF} = 1{,}040$; varying the Laplace
 smoothing parameter $k \in [0.5, 3]$ gives $\mathrm{BF} \in 4{,}546$--$6{,}818$;
@@ -672,7 +693,7 @@ a 3$\times$ denominator uncertainty yields a range of 2{,}004--18{,}038
 Feature~C (\grk{ἐπάνω}) is particularly diagnostic: every astronomical and
 omen text examined uses \grk{ὑπὲρ} for a celestial body above a terrestrial
 point, including Josephus (\textit{JW}~6.289) and Dio Cassius (54.29.8),
-both of whom use \grk{ἵστημι}/\grk{ἀνέχω} with \grk{ὑπὲρ};
+both of whom use \grk{ἵστημι}/\grk{αἰωρέω} with \grk{ὑπὲρ};
 \grk{ἐπι}-based localization is attested in the present corpus only in
 legendary and sacred narrative texts (Lucian; \textit{Joseph and Aseneth}~14.4;
 the Israelite pillar-of-fire tradition, where \grk{ἐπί} marks the cloud
@@ -699,9 +720,11 @@ genre classification: Matthew's four-feature vocabulary is unattested in
 the surveyed ${\approx}\,622{,}000$-word astronomical corpus while fitting the
 narrative tradition at $\mathrm{BF}_\text{corpus} \approx 6{,}012$.
 Because the internal and external linguistic datasets are entirely disjoint,
-their Bayes factors are treated as conditionally independent; their product gives the
-joint result: $\mathrm{BF}_\text{joint} = 87{,}696 \times 6{,}012
-\approx 5.3\times10^8$ (conservative lower bound ${\approx}\,9\times10^7$).
+their Bayes factors are treated as conditionally independent.
+The conservative lower bound on $\mathrm{BF}_\text{joint}$---obtained by pooling
+omen texts with the guiding-star traditions and maximising inter-feature
+correlation---is ${\approx}\,9.1\times10^7$; the baseline calculation gives
+$87{,}696 \times 6{,}012 \approx 5.3\times10^8$.
 This linguistic classification is independent of the orbital mechanics.
 
 Previous studies operated within a \emph{search} paradigm, identifying the
@@ -716,7 +739,7 @@ orbit type: elliptic, parabolic, hyperbolic, heliocentric, and geocentric.
 
 Non-gravitational forces cannot rescue the astronomical interpretation.
 `Oumuamua's anomalous acceleration (${\approx}\,5\times10^{-9}$\,km\,s$^{-2}$;
-\cite{Micheli2018}), the largest known, delivers at most
+\cite{micheli2018}), the largest known, delivers at most
 $\Delta v \approx 3.6\times10^{-5}$\,km\,s$^{-1}$ over 2\,h---a factor of
 ${\approx}\,4\times10^4$ below the 1.5\,km\,s$^{-1}$ required at closest
 approach ($d\approx0.003$\,AU), and ${\approx}\,3\times10^7$ below the
@@ -761,7 +784,23 @@ considered but not exhaustively modelled: the primary impossibility (transverse
 velocities $\sim\!10^3$--$10^4$\,km\,s$^{-1}$) is insensitive to any
 chemically plausible non-gravitational force, but arbitrarily exotic objects
 are not formally excluded. Third, Matthew~2:2 is excluded from the orbital
-survey; that verse may independently constrain candidate objects.
+survey; that verse may independently constrain candidate objects or further indicate 
+other cultrually relevant details \cite{adair_jsnt}.
+
+\paragraph{Broader applicability.}
+The proof framework introduced here is generalizable beyond Matthew~2:9.
+The companion verse Matthew~2:2 independently constrains any candidate to
+solar-proximity orbits (a heliacal rising requires the object to have been near
+the sun in preceding weeks)---a restriction deliberately excluded from the
+present survey whose addition would only strengthen the null result.
+More broadly, any ancient text whose astronomical interpretation requires
+specific celestial kinematics can in principle be subjected to the same
+two-step analysis: an exhaustive orbital parameter-space survey establishing
+what is kinematically possible, followed by a corpus-register test establishing
+whether the vocabulary belongs to the astronomical genre.
+Ancient omen literature, East Asian annals used to date historical comets,
+and other sky-event narratives for which both physical constraints and
+comparative textual corpora exist are natural applications of this combined framework.
 
 %%%% ═══════════════════════════════════════════════════════════════════════
 \section{Methods}\label{sec:methods}
@@ -896,24 +935,22 @@ Theophrastus) complete the coverage. Full corpus inventory is given in
 Supplementary Table~S7.
 
 Four lexical features were identified directly from Matthew~2:9---each
-word Matthew uses to describe the star's motion---and tested against the corpus.
-Feature~A (\grk{προάγω}): the star ``goes before'' the Magi. The TLG search
+word Matthew uses to describe the Star's motion---and tested against the corpus.
+Feature~A (\grk{προάγω}): the Star ``goes before'' the Magi. The TLG search
 returned 9 hits across the corpus; all describe positional or temporal
 antecedence between celestial bodies (one planet \textit{preceding} another
 in longitude) and none describe a celestial body actively guiding human
-travellers toward a destination. Feature~B (\grk{ἵστημι}): the star
+travellers toward a destination. Feature~B (\grk{ἵστημι}): the Star
 ``stands''. The search returned 17 hits; all refer to the mathematical
 stationary point (\grk{στηριγμός}, the moment of zero longitudinal velocity
 in the geocentric model), not to a body ceasing motion above a specific
-terrestrial location. Feature~C (\grk{ἐπάνω}): the star stands ``over''
+terrestrial location. Feature~C (\grk{ἐπάνω}): the Star stands ``over''
 a specific dwelling. This preposition does not appear in the corpus locating
 a celestial body above a specific terrestrial point; the invariant
 astronomical choice is \grk{ὑπὲρ} (``above'' a zodiacal band or horizon).
-Feature~D (\grk{ἔρχομαι}): the star ``arrives''. Seven hits appear; all
+Feature~D (\grk{ἔρχομαι}): the Star ``arrives''. Seven hits appear; all
 describe a body reaching a zodiacal position or completing a synodic cycle,
-never arriving at a terrestrial geographic point. Feature~E
-(\grk{ὁδηγέω}/\grk{ἡγέομαι}) was excluded because neither verb appears in
-Matthew's star-motion passage; testing absent words is a category error.
+never arriving at a terrestrial geographic point.
 
 For each feature, TLG morphological search retrieved all inflected forms of
 the target lemma. Each hit was read in full context and classified by two
@@ -974,7 +1011,7 @@ independent, as they derive from non-overlapping corpora and distinct
 sampling frames.
 Their product, $\mathrm{BF}_\text{joint}=87{,}696\times6{,}012
 \approx5.3\times10^8$, is the joint Bayesian update from the linguistic
-evidence considered here (conservative lower bound ${\approx}9\times10^7$).
+evidence considered here (conservative lower bound ${\approx}9.1\times10^7$).
 Features A--D co-occur in the same verse and are treated as conditionally
 independent in both BF calculations. Under positive correlation (plausible,
 since all four features reflect the same register choice), features absent
@@ -998,9 +1035,8 @@ available at \url{https://github.com/adairaar/sob_astro_test}. Key scripts inclu
 \texttt{sob\_proof\_fine.py} (529-million-configuration heliocentric survey);
 \texttt{sob\_mc\_refined.py} (Monte Carlo refinement);
 \texttt{sob\_epoch\_robustness.py} (multi-epoch analysis);
-\texttt{corpus\_pvalue.py} (Gaussian copula independence test);
-\texttt{corpus\_linguistics.py} (Fisher's test and Bayes factor computation);
-\texttt{guiding\_star\_bayes.py} (guiding-star tradition scoring).
+\texttt{corpus\_pvalue.py} (Fisher combined p-value and Gaussian copula independence robustness test);
+\texttt{guiding\_star\_bayes.py} (corpus and within-Matthew Bayes factor computation).
 
 %%%% ═══════════════════════════════════════════════════════════════════════
 %% REQUIRED NATURE SECTIONS
@@ -1024,6 +1060,9 @@ manuscript.
 
 \section*{Competing interests}
 The author declares no competing interests.
+
+\section*{Funding}
+This research received no external funding.
 
 \section*{Acknowledgements}
 None.
@@ -1104,7 +1143,7 @@ corridor confinement throughout the full 2\,h window, so it likewise does not
 appear in the azimuth-pass count.\\
 $^\dagger$\,Geocentric survey used ground-frame (AltAz) angular velocity.
 The Moon (only natural geocentric body) peaks at $\omega = 0.61^\circ\,\mathrm{h}^{-1}$
-at perigee — below the $2^\circ\,\mathrm{h}^{-1}$ guidance threshold.
+at perigee—below the $2^\circ\,\mathrm{h}^{-1}$ guidance threshold.
 A comprehensive survey of 28,800 hypothetical geocentric configurations finds
 zero satisfying all criteria with $\omega_\mathrm{stop} < 0.20^\circ\,\mathrm{h}^{-1}$;
 see Supplementary~\S\,S1.10.}
