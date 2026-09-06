@@ -607,27 +607,26 @@ print("  Saved figure_mc_diagnostic.png")
 # ══════════════════════════════════════════════════════════════════════════
 print("─ Figure 4: corpus linguistics (white background) …")
 
-# Data — TLG-verified counts (2026-05-10, MIT IRIS proxy)
+# Data — TLG counts (2026-09-04, MIT IRIS proxy), exact wordform search over
+# the full paradigm of each lemma, Exact Match + Diacritics sensitive enabled.
 # Each p = 1/(N+1) for N corpus negatives, 0 Matthew-type positives.
-#   A: προάγω     — 9  in-corpus hits, 0 narrative guidance  → p = 0.100
-#   B: στηρίζω    — 17 in-corpus hits, 0 halt-at-location    → p = 0.056
-#      (proxy for ἵστημι; TLG morphological expander cannot resolve -μι verbs)
-#   C: ἐπάνω      — 29 in-corpus hits, 0 above earthly point → p = 0.033
-#   D: ἔρχομαι    — 7  in-corpus hits, 0 terrestrial arrival → p = 0.125
-# Fisher combined: χ²(8) = 21.35, p = 6.3×10⁻³
-# See corpus_pvalue.py and tlg_corpus_results.md for full passage citations.
+#   A: προάγω     — 11  in-corpus hits, 0 narrative guidance   → p = 0.083
+#   B: ἵστημι     — 121 in-corpus hits, 0 halt-above-a-place   → p = 0.008
+#   C: ἐπάνω      — 40  in-corpus hits, 0 above earthly point  → p = 0.024
+#   D: ἔρχομαι    — 356 in-corpus hits, 0 terrestrial arrival  → p = 0.003
+# Fisher combined: χ²(8) = 33.76, p = 4.5×10⁻⁵
+# See corpus_pvalue.py, HISTEMI_CLASSIFICATION_2026-09-04.md for passage records.
 
-# TLG-verified counts (2026-05-10).  p = 1/(N+1), N = corpus negatives.
 feat_labels = ['A  προάγω\n(guidance verb)',
-               'B  στηρίζω*\n(stopping verb)',
+               'B  ἵστημι\n(stopping verb)',
                'C  ἐπάνω\n(locative prep.)',
                'D  ἔρχομαι\n(arrival verb)']
-p_vals      = [0.100, 0.056, 0.033, 0.125]
-corpus_hits = [9,     17,    29,    7    ]   # all non-Matthew-type
+p_vals      = [1/12, 1/122, 1/41, 1/357]
+corpus_hits = [11,   121,   40,   356  ]   # all non-Matthew-type
 sense_notes = ['positional / temporal',
-               'planetary stationary pt.',
+               'zodiacal sign, degree, aspect',
                'zodiacal / geometric',
-               'zodiacal arrival']
+               'arrival at body or chart point']
 
 neg_log_p   = [-np.log10(p) for p in p_vals]
 
@@ -647,12 +646,10 @@ ax1.barh(y, [0]*4, bar_h * 0.55, color='#CC3333', alpha=0.90,
 
 # Count label just outside each blue bar
 for i, (n, note) in enumerate(zip(corpus_hits, sense_notes)):
-    ax1.text(n + 0.5, y[i], f'{n}', va='center', ha='left',
+    ax1.text(n * 1.45, y[i], f'{n}', va='center', ha='left',
              fontsize=10, color='#2255AA', fontweight='bold')
-    # Sense note inside the bar (white text) if bar is wide enough, else skip
-    if n >= 12:
-        ax1.text(n * 0.5, y[i], note, va='center', ha='center',
-                 fontsize=7.5, color='white', style='italic')
+    ax1.text(1.6, y[i] - 0.30, note, va='center', ha='left',
+             fontsize=7.0, color='#33507F', style='italic')
 
 # "0" label at left edge for every feature
 for i in y:
@@ -661,15 +658,15 @@ for i in y:
 
 ax1.set_yticks(y)
 ax1.set_yticklabels(feat_labels, fontsize=10)
-ax1.set_xlabel('Corpus occurrences (25-text corpus, TLG-verified)', fontsize=9.5)
+ax1.set_xlabel('Corpus occurrences (24-text corpus, log scale)', fontsize=9.5)
 ax1.set_title('Vocabulary profile: corpus hits vs.\nMatthew 2:9 (Matthew-type = 0 in every case)',
               fontsize=10.5, fontweight='bold')
-ax1.set_xlim(0, 38)
+ax1.set_xscale('symlog', linthresh=1)
+ax1.set_xlim(0, 1400)
 ax1.legend(loc='lower right', fontsize=8.5, framealpha=0.9)
 ax1.grid(True, axis='x', alpha=0.25, lw=0.7)
 ax1.tick_params(axis='y', length=0)
-# Footnote for proxy
-ax1.annotate('* στηρίζω is proxy for ἵστημι (TLG cannot expand -μι inflections)',
+ax1.annotate('Every inflected form searched individually; suppletive stems included',
              xy=(0, -0.15), xycoords='axes fraction',
              fontsize=7.5, color='#555555', style='italic')
 
@@ -693,20 +690,23 @@ for i, (bar, p, bc) in enumerate(zip(bars, p_vals, bar_colors)):
              ha='center', va='bottom', fontsize=9, fontweight='bold', color=bc)
 
 ax2.set_xticks(range(4))
-ax2.set_xticklabels(['A\nproάγω', 'B\nστηρίζω*', 'C\nἐπάνω', 'D\nἔρχομαι'],
+ax2.set_xticklabels(['A\nπροάγω', 'B\nἵστημι', 'C\nἐπάνω', 'D\nἔρχομαι'],
                     fontsize=9.5)
 ax2.set_ylabel(r'$-\log_{10}(p)$', fontsize=10)
 ax2.set_title("Fisher's exact test\n(Matthew 2:9 vs. astronomical corpus)",
               fontsize=10.5, fontweight='bold')
 ax2.legend(fontsize=8.5, loc='upper left', framealpha=0.9)
-ax2.set_ylim(0, 2.4)
+ax2.set_ylim(0, 3.2)
 ax2.grid(True, axis='y', alpha=0.25, lw=0.7)
 
 # Joint-result box placed below the bars so it does not overlap p labels
-ax2.text(0.50, 0.10,
-         r'Joint: $\chi^2(8)=21.4,\ p\approx6.3\times10^{-3}$' + '\n' +
-         r'BF $\approx$ 4,000 vs. guiding-star tradition',
-         transform=ax2.transAxes, ha='center', va='bottom', fontsize=8.8,
+ax2.text(0.50, 0.09,
+         r'Joint: $\chi^2(8)=33.8,\ p\approx4.5\times10^{-5}$' + '\n' +
+         r'$\mathrm{BF}_\mathrm{corpus} = 3.5\times10^{2}$–$2.6\times10^{4}$ '
+         r'vs. guiding-star tradition'
+         + '\n' + r'(central sensitivity range; Table S12)',
+         transform=ax2.transAxes, ha='center', va='bottom', fontsize=8.2,
+         linespacing=1.45,
          bbox=dict(boxstyle='round,pad=0.35', fc='#FFF4EC', ec='#CC3333', lw=1.1))
 
 fig.suptitle('Linguistic incompatibility of Matthew 2:9\nwith Greek astronomical discourse',

@@ -83,6 +83,10 @@ def comet_pos(dt_days):
     pos  = np.outer(Pvec, r*np.cos(nu)) + np.outer(Qvec, r*np.sin(nu))
     return pos   # (3, N)
 
+from sob_precession import (precess_unit_vectors as _precess_vec,
+                            precess_radec as _precess_radec)
+
+
 def gmst_rad(jd_utc):
     T = (jd_utc - 2451545.0) / 36525.0
     return np.radians((280.46061837 + 360.98564736629*(jd_utc-2451545.0)
@@ -123,17 +127,21 @@ def main():
     jd_tdb = jd_utc + DT_TDB_UTC / 86400.0
 
     # Astropy for Earth/Sun
-    times_tdb = Time(jd_tdb, format='jd', scale='tdb')
-    times_utc = Time(jd_utc, format='jd', scale='utc')
-    eb        = get_body_barycentric('earth', times_tdb)
-    sb        = get_body_barycentric('sun',   times_tdb)
-    earth_pos = (eb - sb).xyz.to(u.AU).value      # (3, N)
-    sun_icrs  = get_sun(times_utc)
-    sun_ra    = sun_icrs.ra.rad
-    sun_dec   = sun_icrs.dec.rad
+    # VSOP87 Earth, not astropy's bundled ephemeris: at 5 BCE the latter is off
+    # by ~43", displacing Earth ~3.1e4 km.  For a close flyby (d < 0.02 AU) that
+    # is worth >0.6 deg of sightline error, and several degrees at lunar
+    # distance.  See sob_frames.
+    import sob_frames as _sf
+    earth_ecl = _sf.earth_helio_ecl_j2000(jd_tdb)
+    earth_pos = _sf.ecl_to_equ(earth_ecl)          # (3, N) J2000 equatorial
+    sun_vec   = _sf.ecl_to_equ(-earth_ecl)
+    sun_n     = np.linalg.norm(sun_vec, axis=0)
+    sun_ra    = np.arctan2(sun_vec[1], sun_vec[0]) % (2*np.pi)
+    sun_dec   = np.arcsin(np.clip(sun_vec[2]/sun_n, -1, 1))
     lst       = lst_rad(jd_utc)
 
-    sun_alt, _ = altaz(sun_ra, sun_dec, lst)
+    sun_ra_d, sun_dec_d = _precess_radec(sun_ra, sun_dec, jd_tdb.mean())
+    sun_alt, _ = altaz(sun_ra_d, sun_dec_d, lst)
 
     # ── Comet position and geocentric vectors ─────────────────────────────────
     dt_from_peri = jd_tdb - T_peri_jd
@@ -142,7 +150,9 @@ def main():
     d     = np.linalg.norm(rho, axis=0)   # AU
 
     # ICRS RA/Dec
+    # Precess J2000 -> equinox of date before forming hour angles against `lst`.
     rhat  = rho / d
+    rhat  = _precess_vec(rhat, jd_tdb.mean())
     ra_r  = np.arctan2(rhat[1], rhat[0]) % (2*np.pi)
     dec_r = np.arcsin(np.clip(rhat[2], -1, 1))
 

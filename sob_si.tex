@@ -1,5 +1,5 @@
 % !TEX root = sob_si.tex
-%% sob_si.tex — Supplementary Information
+%% sob_si.tex --- Supplementary Information
 %% No Keplerian orbit satisfies the motion constraints of Matthew~2:9:
 %% evidence from orbital mechanics and Greek corpus linguistics
 %% Author: Aaron Adair, MIT Department of Physics
@@ -14,10 +14,23 @@
 \usepackage{array}
 \usepackage{geometry}
 \geometry{margin=1in}
-\usepackage{fontspec}
+%% Engine detection
+\usepackage{iftex}
 \usepackage{threeparttable}
-\newfontfamily\greekfont{Brill}[Script=Greek]
-\newcommand{\grk}[1]{{\greekfont #1}}
+%% Engine-conditional Greek font setup
+\ifPDFTeX
+  %% pdflatex path (journal submission system --- TeX Live 2025 full)
+  %% Standard utf8 inputenc (LaTeX kernel 2018+) + LGR fontenc for Greek.
+  %% Requires greek-fontenc (lgrenc.def, lgrenc.dfu) from texlive-lang-greek.
+  \usepackage[utf8]{inputenc}
+  \usepackage[LGR,T1]{fontenc}
+  \newcommand{\grk}[1]{{\fontencoding{LGR}\selectfont #1}}
+\else
+  %% XeLaTeX/LuaLaTeX path (local compilation)
+  \usepackage{fontspec}
+  \newfontfamily\greekfont{Times New Roman}[Script=Greek]
+  \newcommand{\grk}[1]{{\greekfont #1}}
+\fi
 \newcommand{\tr}[1]{\textit{#1}}
 
 %% Number tables and figures with S prefix
@@ -42,9 +55,9 @@
 \begin{document}
 \maketitle
 
-%%%%  ─────────────────────────────────────────────────────────────────────
+%%%%  ------------------------------------------------------------------, 
 \section{Orbital mechanics: detailed methods}
-%%%%  ─────────────────────────────────────────────────────────────────────
+%%%%  , ------------------------------------------------------------------
 
 \subsection{Reference epoch and coordinate system}
 
@@ -137,16 +150,57 @@ Straight-line bearing: $203^\circ$. The ridge road sweeps from
 $\approx 190^\circ$ to $\approx 210^\circ$ along the route.
 
 \paragraph{Angular-velocity threshold.}
-We adopt $\omega_\mathrm{thresh} = 2^\circ\,\mathrm{h}^{-1}$ for both
-criteria. \textit{Physical basis:} naked-eye angular resolution is
-${\approx}\,1'$; motion relative to background stars is therefore detectable
-at any rate above ${\approx}\,0.03^\circ\,\mathrm{h}^{-1}$ over a
-30-minute observation window. For comparison, the Moon moves
-${\approx}\,0.5^\circ\,\mathrm{h}^{-1}$ relative to background stars—a rate
-routinely noted by ancient Babylonian observers. Our threshold of
-$2^\circ\,\mathrm{h}^{-1}$ is 4$\times$ the lunar rate, detectable within
-minutes. The choice is deliberately generous: any stricter threshold only
-strengthens the impossibility conclusion.
+I adopt $\omega_\mathrm{thresh} = 2^\circ\,\mathrm{h}^{-1}$ for both criteria.
+Because the two rate quantities used in this paper are easily conflated, the
+frame must be stated first.
+
+\textit{Frame.} Matthew's claim is that the Star stood \emph{over a house}.
+That is a statement about the object's bearing from a place on the ground, so
+the criterion is evaluated in the horizon (alt-azimuth) frame, in which the
+diurnal rotation of the Earth is present. This is the demanding frame: apparent
+rest in it requires the object's parallactic motion to cancel the Earth's spin.
+The \emph{inertial} rate (motion against the background stars, to which the
+lunar figure of ${\approx}\,0.5^\circ\,\mathrm{h}^{-1}$ belongs) is a different
+quantity, and is used in §\,S11 only where it is explicitly named.
+
+\textit{Physical basis.} The threshold is anchored to the sky's own motion. For
+the observer at Bethlehem, over the south-westerly part of the sky in which the
+guidance corridor lies and above the $10^\circ$ altitude floor, a fixed star
+moves in the horizon frame at between $11.6$ and $15.0^\circ\,\mathrm{h}^{-1}$,
+depending on declination. Every star the Magi could see was drifting at that
+rate. A stopping threshold is therefore a statement about what fraction of the
+ambient sidereal rate still counts as standing still:
+$2^\circ\,\mathrm{h}^{-1}$ admits an object drifting at roughly one part in six
+to one in eight of the rate of the stars around it.
+
+The lower bound is set by detectability rather than by the sky: naked-eye
+angular resolution is ${\approx}\,1'$, so motion is detectable above
+${\approx}\,0.03^\circ\,\mathrm{h}^{-1}$ over a thirty-minute window, and no
+threshold below that could be observationally meaningful. The choice of
+$2^\circ\,\mathrm{h}^{-1}$ is deliberately generous at the upper end; any
+stricter threshold only strengthens the conclusion.
+
+\paragraph{What would overturn the result.}
+Because a negative result of this kind can always be attacked by loosening the
+criterion that produced it, I state the falsification condition in advance and
+in physical units rather than leaving it to be negotiated.
+
+The tightest value achieved by any orbit, across $10^9$ samples and every
+parameter combination tested, is $6.94^\circ\,\mathrm{h}^{-1}$ (§\,\ref{subsec:sweep}). That
+is between $46\%$ and $60\%$ of the local sidereal rate, depending on
+declination. Overturning the conclusion therefore requires adopting a stopping
+threshold above that figure, and the burden on any such threshold is to explain
+in what sense an object crossing the sky at half the speed of the stars beside
+it can be said to stand still over a particular house. Over the two hours of
+the journey described, such an object would traverse some $14^\circ$, about
+twenty-seven lunar diameters, or a hand's breadth and a half at arm's length.
+
+The threshold is thus not a free parameter to be widened until a candidate
+appears. It is bounded below by naked-eye detectability and above by the motion
+of the sky itself, and the result reported here fails at every value between
+those bounds. The figure that would have to be conceded is
+$6.94^\circ\,\mathrm{h}^{-1}$; the argument that it cannot be conceded is given
+above, and is offered for the reader to test rather than asserted.
 
 \paragraph{Guidance criterion (three components).}
 \begin{enumerate}
@@ -159,7 +213,7 @@ strengthens the impossibility conclusion.
   \item \textit{Motion (\grk{προάγω}):} minimum apparent angular velocity
     $> \omega_\mathrm{thresh} = 2^\circ\,\mathrm{h}^{-1}$ throughout the
     guidance window. A stationary object at the right azimuth does not
-    ``go before'' travellers; this criterion excludes such configurations.
+    ``go before'' travelers; this criterion excludes such configurations.
 \end{enumerate}
 
 \paragraph{Stopping criterion (\grk{ἵστημι}).}
@@ -199,6 +253,7 @@ three criteria at every tested value.
     \item N\_motion = configurations with guidance motion $> \omega_\mathrm{thresh}$;
     \item N\_stop = configurations with stopping score $< \omega_\mathrm{thresh}$;
     \item N\_all = configurations passing all three criteria simultaneously.
+    \item The upper end of the sweep ($10^\circ\,\mathrm{h}^{-1}$) exceeds any physically defensible stopping threshold. In the horizon frame in which the criterion is evaluated (§\,2.3), a fixed star over Bethlehem moves at $11.6$--$15.0^\circ\,\mathrm{h}^{-1}$ in the relevant part of the sky. A stopping criterion of $10^\circ\,\mathrm{h}^{-1}$ would therefore count an object as standing still while it drifted at roughly two-thirds to nine-tenths of the rate of every star around it, which is not a description any observer would give. The sweep accordingly covers every physically coherent criterion value at both ends: below by the limit of naked-eye detection, above by the ambient sidereal rate.
   \end{tablenotes}
   \end{threeparttable}
 \end{table}
@@ -297,11 +352,11 @@ Of 601,150 visible configurations, zero satisfied all three criteria
 simultaneously.
 The orbit with the best azimuth score ($0.167^\circ$ from corridor
 center) produced a guidance-phase angular velocity of only
-$0.006^\circ\,\mathrm{h}^{-1}$—a factor of ${\approx}330$ below the
+$0.006^\circ\,\mathrm{h}^{-1}$, a factor of ${\approx}330$ below the
 required $2^\circ\,\mathrm{h}^{-1}$.
 The orbit with the highest guidance motion anywhere in the sweep
 ($93.5^\circ\,\mathrm{h}^{-1}$) had an azimuth score of
-$178^\circ$—far outside the road corridor.
+$178^\circ$, far outside the road corridor.
 This confirms the physical trade-off documented in the grid survey:
 objects moving fast enough to guide are never pointed in the right
 direction, and objects pointed in the right direction are nearly
@@ -325,8 +380,8 @@ Sweep~2 sampled 750,000 configurations uniformly from
 \]
 bracketing Matney's parameters with generous margins in every dimension.
 Of 294,672 visible configurations, zero satisfied all three criteria.
-The best azimuth score was $9.49^\circ$—outside the $\pm5^\circ$
-corridor threshold—and the guidance motion at that orbit was
+The best azimuth score was $9.49^\circ$, outside the $\pm5^\circ$
+corridor threshold, and the guidance motion at that orbit was
 $0.006^\circ\,\mathrm{h}^{-1}$.
 The highest guidance motion found anywhere in the sweep ($0.84^\circ\,\mathrm{h}^{-1}$)
 is itself below the $2^\circ\,\mathrm{h}^{-1}$ threshold and occurs at an
@@ -369,7 +424,7 @@ grid spacing.
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=\linewidth]{figure_mc_diagnostic}
-  \caption{\textbf{Supplementary Figure~S1: Monte Carlo refinement sweeps —
+  \caption{\textbf{Supplementary Figure~S1: Monte Carlo refinement sweeps.
     azimuth score vs.\ guidance-phase angular velocity (log scale).}
     Each point is one visible orbital configuration from the two continuous-parameter
     sweeps described in \S\ref{subsec:mc_refined}.
@@ -392,15 +447,15 @@ grid spacing.
   \label{fig:mc_diag}
 \end{figure}
 
-%%%%  ─────────────────────────────────────────────────────────────────────
+%%%%  ------------------------------------------------------------------, 
 \subsection{Analytical derivation of the guidance–stopping correlation}
 \label{subsec:diagonal}
-%%%%  ─────────────────────────────────────────────────────────────────────
+%%%%  , ------------------------------------------------------------------
 
 Fig.~3 of the main text shows that every sampled Keplerian orbit falls near
 the diagonal $\omega_\mathrm{stop} = \omega_\mathrm{guide}$, regardless of orbit
 type (elliptic, parabolic, hyperbolic) or eccentricity. The caption notes
-that ``Keplerian orbits cannot decelerate abruptly over four hours''; we
+that ``Keplerian orbits cannot decelerate abruptly over four hours''; I
 derive this quantitatively here.
 
 \paragraph{Apparent angular velocity in closed form.}
@@ -434,7 +489,7 @@ Differentiating~\eqref{eq:omega_exact} logarithmically,
   = \frac{\dot{V}_\perp}{V_\perp} - \frac{\dot{d}}{d}
   = \frac{\dot{V}_\perp}{V_\perp} - \frac{V_r}{d}.
 \end{equation}
-We bound each term separately.
+Each term is bounded separately.
 
 \textit{Term 1: change in transverse velocity.}
 The only force acting on the body (in the inertial frame, ignoring planetary
@@ -519,14 +574,14 @@ apparent angular velocity over a four-hour observation window.}
 
 The result follows directly from the conservation of specific angular
 momentum $h = r^2\,\mathrm{d}f/\mathrm{d}t = \mathrm{const}$ (Kepler's
-second law). Although $h$ is conserved about the \emph{solar} focus while we
-observe from \emph{Earth}, the correction is of order $r_E/d$ and is already
+second law). Although $h$ is conserved about the \emph{solar} focus while the
+observer is at \emph{Earth}, the correction is of order $r_E/d$ and is already
 absorbed into the bounds above.
 
 \paragraph{When can the diagonal be violated?}
 The bound $\varepsilon \lesssim 4\%$ assumes $d \gtrsim 0.5$\,AU.
 For a body to move \emph{dramatically} slower during the stopping window
-than during guidance—the Matthew scenario—it must pass through an
+than during guidance, the Matthew scenario, it must pass through an
 \emph{apparent stationary point} (the transition from prograde to retrograde
 motion) within the four-hour window. At a stationary point the transverse
 geocentric velocity $V_\perp$ passes through zero, and $\omega_\mathrm{app}$
@@ -534,7 +589,7 @@ drops far below the guidance value.
 
 Retrograde motion for outer planets occurs near opposition, when the planet
 rises in the east at sunset and transits near midnight. At the 5\,BCE epoch,
-opposition directions lie well east of south—geometrically incompatible with
+opposition directions lie well east of south, geometrically incompatible with
 the southward road corridor $[190^\circ,210^\circ]$ required for the Magi's
 journey from Jerusalem to Bethlehem. For inner planets, retrograde occurs near
 inferior conjunction (near the Sun, hence not visible in the pre-dawn sky
@@ -547,10 +602,10 @@ enforced by Kepler's second law, and the only mechanism that breaks the
 diagonal (a retrograde stationary point) is geometrically excluded by the
 azimuth and visibility constraints.
 
-%%%%  ─────────────────────────────────────────────────────────────────────
+%%%%  ---------------------------------------------------------------------
 \subsection{Reference frames and the ground-observer constraint}
 \label{subsec:refframes}
-%%%%  ─────────────────────────────────────────────────────────────────────
+%%%%  ---------------------------------------------------------------------
 
 The guidance verb \grk{προῆγεν} (imperfect of \grk{προάγω}) places motion in the
 observer's reference frame: the Star moved \emph{before the Magi} as they walked.
@@ -606,7 +661,7 @@ transverse geocentric velocity. The stopping state therefore requires
     \midrule
     Fastest solar system objects (sungrazers, $q\!\sim\!0.005$\,AU) &
     \multicolumn{3}{l}{$V_\mathrm{orbital} \lesssim 450$\,km\,s$^{-1}$} \\
-    Earth orbital speed                  & — & 29.8 & $0.010\%$ \\
+    Earth orbital speed                  & --- & 29.8 & $0.010\%$ \\
     \bottomrule
   \end{tabular}
   \smallskip
@@ -615,14 +670,14 @@ transverse geocentric velocity. The stopping state therefore requires
     \textbf{Matney's comet:} During the 08:00--10:00 guidance window
     ($d \approx 0.003$--$0.004$\,AU, computed from Matney's published orbital
     elements: $q=0.0407$\,AU, $e=1.0$, $T_\mathrm{peri}=\mathrm{JD}\,1{,}719{,}785.6$),
-    apparent stationarity requires $V_\perp \approx 30$--$43$\,km\,s$^{-1}$—physically
+    apparent stationarity requires $V_\perp \approx 30$--$43$\,km\,s$^{-1}$, physically
     achievable, so the primary velocity impossibility does not apply to this case.
     Two separate failures rule it out instead.
     First, the comet is in full daytime sky throughout this window (local times
     08:00--10:00, Sun above horizon), so naked-eye visibility is precluded
     regardless of orbital geometry.
     Second, the comet's proper motion against the stellar background is only
-    $\omega_\mathrm{ICRS} \approx 0.086^\circ\,\mathrm{h}^{-1}$—negligible
+    $\omega_\mathrm{ICRS} \approx 0.086^\circ\,\mathrm{h}^{-1}$, negligible
     compared with the ${\approx}15^\circ\,\mathrm{h}^{-1}$ diurnal rate.
     Its apparent motion in the ground frame is therefore indistinguishable from
     any fixed background star: the ``guidance'' is the generic diurnal arc
@@ -631,7 +686,7 @@ transverse geocentric velocity. The stopping state therefore requires
     all objects near the meridian (\S\,S1.10), not a distinctive orbital behavior.
     \textbf{General rule:} For $d \gtrsim 0.1$\,AU (required for naked-eye
     visibility when guidance motion is also apparent), $V_\perp \gtrsim
-    1{,}070$\,km\,s$^{-1}$—far above any known solar-system speed.
+    1{,}070$\,km\,s$^{-1}$, far above any known solar-system speed.
     This ``primary impossibility'' is independent of the transition dynamics
     analyzed in \S\,S1.8.
   \end{minipage}
@@ -650,10 +705,10 @@ against the zodiac (astronomical register). The literal reading is
 therefore both more philologically defensible and, as shown above, more
 physically decisive.
 
-%%%%  ─────────────────────────────────────────────────────────────────────
+%%%%  ------------------------------------------------------------------, 
 \subsection{Geocentric orbital survey: detailed results}
 \label{subsec:geocentric_detail}
-%%%%  ─────────────────────────────────────────────────────────────────────
+%%%%  , ------------------------------------------------------------------
 
 Unlike heliocentric objects (for which the primary impossibility is absolute),
 geocentric objects can in principle exhibit perceptible apparent motion
@@ -667,7 +722,7 @@ magnitude over hours. A separate numerical survey is therefore required.
 The Moon is the only natural geocentric body known in antiquity.
 Its specific angular momentum gives angular velocities of
 $0.61^\circ\,\mathrm{h}^{-1}$ at perigee and $0.49^\circ\,\mathrm{h}^{-1}$
-at apogee—a factor of ${\sim}3$ below the $2^\circ\,\mathrm{h}^{-1}$
+at apogee, a factor of ${\sim}3$ below the $2^\circ\,\mathrm{h}^{-1}$
 guidance threshold at every point in its orbit. The Moon never satisfies
 the guidance criterion.
 
@@ -694,8 +749,8 @@ With the loose threshold $\omega_\mathrm{stop} < 0.50^\circ\,\mathrm{h}^{-1}$:
 two orbit families produce nominal hits, both equatorial ($i = 0^\circ$) at
 near-geosynchronous ($a \approx 42{,}164$\,km, $e = 0.2$, period $\approx 24$\,h)
 and high-apogee ($a \approx 80{,}000$\,km, $e = 0.5$, period $\approx 63$\,h)
-distances. In both cases the ``stopping'' value is $0.43$--$0.46^\circ\,\mathrm{h}^{-1}$
-— approximately one lunar diameter per hour, detectable by naked-eye observation
+distances. In both cases the ``stopping'' value is $0.43$--$0.46^\circ\,\mathrm{h}^{-1}$,
+approximately one lunar diameter per hour, detectable by naked-eye observation
 and not a credible ``stood over'' event. Moreover, the apparent slowing is a
 \emph{geometric transit artifact}: as any equatorial object crosses the
 celestial meridian, the azimuth rate passes through zero (the object changes
@@ -705,20 +760,19 @@ This is identical to the transit effect analyzed for Matney's comet in the
 main Discussion. It is not an orbital deceleration.
 
 \paragraph{Conclusion.}
-No Earth-orbiting body—natural or hypothetical—can satisfy all criteria of
+No Earth-orbiting body, natural or hypothetical, can satisfy all criteria of
 the Matthew~2:9 narrative. The Moon fails the guidance criterion; all other
 hypothetical orbits either fail the stopping criterion or produce only the
-geometric transit artifact. Combined with the heliocentric result, the
-no orbit type satisfies the combined guidance, stopping, and azimuth criteria of Matthew~2:9.
+geometric transit artifact. Combined with the heliocentric result, no orbit type satisfies the combined guidance, stopping, and azimuth criteria of Matthew~2:9.
 
-%%%%  ─────────────────────────────────────────────────────────────────────
+%%%%  ------------------------------------------------------------------, 
 \section{History of interpretation: detailed methods}
-%%%%  ─────────────────────────────────────────────────────────────────────
+%%%%  , ------------------------------------------------------------------
 
 \subsection{The unanimous pre-modern verdict: a supernatural, non-astronomical phenomenon}
 
 The foundational principle of historical philology is that a text should first be read as its earliest
-competent interpreters read it---those with native or near-native command of the source language,
+competent interpreters read it, those with native or near-native command of the source language,
 familiarity with its genre conventions, and relevant scientific knowledge. For Matt~2:9, this standard
 is met by the patristic commentators, who were fluent Greek readers trained in Hellenistic literary and
 scientific culture, and several of whom had direct acquaintance with the astronomy and astrology of
@@ -730,7 +784,7 @@ the Star as a natural astronomical event identifiable in the ordinary heavens.}
 \paragraph{Augustine of Hippo (354--430~CE).}
 Augustine is an especially significant witness because he came to Christianity after years as
 a Manichaean, during which he studied philosophy, astronomy, and the methods of the
-mathematici---professional astrologers and horoscope-casters (\textit{Confessions} 4.1--3; 5.3).
+mathematici, professional astrologers and horoscope-casters (\textit{Confessions} 4.1--3; 5.3).
 His familiarity with astronomical calculation was in fact part of what led him to reject
 Manichaeism: he found the astronomers' predictions accurate while the Manichaean cosmology
 was not (Ferrari 1973). Once a Christian, Augustine attacked stellar determinism vigorously.
@@ -744,14 +798,14 @@ Origen produced the most extensive early Greek commentary on Matthew and the mos
 Christian intellectual engagement with Hellenistic astronomy and philosophy. His discussion
 of the Star in \textit{Contra Celsum} 1.58--60 is sometimes misread as a naturalistic comet
 identification. In fact Origen stated only that the Star was \emph{similar} to comets in its
-appearance and auspiciousness---not that it \emph{was} a comet. The analogy is telling rather
+appearance and auspiciousness, not that it \emph{was} a comet. The analogy is telling rather
 than naturalising: at the time, both Aristotle (\textit{Meteorologica} 1.1) and the Alexandrian
 theologian Clement (known to Origen) classified comets as atmospheric, sublunar aberrations,
 not as celestial bodies in the heavens proper. To compare the Star to a comet was therefore
 to assimilate it to an anomalous, transient, earthly phenomenon, not to identify it with any
 regular feature of the sky. Origen's own theology of the event is unambiguous elsewhere:
 in \textit{Homily on Numbers} 18.3--4, he stated that the Star \emph{descended to Earth}
-just as the dove descended upon Jesus at his baptism---a trajectory that is the opposite of
+just as the dove descended upon Jesus at his baptism, a trajectory that is the opposite of
 any orbital object and is structurally identical to his description of an angelic appearance.
 In \textit{Commentary on Matthew} 13.6 and \textit{Philocalia} 23.14 he argued against natal
 astrology; in \textit{Contra Celsum} 1.60 he interpreted the Magi's original star-craft as
@@ -761,9 +815,9 @@ confirmed it. The view that Origen naturalised the Star is untenable.
 \paragraph{John Chrysostom (c.~347--407~CE) and Gregory of Nyssa (c.~335--395~CE).}
 Chrysostom, Archbishop of Constantinople and the most prolific early Greek expositor of Matthew,
 devoted the opening of his \textit{Homilies on Matthew} to demonstrating that the Star was unlike
-any star or planet. Its motion over a short distance to a particular house---moving south from
-Jerusalem to Bethlehem, then stopping at street-level precision---was, he argued, evidence of
-a created angelic messenger, not a heavenly body. Gregory of Nyssa similarly emphasised the Star's
+any star or planet. Its motion over a short distance to a particular house (moving south from
+Jerusalem to Bethlehem, then stopping at street-level precision) was, he argued, evidence of
+a created angelic messenger, not a heavenly body. Gregory of Nyssa similarly emphasized the Star's
 anomalous behavior as proof of its supernatural character. Both theologians were writing in
 Greek as native speakers with access to Hellenistic astronomical and astrological literature.
 
@@ -803,7 +857,7 @@ an astrological event.
 The supernatural reading of Matt~2:9 is not a pious later overlay on a text that originally
 described something astronomical. It is the reading of every competent Greek-language
 interpreter for fifteen centuries, including individuals expert in the astronomical and
-astrological sciences of their day---the very sciences invoked in modern naturalistic
+astrological sciences of their day, the very sciences invoked in modern naturalistic
 proposals. The naturalistic reading is a post-Enlightenment innovation (c.~1800),
 motivated by philosophical commitments external to the text, not by a closer or more
 rigorous philological analysis of it.
@@ -823,19 +877,20 @@ naturalistic search.
 
 These readings were critically demolished by David Friedrich Strauss in his
 \textit{Das Leben Jesu kritisch bearbeitet} (1835)\cite{strauss1835}. Strauss demonstrated
-that the plain grammatical sense of Matt~2:9---the Star was \emph{going before} the Magi
+that the plain grammatical sense of Matt~2:9 (the Star was \emph{going before} the Magi
 (\grk{προῆγεν}, imperfect: ongoing guided motion) \emph{until} (\grk{ἕως}) it stood over
-the house---could not be reconciled with any planetary body, and that the grammatical arguments
+the house) could not be reconciled with any planetary body, and that the grammatical arguments
 used to avoid this conclusion (such as reading \grk{προῆγεν} as a pluperfect) were linguistically
 inadmissible. Strauss also noted the structural parallel with Virgil's \textit{Aeneid},
-where a star guides Aeneas---the same legendary narrative register the present paper identifies
+where a star guides Aeneas, the same legendary narrative register the present paper identifies
 statistically. By the early twentieth century, Albert Schweitzer (\textit{Quest of the
 Historical Jesus}, 1913 ed.) dismissed the astrological interpretations of theologians such
 as Heinrich Voigt as ``not worthy of a German professor of the twentieth century,'' and the
 philologist Franz Boll (1917)\cite{boll1917} pronounced the entire enterprise fruitless.
 After Strauss, academic biblical scholarship largely abandoned the naturalistic Star;
 by 1970 no peer-reviewed biblical journal was publishing defences of the Star as a physical
-object (Adair 2012).
+object (Adair 2012); but some recent efforts have nonetheless tried to renew the debate 
+within biblical studies \cite{barthel2015}.
 
 The subject re-entered scientific journals with Hughes (1976)\cite{hughes1976}, publishing in
 \textit{Nature}, who proposed the Jupiter--Saturn conjunctions of 7~BCE. Hughes's paper
@@ -848,30 +903,30 @@ historical record amenable to astronomical identification (Brown 1993, pp.~610--
 \subsection{Attempts to re-read Matthew's Greek as astronomical or astrological terminology}
 
 Every naturalistic reading of Matt~2:9 requires some reinterpretation of the Greek vocabulary,
-since the plain reading---an object that moved as a guide before the Magi and then stopped
-over a specific house---is incompatible with the behavior of any known celestial body.
+since the plain reading, an object that moved as a guide before the Magi and then stopped
+over a specific house, is incompatible with the behavior of any known celestial body.
 Three successive attempts to supply a technical astronomical or astrological sense to Matthew's
 words can be distinguished.
 
 \paragraph{Grammatical reinterpretation: S\"{u}skind and the pluperfect reading.}
 Friedrich Gottlieb S\"{u}skind (early nineteenth century) argued that the imperfect verb
-\grk{προῆγεν} should be read as a pluperfect---``had gone before''---removing any implication
+\grk{προῆγεν} should be read as a pluperfect, ``had gone before'', removing any implication
 of active, ongoing guided motion during the journey. Strauss (1835, pp.~220--253)\cite{strauss1835}
 refuted this definitively: the temporal particle \grk{ἕως} (``until'') governing the clause
 \grk{ἕως ἐλθὼν ἐστάθη ἐπάνω} forces the preceding action (\grk{προῆγεν}) to have been in
 progress up to the moment of stopping. A pluperfect reading is grammatically ruled out.
 This argument is reinforced by the imperfect aspect of \grk{προῆγεν} itself, which in Koine
-Greek marks ongoing, durative action---precisely what a planet at a stationary point, by
+Greek marks ongoing, durative action, precisely what a planet at a stationary point, by
 definition, is not exhibiting.
 
 \paragraph{Lexical reinterpretation: Voigt and the heliacal rising.}
 Heinrich Voigt (1911) proposed that the phrase \grk{ἐν τῇ ἀνατολῇ} in Matt~2:2 and 2:9
-should be translated not as ``in the east'' but as ``at its heliacal rising''---a specific
+should be translated not as ``in the east'' but as ``at its heliacal rising'', a specific
 technical astronomical event. Franz Boll (1917)\cite{boll1917}, then the leading authority
 on ancient Greek astronomical and astrological language, rejected this as na\"{i}ve. The
 actual term used by ancient Greek astronomers for a heliacal rising was \grk{ἐπιτολή}, not
 \grk{ἀνατολή}. The TLG corpus search underlying the present paper (§\,S3) confirms this:
-across 25 astronomical and astrological texts totalling approximately 622,000 words, \grk{ἀνατολή}
+across 24 astronomical and astrological texts totalling approximately 619,000 words, \grk{ἀνατολή}
 never functions as a technical designation for heliacal rising; it means simply ``east'' or
 generically ``a rising.'' Albert Schweitzer (1913) dismissed Voigt's astrological case in its
 entirety, and Boll declared the enterprise of finding astronomical terminology in Matthew
@@ -882,14 +937,14 @@ The most comprehensive recent attempt to read Matthew's vocabulary as technical 
 language is that of Michael Molnar\cite{molnar1999}, who proposed that the Star was a
 Jupiter--Moon occultation in Aries on 17 April 6~BCE, interpreted through Hellenistic
 horoscopic astrology. Molnar's linguistic claims require that several ordinary Greek words
-carry specialised astrological meanings.
+carry specialized astrological meanings.
 
 \textit{(a) \grk{ἀνατολή} as heliacal rising.} Molnar independently follows Voigt in this reading.
 As established by Boll (1917)\cite{boll1917} and confirmed by the TLG survey in §\,S3,
 the technical astrological and astronomical term for heliacal rising was \grk{ἐπιτολή}.
 Matthew uses \grk{ἀνατολή}, which belongs to ordinary non-technical Greek.
 The present paper's corpus analysis finds zero instances of \grk{ἀνατολή} functioning
-as a technical heliacal-rising term across the entire 25-text corpus.
+as a technical heliacal-rising term across the entire 24-text corpus.
 
 \textit{(b) \grk{ἐπάνω} (``over, above'') as a zodiacal direction.}  Molnar interprets
 \grk{ἐστάθη ἐπάνω} (``stood over'') as indicating a favorable zodiacal configuration
@@ -900,18 +955,26 @@ above another. It is not attested as a zodiacal directional indicator.
 
 \textit{(c) \grk{ἐστάθη} as a planetary stationary point.}  Molnar proposes that
 \grk{ἐστάθη} (aorist passive of \grk{ἵστημι}) encodes the technical concept of a planet
-reaching its synodic stationary point. This requires three independent failures to hold
-simultaneously: first, the relevant technical expression in Greek astronomical literature
-was not the verb \grk{ἵστημι} alone but the noun phrase \grk{στηριγμός} (station) with
-a copula, or the participle \grk{στηριζόμενος}---forms the corpus survey in §\,S3 confirms
-Matthew does not use; second, the \grk{ἕως} construction (§\,S2.2) marks \grk{ἐστάθη}
+reaching its synodic stationary point. Greek astronomical writers do use \grk{ἵστημι}
+of a planet ceasing its motion. Geminus (\textit{Elem.\ astr.}~1.20) glosses planets
+``standing still'' (\grk{ἑστηκέναι}) as what ``they call \grk{στηριγμούς}''; Theon of
+Smyrna (p.\,148) defines \grk{στηριγμός} as the appearance of a planet \emph{standing}
+(\grk{ἑστῶτος}) and remaining beside one of the fixed stars; Paul of Alexandria (p.\,31)
+derives \grk{στηριγμός} from the stars \emph{standing still} (\grk{ἑστάναι}); and
+Hipparchus (\textit{Frag.\ geogr.}~7) glosses \grk{μοναί} as \grk{ἵστασθαι}. The verb
+was available for the sense Molnar requires.
+
+What the corpus withholds is not the verb but its complement. In all 121 in-corpus
+occurrences of \grk{ἵστημι}, what a celestial body stands in, on, or above is a zodiacal
+sign, a degree, an aspect, a chart angle, or a fixed star. It is never a house, a city,
+or a person. The Molnar reading therefore fails on two grounds. First, the \grk{ἕως}
+construction (§\,S2.2) marks \grk{ἐστάθη}
 as a punctual change of state from prior motion, which is not what a planetary station
-represents (a planet approaching its station is continuously decelerating over weeks,
-not moving and then stopping abruptly); third, a planetary station is a heliocentric
-phenomenon defined against the stellar background, whereas \grk{ἐστάθη ἐπάνω} in
-context describes a position fixed above a terrestrial location.
-The Molnar reading thus requires simultaneously wrong lexical, grammatical, and
-cosmological mappings.
+represents: a planet approaching its station decelerates continuously over weeks, rather
+than moving and then stopping abruptly. Second, a planetary station is a phenomenon
+defined against the stellar background, whereas \grk{ἐστάθη ἐπάνω} in
+context describes a position fixed above a terrestrial location. The reading requires a
+grammatical and a cosmological mapping that the sources do not support.
 
 \textit{(d) Astrological geography: Aries as Judea.}  Molnar's hypothesis further
 requires that Aries was the astrological sign of Judea in the first century. This is
@@ -925,28 +988,28 @@ to Judea, and that the diversity of ancient assignments makes any single identif
 highly uncertain.
 
 \paragraph{The philological verdict.}
-J.~Neville Birdsall (2002)\cite{birdsall2002}---a specialist in New Testament Greek and
+J.~Neville Birdsall (2002)\cite{birdsall2002}, a specialist in New Testament Greek and
 the textual transmission of the Greek New Testament, reviewing Molnar in the
-\textit{Journal of the History of Astronomy}---identified multiple errors in Molnar's
+\textit{Journal of the History of Astronomy}, identified multiple errors in Molnar's
 treatment of the Greek text that would not pass peer review in a philological context.
 These include misreadings of Greek morphology and the imposition of technical meanings
 onto vocabulary that ancient Greek sources consistently use in non-technical senses.
 Adair (2012)\cite{adair2012} catalogued further Greek errors across the Star-of-Bethlehem
 literature, including the proposal (in Teres 2002) that \grk{προάγω} in Matt~2:9 is in
-the ``aorist imperfect''---a tense that does not exist in Greek. The statistical corpus
+the ``aorist imperfect'', a tense that does not exist in Greek. The statistical corpus
 analysis in §\,S3 of this SI provides the systematic, quantitative complement to these
-individual philological observations: across 25 ancient Greek astronomical and astrological
-texts, Matthew's four key terms---\grk{προάγω}, \grk{ἵστημι}, \grk{ἐπάνω}, and the verbal
-idea of celestial arrival for a specific person---are absent from astronomical usage at
-rates yielding a joint Bayes factor of ${\approx}6{,}012$ in favor of the legendary
+individual philological observations: across 24 ancient Greek astronomical and astrological
+texts, Matthew's four key terms (\grk{προάγω}, \grk{ἵστημι}, \grk{ἐπάνω}, and the verbal
+idea of celestial arrival for a specific person) are absent from astronomical usage at
+rates yielding a joint Bayes factor of ${\approx}3.0\times10^{6}$ in favor of the legendary
 narrative register over the astronomical register. The ancient Greek writers who knew
 this vocabulary best never used it to describe what planets, comets, or stars do in the
 sky.
 
 
-%%%%  ─────────────────────────────────────────────────────────────────────
+%%%%  ------------------------------------------------------------------, 
 \section{Corpus linguistics: detailed methods}
-%%%%  ─────────────────────────────────────────────────────────────────────
+%%%%  , ------------------------------------------------------------------
 
 \subsection{Corpus construction and genre classification}
 
@@ -959,7 +1022,7 @@ genre classes were distinguished:
 \begin{enumerate}
   \item \textit{Mathematical astronomy}: texts whose primary purpose is
     geometric or predictive description of celestial positions and
-    motions—Ptolemy \textit{Almagest} and \textit{Planetary Hypotheses},
+    motions: Ptolemy \textit{Almagest} and \textit{Planetary Hypotheses},
     Hipparchus \textit{Commentary on Aratus and Eudoxus}, Geminus
     \textit{Isagoge}, Autolycus \textit{On the Moving Sphere} and \textit{On
     Risings and Settings}, Theodosius \textit{Sphaerics} and \textit{On Days
@@ -967,7 +1030,7 @@ genre classes were distinguished:
     \textit{Caelestia}, Hypsicles \textit{Anaphorikos}.
 
   \item \textit{Astrological application}: texts that describe celestial
-    phenomena in relation to human destinies—Ptolemy \textit{Tetrabiblos},
+    phenomena in relation to human destinies: Ptolemy \textit{Tetrabiblos},
     Vettius Valens \textit{Anthologies}, Hephaestion \textit{Apotelesmatika},
     Dorotheus \textit{Carmen Astrologicum} (Greek fragments),
     Pseudo-Manetho \textit{Apotelesmatica}, Paul of Alexandria
@@ -977,7 +1040,7 @@ genre classes were distinguished:
     so rules out a genre-based explanation of the statistical finding.
 
   \item \textit{Didactic and popularizing}: texts accessible to
-    non-specialist ancient readers—Aratus \textit{Phaenomena}, Eratosthenes
+    non-specialist ancient readers: Aratus \textit{Phaenomena}, Eratosthenes
     \textit{Catasterismi}, Achilles Tatius \textit{Isagoge to Aratus},
     Theon of Smyrna \textit{Mathematics Useful for Reading Plato},
     Aristotle \textit{Meteorologica}, Theophrastus \textit{De signis}.
@@ -1017,18 +1080,17 @@ Paul of Alex. & \textit{Eisagoge}                           & \textsc{iv} ce  & 
 Hephaestion      & \textit{Apotelesmatika}                     & \textsc{iv} ce  &  43,000 & Astrol. \\
 Aristotle        & \textit{Meteorologica}                      & \textsc{iv} bce &  42,000 & Didactic \\
 Theophrastus     & \textit{De signis}                          & \textsc{iv} bce &   7,000 & Didactic \\
-Theon of Smyrna  & \textit{On Habitations} (Theodosius)        & \textsc{ii} bce &   2,800 & Math.~astr. \\
-Hypsicles        & \textit{Anaphorikos} (2nd copy)             & \textsc{ii} bce &   3,500 & Math.~astr. \\
+Theodosius       & \textit{On Habitations} (Περὶ οἰκήσεων)    & \textsc{ii} bce &   2,800 & Math.~astr. \\
 \midrule
-\multicolumn{3}{l}{\textbf{Total}} & \textbf{$\approx$622,000} & \\
+\multicolumn{3}{l}{\textbf{Total (24 texts)}} & \textbf{$\approx$619,000} & \\
 \bottomrule
 \end{tabular}
 \smallskip\par
 {\small Word counts are approximate figures from TLG canon statistics and
 published critical editions. Exact counts depend on the edition and TLG
 version consulted and should be verified at the time of search. The
-qualitative conclusion—that Matthew's four vocabulary features are absent
-from or statistically marginal in the corpus—is independently documented
+qualitative conclusion, that Matthew's four vocabulary features are absent
+from or statistically marginal in the corpus, is independently documented
 in prior philological scholarship and is not contingent on precise
 word counts.}
 \end{table}
@@ -1036,8 +1098,9 @@ word counts.}
 \subsection{Search and classification methodology}
 
 For each of the four lexical features (A--D; all words present in Matt~2:9),
-TLG morphological search was used to retrieve all inflected forms of the target
-lemma across the corpus. Feature~E (\grk{ὁδηγέω}/\grk{ἡγέομαι}) was removed
+the corpus was searched by exact wordform over the full paradigm of the target
+lemma, one form at a time, with diacritic-sensitive matching and full results
+paging. Feature~E (\grk{ὁδηγέω}/\grk{ἡγέομαι}) was removed
 from the analysis because neither verb appears in Matthew's star-motion passage;
 testing words absent from the text under scrutiny is a category error.
 Occurrences were then classified by two independent criteria:
@@ -1045,14 +1108,15 @@ Occurrences were then classified by two independent criteria:
   \item \textit{Syntactic}: is the grammatical subject of the verb (or
     modified noun) a celestial body?
   \item \textit{Semantic}: does the usage match the specific sense found in
-    Matthew~2:9 (spatial guidance of human travellers; spatial arrival of a
+    Matthew~2:9 (spatial guidance of human travelers; spatial arrival of a
     star at a terrestrial point; locating a celestial body above a specific
     terrestrial address)?
 \end{enumerate}
 Occurrences in grammatical or metalinguistic passages (e.g., Dionysius
 Thrax) were excluded. Classification was performed by the author against
 the explicit decision criteria documented in each feature definition above.
-All passages retrieved by TLG lemma search were individually read in context;
+All passages retrieved by the wordform searches were individually read in
+context;
 every classification decision and its rationale are recorded at the passage
 level in Table~\ref{tab:tlg_hits} below, allowing independent verification by
 any reader with TLG access.
@@ -1060,19 +1124,36 @@ any reader with TLG access.
 The following verbal and prepositional lemmas were searched:
 
 \begin{itemize}
-  \item Feature A: \grk{προάγω}—all inflected forms; classified for
-    spatial/narrative guidance of a person toward a destination versus
-    purely positional/temporal antecedence.
-  \item Feature B: \grk{ἵστημι} and \grk{στηρίζω}—all inflected forms
-    with celestial subjects; classified for stationary-point technical usage
-    versus other senses.
-  \item Feature C: \grk{ἐπάνω} and \grk{ὑπὲρ}—all positional prepositional
+  \item Feature A: \grk{προάγω}: all inflected forms searched individually
+    as exact wordforms; classified for spatial/narrative guidance of a
+    person toward a destination versus purely positional/temporal
+    antecedence.
+  \item Feature B: \grk{ἵστημι}: every inflected form searched
+    individually as an exact wordform (164 forms of the paradigm tested,
+    69 attested); classified for location of a celestial body above a
+    named terrestrial point versus all other senses.
+  \item Feature C: \grk{ἐπάνω} and \grk{ὑπὲρ}: all positional prepositional
     uses with celestial bodies; classified for locating a celestial body
     above a specific terrestrial point versus more general above-usage.
-  \item Feature D: \grk{ἔρχομαι/ἐλθεῖν}—all inflected forms with
-    celestial subjects; classified for arrival at a terrestrial geographic
-    point versus other spatial or temporal senses.
+    \grk{Ἐπάνω} is indeclinable, so a single exact search retrieves it.
+  \item Feature D: \grk{ἔρχομαι}: every inflected form of all four
+    suppletive stems (\grk{ἐρχ-}, \grk{ἐλευσ-}, \grk{ἐλθ-/ἠλθ-},
+    \grk{ἐληλυθ-}) searched individually as exact wordforms (171 forms
+    tested, 61 attested); classified for arrival at a terrestrial
+    geographic point versus other spatial or temporal senses.
 \end{itemize}
+
+\noindent Every feature is searched by exact wordform, one inflected form at a
+time, with \textsf{Exact Match} and \textsf{Diacritics sensitive} both enabled
+and results-per-page set above the largest expected hit count. Forms are
+enumerated from a printed paradigm rather than generated by the interface: the
+TLG ``Lemma'' mode matches wordforms that begin with the headword string, so a
+query on \grk{λέγω} returns \grk{λέγων} and \grk{λέγωσι} but not \grk{λέγει} or
+\grk{ἔλεγεν}, and it is unsuitable for counting a lemma's occurrences. For
+authors represented in the corpus by a single work, hits are filtered by TLG
+work number (Aristotle \{0086.026\}, Theophrastus \{0093.008\}). The procedure
+is reproducible by any reader with TLG access, and the passage-level record in
+Table~S8 allows every classification to be checked independently.
 
 \noindent Feature E (\grk{ὁδηγέω} and \grk{ἡγέομαι}) was excluded from the
 statistical analysis because neither verb appears in Matthew's star-motion
@@ -1083,12 +1164,12 @@ error: the four retained features (A--D) test exclusively words Matthew
 \emph{does} employ for the Star's motion, giving a clean comparison with the
 corpus.
 
-%%%%  ─────────────────────────────────────────────────────────────────────
+%%%%  ---------------------------------------------------------------------
 \subsection{TLG hit-level citation record}
 \label{subsec:tlg_hits}
-%%%%  ─────────────────────────────────────────────────────────────────────
+%%%%  ---------------------------------------------------------------------
 
-Table~\ref{tab:tlg_hits} records every passage retrieved by TLG lemma search
+Table~\ref{tab:tlg_hits} records every passage retrieved by the wordform searches
 for each of the four features. Authors returning zero hits for a feature are
 consolidated in a single row at the end of that section. The Matthew~2:9
 sense against which each hit is classified is stated in the section header.
@@ -1097,9 +1178,10 @@ indicate a match. No positive hit was found for any feature in any author.
 
 \begin{longtable}{@{}p{3.2cm}p{1.0cm}p{4.2cm}p{4.2cm}p{0.7cm}@{}}
 \caption{Complete TLG corpus hit record for features A--D
-  (TLG searches conducted 2026-05-10 via MIT library proxy).
+  (TLG searches conducted via MIT library proxy, 2026-09-04, by exact wordform
+  search over the full paradigm of each lemma.)
   \textit{Matthew sense:}
-  A~=~star guides travellers to a destination;
+  A~=~star guides travelers to a destination;
   B~=~celestial body stops above a specific terrestrial place;
   C~=~celestial body located \grk{ἐπάνω} a specific terrestrial point;
   D~=~celestial body arrives at a terrestrial location.
@@ -1120,12 +1202,12 @@ Author (TLG ID) & Count & Locus & Usage in context & Pos? \\
 \bottomrule
 \endlastfoot
 
-%%──────────────────────────────────────────────────────────────────────────
-\multicolumn{5}{@{}p{\linewidth}@{}}{\textbf{Feature A: \grk{προάγω} (lemma search).}
-  \textit{Matthew sense}: star actively leads/guides human travellers toward a
+%%--------------------------------------------------------------------------
+\multicolumn{5}{@{}p{\linewidth}@{}}{\textbf{Feature A: \grk{προάγω} (exact wordform search).}
+  \textit{Matthew sense}: star actively leads/guides human travelers toward a
   destination throughout a journey. All corpus uses are positional or temporal
   precedence in astrological ranking, not spatial narrative guidance.} \\[3pt]
-%%──────────────────────────────────────────────────────────────────────────
+%%--------------------------------------------------------------------------
 Ptolemy \{0363\} & 3 &
   \textit{Tetrab.}~4.3.4.4; 3.14.25.6; 4.4.4.8 &
   Noun cognates \grk{προαγωγαῖς}, \grk{προαγωγικούς}, \grk{προαγωγούς}:
@@ -1135,7 +1217,7 @@ Vettius Valens \{1764\} & 4 &
   \textit{Anthol.}~1.20.123; 1.3.107; 8.7.67;
   \textit{App.}~10.1.106 &
   Astrological positional precedence (one planet ``before'' another in
-  degree-order or timing); no human traveller, no destination. & Neg \\[3pt]
+  degree-order or timing); no human traveler, no destination. & Neg \\[3pt]
 Hephaestion \{2043\} & 3 &
   p.155~l.25; p.169~l.10 (\textit{Apot.}~1);
   p.214~l.5 (\textit{Apot.}~2) &
@@ -1151,59 +1233,109 @@ Cleomedes, Hipparchus, Geminus,
   Manetho, Paul of Alexandria,
   Aristotle (\textit{Meteor.}),
   Theophrastus (\textit{De signis}) & 0 each &
-  — & No instances of \grk{προάγω} or cognates in any of these corpus texts. & Neg \\[6pt]
+  --- & No instances of \grk{προάγω} or cognates in any of these corpus texts. & Neg \\[6pt]
 
-%%──────────────────────────────────────────────────────────────────────────
-\multicolumn{5}{@{}p{\linewidth}@{}}{\textbf{Feature B: \grk{στηρίζω} (lemma search; proxy for \grk{ἵστημι}).}
+%%--------------------------------------------------------------------------
+\multicolumn{5}{@{}p{\linewidth}@{}}{\textbf{Feature B: \grk{ἵστημι} (exact wordform search, full paradigm).}
   \textit{Matthew sense}: celestial body comes to rest above a specific
-  terrestrial location. \grk{Στηρίζω} is the standard Greek term for a
-  planetary \emph{stationary point} (apparent reversal in the zodiac),
-  which is zodiacal not terrestrial; all hits are negative by definition.
-  (\grk{Ἵστημι} lemma expansion fails in TLG due to the -\grk{μι} verb
-  morphological index; \grk{στηρίζω} gives a conservative lower bound.)} \\[3pt]
-%%──────────────────────────────────────────────────────────────────────────
-Ptolemy \{0363\} & 3 &
-  \textit{Alm.}~vol.1,2 p.463~l.11;
-  \textit{Hyp.\ plan.}~vol.2 p.173~l.15;
-  \textit{Tetrab.}~Bk\,2 ch.\,5~§2~l.5 &
-  Planet's first or second \emph{stationary point} (\grk{στηρίζει}) in its
-  zodiacal cycle (direct$\to$retrograde or retrograde$\to$direct turning
-  point); no terrestrial reference. & Neg \\[3pt]
-Hephaestion \{2043\} & 10 &
-  \textit{Apot.}~1: p.318~ll.5,9,12;
-  \textit{Apot.}~2: pp.58--59 ($\times$4),
-  p.109~l.5, p.304~l.15,
-  p.337~ll.18,22 &
-  All 10 hits: technical \grk{στηρίζω} for planetary stationary point
-  in the zodiac; no celestial body stops ``above'' a house or person. & Neg \\[3pt]
-Dorotheus \{1337\} & 4 &
-  \textit{Frag.\ Graeca}:
-  p.379~l.9; p.415~ll.15,19,21 &
-  Planetary stationary-point usage in natal or horary chart
-  interpretation; zodiacal, not terrestrial. & Neg \\[3pt]
-Vettius Valens, Cleomedes, Hipparchus,
-  Geminus, Autolycus, Theodosius,
-  Aristarchus, Hypsicles, Aratus,
-  Eratosthenes, Achilles Tatius,
-  Theon of Smyrna, Manetho,
-  Paul of Alexandria,
-  Aristotle (\textit{Meteor.}),
-  Theophrastus (\textit{De signis}) & 0 each &
-  — & No instances of \grk{στηρίζω} in any of these corpus texts. & Neg \\[6pt]
+  terrestrial location. Every one of the 121 in-corpus occurrences was read
+  in context and classified on the same criterion applied to the other three
+  features: does the passage locate a celestial body above a named
+  terrestrial point? All 121 are negative. Counts by author follow; the
+  passage-level record, with locations and sense assignments, is given in
+  Table~S8b.} \\[3pt]
+%%--------------------------------------------------------------------------
+Ptolemy \{0363\} & 30 &
+  \textit{Alm.}, \textit{Harm.}, \textit{Mus.},
+  \textit{Tetrab.}, \textit{Inscr.\ Canobi} &
+  Instruments set upright; the earth at rest; the ``fixed notes''
+  (\grk{φθόγγοι ἑστῶτες}) of the \textit{Harmonica}; planets standing in
+  aspect. No terrestrial reference. & Neg \\[3pt]
+Vettius Valens \{1764\} & 13 &
+  \textit{Anth.}~1.1, 2.17, 2.30, 2.32, 6.4, 6.9, 9.8;
+  \textit{Frag.} &
+  The zodiacal sign ``in which the Moon (or Sun, or Venus) stands''
+  (\grk{ἐφ᾽ οὗ ἕστηκεν}); setting the Moon upon a degree; the sea seeming
+  to stand. Complement always a sign or degree. & Neg \\[3pt]
+Dorotheus \{1337\} & 11 &
+  \textit{Frag.\ Graeca}: pp.\,325, 336, 339, 341, 345, 350, 364, 372, 389 &
+  Planets standing in good or foreign chart places (\grk{τόποι}); casting
+  the horoskopos. Zodiacal, not terrestrial. & Neg \\[3pt]
+Hephaestion \{2043\} & 11 &
+  \textit{Apot.}~1: pp.\,39, 90, 118, 181, 188, 198, 227, 273;
+  \textit{Apot.}~2: pp.\,80, 81 &
+  Lords standing well in chart places; setting the angles; Mars set square
+  or diametric to the luminaries. & Neg \\[3pt]
+Achilles Tatius \{2133\} & 10 &
+  \textit{Isagoga}~§§4, 9, 19, 29 &
+  Whether the earth and the cosmos stand still; the Moon standing between
+  earth and sun in eclipse; a person's shadow. & Neg \\[3pt]
+Cleomedes \{1272\} & 8 &
+  \textit{Caelestia}~1.1; 2.1, 2.5, 2.6 &
+  The earth at rest; observers standing on the earth; the sun
+  \grk{στῇ} at exact noon while Syene lies \emph{under Cancer}
+  (2.1.271, the nearest approach in the corpus, and still not a
+  celestial body standing above a named place: Syene is tied to Cancer by
+  \grk{κεῖται}, not to the sun by \grk{ἵστημι}). & Neg \\[3pt]
+Theon of Smyrna \{1724\} & 6 &
+  \textit{De util.\ math.}~pp.\,122, 132, 139, 148, 151, 191 &
+  The definition of \grk{στηριγμός} (p.\,148); a planet seeming to stand
+  and go backwards (p.\,191); the zodiac standing \grk{ὑπὲρ ἡμᾶς}
+  (p.\,132); a person standing on a shore. & Neg \\[3pt]
+Manetho \{2583\} & 6 &
+  \textit{Apot.}~1.344; 2.25, 2.107; 3.245; 6.31, 6.287 &
+  Planets standing in aspect or \grk{ὑπὲρ κέντρου μεσάτοιο} (above the
+  chart's midmost angle); the poles standing unmoved. & Neg \\[3pt]
+Eratosthenes \{0222\} & 6 &
+  \textit{Catast.}~1.4, 1.6D, 1.10, 1.11, 1.26, 1.28 &
+  Constellation figures standing (Heracles, Aquarius, Sagittarius); Zeus
+  setting the Twins among the stars. & Neg \\[3pt]
+Theodosius \{1719\} & 4 &
+  \textit{Sphaerica}~1.7; \textit{De habitationibus}~§3 &
+  The zodiac circle standing upright; a straight line set upon a straight
+  line (Euclidean perpendicular). Geometric. & Neg \\[3pt]
+Paul of Alexandria \{2053\} & 4 &
+  \textit{Elem.\ apot.}~pp.\,31 ($\times$2), 75, 76 &
+  Derives \grk{στηριγμός} from the stars \emph{standing still}
+  (\grk{ἑστάναι}); planets standing upon chart places. & Neg \\[3pt]
+Aratus \{0653\} & 4 &
+  \textit{Phaen.}~306, 610, 865 &
+  Scorpius standing before Sagittarius; Argo standing aloft; the Moon
+  standing between earth and sun. Celestial positions only. & Neg \\[3pt]
+Hipparchus \{1431\} & 3 &
+  \textit{In Arat.}~1.7.1, 2.2.42; \textit{Frag.\ geogr.}~7 &
+  Quotations of Aratus; \grk{μοναί} (stations) glossed as
+  \grk{ἵστασθαι}. & Neg \\[3pt]
+Geminus \{1383\} & 2 &
+  \textit{Elem.\ astr.}~1.20; 17.9 &
+  Planets ``standing still'' (\grk{ἑστηκέναι}), which ``they call
+  \grk{στηριγμούς}''; fixed signs marking weather changes. & Neg \\[3pt]
+Aristotle (\textit{Meteor.}) \{0086.026\} & 2 &
+  Bekker 374b\,4; 376b\,27 &
+  A person standing outside as the rainbow appears; the rainbow standing
+  where the sun is most overcome. & Neg \\[3pt]
+Theophrastus (\textit{De signis}) \{0093.008\} & 1 &
+  §12~l.56 &
+  Snakes standing and quivering. Non-celestial. & Neg \\[3pt]
+Aristarchus, Autolycus,
+  Hypsicles & 0 each &
+  --- & No instances of \grk{ἵστημι} in any of these corpus texts. & Neg \\[6pt]
 
-%%──────────────────────────────────────────────────────────────────────────
-\multicolumn{5}{@{}p{\linewidth}@{}}{\textbf{Feature C: \grk{ἐπάνω} (lemma search).}
+%%--------------------------------------------------------------------------
+\multicolumn{5}{@{}p{\linewidth}@{}}{\textbf{Feature C: \grk{ἐπάνω} (exact wordform search; the word is indeclinable).}
   \textit{Matthew sense}: celestial body localized \grk{ἐπάνω} (``above/over'')
   a specific named terrestrial point (building, person, city).
   Contrast with standard astronomical usage: \grk{ὑπὲρ} for a body
-  above the horizon or another body. All 29 corpus hits use geometric or
+  above the horizon or another body. All 40 corpus hits use geometric or
   astrological ``above'' without terrestrial address.} \\[3pt]
-%%──────────────────────────────────────────────────────────────────────────
-Ptolemy \{0363\} & 10 &
+%%--------------------------------------------------------------------------
+Ptolemy \{0363\} & 14 &
   \textit{Alm.}~vol.1,1 p.475~l.3;
-  vol.1,2 pp.40--44 ($\times$4),
-  pp.62--65 ($\times$2),
-  pp.152--153, pp.267--268 &
+  vol.1,2 pp.40--41, 44--45 ($\times$2),
+  62--63, 64--65, 152--153, 267, 268,
+  289, 495, 578;
+  \textit{Tetrab.}~3.4.5.7;
+  \textit{Harm.}~3.2.23 &
   Geometric: ``above'' a construction line or reference arc in the
   \textit{Almagest} mathematical diagrams; no celestial body, no
   terrestrial address. & Neg \\[3pt]
@@ -1236,49 +1368,101 @@ Dorotheus \{1337\} & 1 &
 Manetho \{2583\} & 1 &
   \textit{Apoteles.}~Bk\,5~l.169 &
   Astrological: planet above a sign or degree. & Neg \\[3pt]
-Aristotle \{0086\} & 0 in corpus &
-  (10 hits author-wide, none in
-  \textit{Meteor.}) &
-  All Aristotle \grk{ἐπάνω} hits are in works 001, 005, 006, 012,
-  014 (not \textit{Meteorologica}); 0 in-corpus hits. & Neg \\[3pt]
+Theon of Smyrna \{1724\} & 4 &
+  \textit{De util.\ math.}~pp.\,34~l.9, 75~l.8,
+  148~l.9, 201~l.11 &
+  Geometric and arithmetical ``above'' in the exposition of ratios and
+  planetary order; no terrestrial address. & Neg \\[3pt]
+Aristotle (\textit{Meteor.}) \{0086.026\} & 3 &
+  Bekker 375b\,28; 377a\,4; 377a\,6 &
+  Geometric ``above'' in the analysis of the rainbow and halo; no
+  celestial body localized above a place. & Neg \\[3pt]
 Theophrastus \{0093\} & 0 in corpus &
-  (10 hits author-wide, none in
+  (13 hits author-wide, none in
   \textit{De signis}) &
-  All Theophrastus hits are in works 002, 004, 005, 010, 014, 017
-  (not \textit{De signis}); 0 in-corpus hits. & Neg \\[3pt]
+  All Theophrastus \grk{ἐπάνω} hits are in works 002, 004, 005, 010, 014,
+  017 (not \textit{De signis}); 0 in-corpus hits. & Neg \\[3pt]
 Cleomedes, Hipparchus, Geminus,
   Autolycus, Aristarchus,
   Hypsicles, Aratus, Eratosthenes,
-  Theon of Smyrna,
   Paul of Alexandria & 0 each &
-  — & No instances of \grk{ἐπάνω} in any of these corpus texts. & Neg \\[6pt]
+  --- & No instances of \grk{ἐπάνω} in any of these corpus texts. & Neg \\[6pt]
 
-%%──────────────────────────────────────────────────────────────────────────
-\multicolumn{5}{@{}p{\linewidth}@{}}{\textbf{Feature D: \grk{ἔρχομαι} (lemma search).}
+%%--------------------------------------------------------------------------
+\multicolumn{5}{@{}p{\linewidth}@{}}{\textbf{Feature D: \grk{ἔρχομαι} (exact wordform search, all four suppletive stems).}
   \textit{Matthew sense}: a celestial body arrives at a specific terrestrial
-  location (a house, a person's location). All corpus hits use the verb for
-  a planet ``coming to'' a zodiacal degree, sign, or angular aspect---purely
-  positional events in the zodiac, not terrestrial addresses.} \\[3pt]
-%%──────────────────────────────────────────────────────────────────────────
-Vettius Valens \{1764\} & 6 &
-  \textit{Anthol.}~5.7.86; 5.7.89;
-  8.5.65; 8.7.8; 8.7.26; 8.7.32 &
-  Planet ``comes to'' (\grk{ἐλθών}) a zodiacal degree, sign, or aspect
-  in natal or transit interpretation; the destination is a zodiacal
-  locus, not a terrestrial address. & Neg \\[3pt]
-Hephaestion \{2043\} & 1 &
-  \textit{Apot.}~1: p.124~l.17 &
-  Same usage: celestial body's arrival at a zodiacal position. & Neg \\[3pt]
-Ptolemy, Cleomedes, Hipparchus,
-  Geminus, Autolycus, Theodosius,
-  Aristarchus, Hypsicles, Aratus,
-  Eratosthenes, Achilles Tatius,
-  Theon of Smyrna, Dorotheus,
-  Manetho, Paul of Alexandria,
-  Aristotle (\textit{Meteor.}),
-  Theophrastus (\textit{De signis}) & 0 each &
-  — & No instances of \grk{ἔρχομαι} with celestial subjects in any
-  of these corpus texts. & Neg \\[3pt]
+  location (a house, a person's location). \grk{Ἔρχομαι} is suppletive; the
+  stems \grk{ἐρχ-}, \grk{ἐλευσ-}, \grk{ἐλθ-/ἠλθ-} and \grk{ἐληλυθ-} were
+  searched separately (171 forms tested, 61 attested), including the aorist
+  that supplies Matthew's own \grk{ἐλθών}. Of the 356 in-corpus occurrences,
+  103 have a celestial subject. The construction is standard and frequent
+  (\grk{ὁ Ἄρης ἐπὶ τὸν Ἥλιον ἐλθών}, ``Mars coming upon the Sun'';
+  \grk{ὁ Ζεὺς ἐλθὼν εἰς τὸν ὡροσκόπον}, ``Jupiter coming into the
+  horoskopos''), but the destination is invariably another body or a point
+  in the chart. Tabulating the objects governed by
+  \grk{ἐπί}/\grk{εἰς}/\grk{πρός} across those 103 passages yields
+  \grk{ὡροσκόπον}, \grk{Δία}, \grk{Ἥλιον}, \grk{Κρόνον}, \grk{ζῴδιον},
+  \grk{μοῖραν}, \grk{κέντρα}, \grk{μεσουράνημα}, \grk{ὑπόγειον},
+  \grk{τόπους}, \grk{διάμετρον}, \grk{τετράγωνα}, and no terrestrial place
+  whatever.} \\[3pt]
+%%--------------------------------------------------------------------------
+Vettius Valens \{1764\} & 98 &
+  \textit{Anthol.}~and \textit{Frag.}, passim &
+  Planet ``comes to'' (\grk{ἐλθών}) another planet, the horoskopos, a
+  degree, sign or aspect; the destination is a zodiacal or chart locus,
+  never a terrestrial address. & Neg \\[3pt]
+Hephaestion \{2043\} & 65 &
+  \textit{Apot.}~1 and \textit{Apot.}~2, passim &
+  Same usage throughout. & Neg \\[3pt]
+Dorotheus \{1337\} & 42 &
+  \textit{Frag.\ Graeca}, passim &
+  Same usage; e.g.\ p.\,379~l.22 \grk{ὁ Ἄρης ἐπὶ τὸν Ἥλιον ἐλθών}. & Neg \\[3pt]
+Ptolemy \{0363\} & 28 &
+  \textit{Alm.}, \textit{Tetrab.}, \textit{Harm.} &
+  Arrival at a computed position, a season, or a stage of an argument;
+  no terrestrial destination for a celestial body. & Neg \\[3pt]
+Theodosius \{1719\} & 24 &
+  \textit{Sphaerica}, \textit{De hab.}, \textit{De diebus} &
+  Geometric: a point or arc ``arriving at'' another in a construction. & Neg \\[3pt]
+Manetho \{2583\} & 19 &
+  \textit{Apot.}, passim &
+  Planets arriving in aspect or sign. & Neg \\[3pt]
+Aratus \{0653\} & 18 &
+  \textit{Phaen.}, passim &
+  Risings and settings; constellations coming round in the annual cycle. & Neg \\[3pt]
+Aristotle (\textit{Meteor.}) \{0086.026\} & 15 &
+  Bekker, passim &
+  Meteorological and argumentative senses; no celestial body at a place. & Neg \\[3pt]
+Theon of Smyrna \{1724\} & 14 &
+  \textit{De util.\ math.}, passim &
+  Includes p.\,154~l.6, the sole passage in the corpus contemplating a
+  celestial body arriving at the earth, and it is a \emph{reductio}:
+  were the solar circle to pass through that point, ``the sun itself would
+  come to the earth'', which the author calls \grk{ἀμήχανον}, impossible. & Neg \\[3pt]
+Eratosthenes \{0222\} & 14 &
+  \textit{Catast.}, passim &
+  Mythological narrative of the catasterism, and stars rising. & Neg \\[3pt]
+Autolycus \{1210\} & 6 &
+  \textit{De sphaera}, \textit{De ortibus} &
+  Geometric arrival of a point on a circle. & Neg \\[3pt]
+Hipparchus \{1431\} & 5 &
+  \textit{In Arat.} &
+  Commentary on risings; no terrestrial destination. & Neg \\[3pt]
+Cleomedes \{1272\} & 3 &
+  \textit{Caelestia} &
+  Light and observers; no celestial body at a named place. & Neg \\[3pt]
+Theophrastus (\textit{De signis}) \{0093.008\} & 3 &
+  §§\,passim &
+  Weather signs; non-celestial subjects. & Neg \\[3pt]
+Geminus \{1383\} & 1 &
+  \textit{Elem.\ astr.} &
+  Positional arrival in the zodiac. & Neg \\[3pt]
+Achilles Tatius \{2133\} & 1 &
+  \textit{Isagoga} &
+  Cosmographic exposition. & Neg \\[3pt]
+Aristarchus, Hypsicles,
+  Paul of Alexandria & 0 each &
+  --- & No instances of \grk{ἔρχομαι} in any of these corpus texts. & Neg \\[3pt]
 
 \end{longtable}
 
@@ -1289,8 +1473,8 @@ The four genre-register features A--D can be operationalized at two levels:
 \emph{lexically} (does a specific Greek form appear with a celestial subject
 in the specified semantic role?) and \emph{thematically} (does the underlying
 narrative event occur in the text, regardless of lexical choice?). These two
-operationalizations are correlated by definition—vocabulary and theme
-co-vary within genre—and are therefore not treated as independent Bayes
+operationalizations are correlated by definition (vocabulary and theme
+co-vary within genre) and are therefore not treated as independent Bayes
 factors. Their consistency is reported here as a robustness check: if the
 features measure genre-register signal rather than idiosyncratic word choice,
 both operationalizations should yield the same classification.
@@ -1310,8 +1494,8 @@ applying the thematic criterion to both corpora.
       Astron.\ corpus & Guiding-star trad. \\
     \midrule
     A & \grk{προάγω} with celestial subject in narrative guidance of
-        human travellers toward a destination &
-      Celestial body actively directs human travellers toward a specific
+        human travelers toward a destination &
+      Celestial body actively directs human travelers toward a specific
         destination &
       0 (positional and temporal \emph{precedence} only) &
       4\,/\,4 traditions \\[4pt]
@@ -1346,14 +1530,14 @@ applying the thematic criterion to both corpora.
   preferred vocabulary. The guiding-star traditions score identically at the
   thematic level as at the lexical level because those traditions were scored
   by narrative function from the outset. The Bayes factor derived from the
-  lexical analysis (BF~$\approx 6{,}012$) therefore also characterizes the
+  lexical analysis (BF~$\approx 3.0\times10^{6}$) therefore also characterizes the
   thematic evidence: the two analyses are measuring the same genre-register
   signal at different levels of abstraction.}
 \end{table}
 
 \paragraph{Thematic assessment of the astronomical corpus.}
 
-\textit{Feature A (guidance of travellers).}
+\textit{Feature A (guidance of travelers).}
 The verb \grk{προάγω} and its cognates appear in the astronomical corpus
 in two senses: temporal antecedence (``the epicycle \emph{precedes} the
 deferent'') and positional antecedence in longitude (``Mars \emph{precedes}
@@ -1362,7 +1546,7 @@ geometric or positional relationship to another celestial quantity; no text
 describes a star directing human agents toward a terrestrial destination.
 Astrological texts introduce human destinies as the \emph{consequences} of
 planetary configurations but never as guided by a moving star. The narrative
-function—a celestial body leading travellers step by step toward a goal—is
+function, a celestial body leading travelers step by step toward a goal, is
 absent at every level of description.
 
 \textit{Feature B (stopping above a location).}
@@ -1371,21 +1555,33 @@ Mathematical astronomy describes planetary stationary points
 fixed stars) as geometric events in the zodiac: a planet computed to have
 zero velocity in a given zodiacal longitude. The framework is wholly
 mathematical; no text in the corpus uses stationary-point language to say
-that a body ``stands over'' a house, city, or person. When the verb
-\grk{ἵστημι} appears at all with a celestial subject (four instances in the
-corpus), it marks a different sense—the moment of computed position or of
-fixed configuration—not the cessation of motion above a terrestrial point.
+that a body ``stands over'' a house, city, or person.
+
+Matthew's own verb, \grk{ἵστημι}, occurs 121 times in the corpus, and none
+of the 121 carries the Matthean sense. The distribution of senses is
+instructive: a planet or luminary standing \emph{in} a zodiacal sign, degree
+or chart place (roughly 45 occurrences); the ``fixed notes''
+(\grk{φθόγγοι ἑστῶτες}) of Ptolemy's \textit{Harmonica} (about 20); the
+earth, cosmos or sea at rest, and eclipse geometry (about 15); constellation
+figures standing: Heracles, Aquarius, Sagittarius, Virgo (about 8);
+instruments set upright and geometric lines set upon lines (about 10);
+persons standing (about 10); the transitive casting of a chart, ``to set the
+horoskopos'' or ``the angles'' (about 8); and the planetary station itself
+(about 5). In every case the complement of the standing is celestial or
+geometric (a sign, a degree, an aspect, a chart angle, a fixed star) and
+in no case is it a named place on the ground. Matthew's own form
+\grk{ἐστάθη} does not occur in the corpus at all.
 
 The temporal particle \grk{ἕως} (``until'') in Matthew~2:9 further confirms
 that \grk{ἐστάθη} denotes a \emph{change of state}, not a prior static
-condition. The clause structure---``the Star was going before them
+condition. The clause structure, ``the Star was going before them
 [\grk{προῆγεν}] \emph{until} [\grk{ἕως}] it stood [\grk{ἐστάθη}] over the
-house''---makes \grk{ἐστάθη} the temporal limit of the guidance action: the
+house'', makes \grk{ἐστάθη} the temporal limit of the guidance action: the
 guiding motion ceased precisely when the standing began. In Koine Greek,
 \grk{ἕως} governing an aorist indicative (\grk{ἕως ἐλθὼν ἐστάθη}) marks the
 boundary at which the foregoing action terminated; a reading of the Star as
-\emph{already} stationary throughout---making \grk{ἐστάθη} merely descriptive
-of a pre-existing condition---is excluded by this boundary particle. The
+\emph{already} stationary throughout, making \grk{ἐστάθη} merely descriptive
+of a pre-existing condition, is excluded by this boundary particle. The
 astronomical stationary-point reading (a planet at zero longitudinal velocity
 for a brief computed instant) is also grammatically incompatible with the
 imperfect \grk{προῆγεν} (continuous ongoing guidance), which requires a
@@ -1403,11 +1599,51 @@ city, or named person in the sense of \grk{ἐπάνω οὗ ἦν τὸ παι�
 thoroughly as it is lexically.
 
 \textit{Feature D (arrival at a terrestrial point).}
-Arrival language in the corpus marks celestial bodies reaching zodiacal
-positions, ingressing into signs, or completing synodic cycles. The
-referent of arrival is always a celestial coordinate; terrestrial arrival
-(a star \emph{coming to} a specific house or person on the ground) is
-absent from all 25 texts.
+Arrival language in the corpus is abundant. \grk{Ἔρχομαι} occurs 356 times,
+103 of them with a celestial subject, and the construction Matthew uses (a
+body arriving somewhere, expressed with \grk{ἐπί}, \grk{εἰς} or \grk{πρός}) is
+the ordinary idiom of the astrological writers: \grk{ὁ Ἄρης ἐπὶ τὸν Ἥλιον
+ἐλθών}, ``Mars coming upon the Sun'' (Dorotheus p.\,379~l.22); \grk{ὁ Ζεὺς
+ἐλθὼν εἰς τὸν ὡροσκόπον}, ``Jupiter coming into the horoskopos'' (Vettius
+Valens \textit{Frag.}~vol.\,8,1 p.\,165~l.5). The feature is therefore not
+absent for want of the verb or of the construction.
+
+What the 103 celestial-subject passages never supply is a terrestrial
+destination. Tabulating every object governed by \grk{ἐπί}, \grk{εἰς} or
+\grk{πρός} in those passages returns \grk{ὡροσκόπον}, \grk{Δία},
+\grk{Ἥλιον}, \grk{Κρόνον}, \grk{Ἀφροδίτην}, \grk{ζῴδιον}, \grk{μοῖραν},
+\grk{κέντρα}, \grk{μεσουράνημα}, \grk{ὑπόγειον}, \grk{τόπους},
+\grk{διάμετρον} and \grk{τετράγωνα}: other bodies, and points within the
+chart. Not one is a place on the ground.
+
+\paragraph{The single counter-case, and what it says.}
+
+Exactly one passage in the corpus puts a celestial body and the earth
+together as arrival and destination. Theon of Smyrna, discussing whether the
+solar circle could pass through a particular point of his construction,
+writes (\textit{De util.\ math.}~p.\,154~ll.\,5--7):
+
+\begin{quote}
+\grk{διὰ μὲν οὖν τοῦ θ τὸν ἡλιακὸν ἔρχεσθαι κύκλον, ἀμήχανον· καὶ γὰρ αὐτὸς
+ἂν ὁ ἥλιος ἐπὶ γῆν παρεγίνετο}
+
+``For the solar circle to travel through \grk{θ} is impossible; for then the
+sun itself would come to the earth.''
+\end{quote}
+
+The sentence is a \emph{reductio ad absurdum}. Theon raises the possibility
+of a celestial body arriving at the earth in order to reject it, and marks it
+\grk{ἀμήχανον}, not merely unattested but impossible. The consequent is put
+in the past contrafactual (\grk{ἂν \dots\ παρεγίνετο}), the standard Greek
+construction for an outcome that does not and cannot obtain.
+
+This is the strongest single datum in the corpus analysis. The claim under
+test is that Greek astronomical writers do not describe celestial bodies
+arriving at terrestrial locations. The corpus supplies 356 occurrences of the
+relevant verb without a single such description; and where one author does
+frame the notion explicitly, he frames it as an absurdity used to refute a
+geometric hypothesis. The absence is not a gap in the sample. It is a
+commitment of the discourse.
 
 \paragraph{Consistency with the lexical result.}
 
@@ -1416,7 +1652,7 @@ for both corpora, the features A--D are functioning as genre-register markers
 rather than as idiosyncratic vocabulary tests. A critic who argued that
 Matthew's use of \grk{προάγω} merely reflected an unusual but attested
 astronomical sense would still need to explain the thematic absence of
-guided-traveller narratives from the entire corpus; and a critic who argued
+guided-traveler narratives from the entire corpus; and a critic who argued
 that the guiding-star thematic comparison was too loose would still need to
 explain the lexical exclusion of Matthew's specific Greek forms from
 astronomical discourse. The two levels of evidence are mutually reinforcing
@@ -1442,36 +1678,42 @@ Corpus & $c$ & $d$ \\
 Because Matthew's star-motion passage comprises only $\approx\!90$ words,
 all Matthew-side cell counts are 0 or 1 ($b \in \{0,1\}$, $a = 1-b$).
 The individual Fisher exact probabilities are:
-$p_A = 0.100$, $p_B = 0.056$, $p_C = 0.033$, $p_D = 0.125$
-(TLG-verified lemma counts, 2026-05-10; see Table~S8).
+$p_A = 0.083$ ($N=11$), $p_B = 0.0082$ ($N=121$), $p_C = 0.024$ ($N=40$),
+$p_D = 0.0028$ ($N=356$)
+(TLG counts, 2026-09-04, by exact wordform search over the full paradigm of
+each lemma, with \textsf{Exact Match} and \textsf{Diacritics sensitive}
+enabled; see Table~S8.)
 The Fisher combined chi-squared statistic is
-$X = -2\sum_i \ln p_i = 21.35$ on $\mathrm{df}=8$, giving
-$p_\text{Fisher} \approx 6.3\times10^{-3}$.
-The product of individual probabilities—the correct joint data probability
-under independence, and the appropriate BF denominator—is
-$P(A,B,C,D \mid H_\text{astro}) = \prod_i p_i = 2.31\times10^{-5}$.
+$X = -2\sum_i \ln p_i = 33.76$ on $\mathrm{df}=8$, giving
+$p_\text{Fisher} \approx 4.5\times10^{-5}$.
+The product of individual probabilities (the correct joint data probability
+under independence, and the appropriate BF denominator) is
+$P(A,B,C,D \mid H_\text{astro}) = \prod_i p_i = 4.7\times10^{-8}$.
 
-No feature individually passes Bonferroni threshold $\alpha/4 = 0.013$,
-but the joint Fisher combined statistic is significant ($p = 6.3\times10^{-3}$)
-and all four features contribute under the joint test.
+Features~B and~D individually pass the Bonferroni threshold
+$\alpha/4 = 0.013$; Features~A and~C do not, and A remains at the floor value
+imposed by its corpus size ($1/12$, the smallest value that denominator
+admits). The joint Fisher combined statistic is significant
+($p = 4.5\times10^{-5}$) and all four features contribute under the joint
+test.
 
 \subsubsection*{Robustness to inter-feature correlation}
 
 The product formula $\prod p_i$ assumes independence of the four tests,
 which could be violated if certain text types tend to share multiple
-Matthew-like words simultaneously. To assess this, I modelled the joint
+Matthew-like words simultaneously. To assess this, I modeled the joint
 null distribution using a Gaussian copula with equicorrelation
 parameter $\rho$: four standard normal variables $(Z_1,\ldots,Z_4)$
 with correlation matrix $\Sigma_{ij} = \rho$ for $i\neq j$ were
 simulated, then converted to two-tailed $p$-values via
 $p_i = 2\Phi(-|Z_i|)$, and the Fisher combined statistic
-$X = -2\sum_i \ln p_i$ was computed. The observed value $X = 21.35$
+$X = -2\sum_i \ln p_i$ was computed. The observed value $X = 33.76$
 was compared against the simulated null distribution at each
 $\rho$ using $2\times10^6$ Monte Carlo draws.
 
-The corrected joint $p$ remains below $\alpha = 0.05$ up to
-$\rho \approx 0.77$ (Table~\ref{tab:copula}); at $\rho=0.5$ the corrected
-$p = 0.028$. Brown's variance-corrected chi-squared
+The corrected joint $p$ remains below $\alpha = 0.05$ across the entire
+tested range, to $\rho = 0.95$ (Table~\ref{tab:copula}); at $\rho=0.5$ the
+corrected $p = 0.0027$. Brown's variance-corrected chi-squared
 method\cite{brown1975} gave consistent results throughout.
 
 \begin{table}[h]
@@ -1483,15 +1725,15 @@ method\cite{brown1975} gave consistent results throughout.
 \toprule
 $\rho$ & Corrected $p$ (copula) & Brown's $p$ \\
 \midrule
-0.0  & $6.2\times10^{-3}$ & $6.3\times10^{-3}$ \\
-0.2  & $1.0\times10^{-2}$ & $8.7\times10^{-3}$ \\
-0.4  & $2.1\times10^{-2}$ & $1.7\times10^{-2}$ \\
-0.5  & $2.8\times10^{-2}$ & $2.4\times10^{-2}$ \\
-0.6  & $3.6\times10^{-2}$ & $3.2\times10^{-2}$ \\
-0.7  & $4.4\times10^{-2}$ & $4.1\times10^{-2}$ \\
-0.77 & ${\approx}0.050$ & — \\
-0.8  & $5.3\times10^{-2}$ & $5.1\times10^{-2}$ \\
-0.95 & $6.5\times10^{-2}$ & $6.5\times10^{-2}$ \\
+0.0  & $4.3\times10^{-5}$ & $4.5\times10^{-5}$ \\
+0.2  & $2.6\times10^{-4}$ & $9.8\times10^{-5}$ \\
+0.4  & $1.5\times10^{-3}$ & $5.0\times10^{-4}$ \\
+0.5  & $2.7\times10^{-3}$ & $1.1\times10^{-3}$ \\
+0.6  & $4.3\times10^{-3}$ & $2.3\times10^{-3}$ \\
+0.7  & $6.4\times10^{-3}$ & $4.2\times10^{-3}$ \\
+0.8  & $8.9\times10^{-3}$ & $6.9\times10^{-3}$ \\
+0.9  & $1.2\times10^{-2}$ & $1.0\times10^{-2}$ \\
+0.95 & $1.3\times10^{-2}$ & $1.2\times10^{-2}$ \\
 \bottomrule
 \end{tabular}
   \begin{tablenotes}
@@ -1500,7 +1742,10 @@ $\rho$ & Corrected $p$ (copula) & Brown's $p$ \\
     correlation among the four test statistics under $H_0$. A realistic upper
     bound for distinct lexical items across genre is $\rho \approx 0.5$;
     $\rho = 0.95$ would require near-identical distributional behavior for
-    all four grammatically distinct feature classes. 
+    all four grammatically distinct feature classes. The corrected $p$ remains
+    below $\alpha = 0.05$ throughout the tested range, including at
+    $\rho = 0.95$, so the conclusion does not depend on any judgement about
+    the plausible magnitude of $\rho$.
     Script: \texttt{corpus\_pvalue.py}.
   \end{tablenotes}
 % \footnotetext{Equicorrelation $\rho$ represents the average pairwise
@@ -1514,8 +1759,9 @@ $\rho$ & Corrected $p$ (copula) & Brown's $p$ \\
 
 Subset analysis (drop-one, $k=3$ features): every drop-one-feature subset
 remains jointly significant at $\alpha = 0.05$ under independence (weakest
-drop-one: $p = 0.024$, dropping Feature~C). The weakest three-feature subset
-yields $p = 0.067$ (dropping Features B and C together), which is not
+drop-one: $p = 0.0012$, dropping Feature~D). Every three-feature subset also
+remains significant; the weakest yields $p = 0.015$ (dropping Features B and D
+together), which is
 individually significant but reflects that B and C are the two most
 moderately-evidenced features; all other three-feature combinations give
 $p \leq 0.042$.
@@ -1585,7 +1831,7 @@ Tradition (constituent texts) & A & B & C & D \\
 \bottomrule
 \endlastfoot
 %%
-%% ── Primary corpus ────────────────────────────────────────────────────────
+%% -- Primary corpus --------------------------------------------------------
 \multicolumn{5}{@{}p{\linewidth}@{}}{\textit{Primary corpus: four independent guiding-star traditions ($N=4$)}} \\
 \midrule
 Virgil, \textit{Aeneid} 2.687--711
@@ -1599,7 +1845,7 @@ Virgil, \textit{Aeneid} 2.687--711
 Timoleon flame tradition
   & 1 & 1 & 0 & 1 \\
 \multicolumn{5}{@{}p{\linewidth}@{}}{\quad\footnotesize\textit{Plutarch,
-  \textit{Tim.}~8.7 + Diodorus 16.66.3—same event, common source.
+  \textit{Tim.}~8.7 + Diodorus 16.66.3: same event, common source.
   Plutarch: ``a light from heaven'' (\grk{φέγγος οὐράνιον}) runs with fleet (A),
   darts down on destination (B); Diodorus: light provided by the goddesses (A, D).
   Fleet arrives in Sicily (D).}}\\[2pt]
@@ -1609,7 +1855,7 @@ Lucian, \textit{Navigium} 7; 9
   are explicit that the guide is a star (\grk{ἀστήρ}); \textit{Nav.}~7 calls
   it a saviour star and~\textit{Nav.}~9 describes its motions.
   Star first stands over (\grk{ἐπικαθίσαι}) the masthead (\grk{τῷ καρχησίῳ})
-  —the prefix \grk{ἐπι-} is the same root as Matthew's \grk{ἐπάνω}
+  (the prefix \grk{ἐπι-} is the same root as Matthew's \grk{ἐπάνω}
   (\grk{ἐπί}~+~\grk{ἄνω}), and JosAsen manuscripts alternate \grk{ἐπί} and
   \grk{ἐπάνω} for the same angelic localization scene, confirming they are
   stylistic variants (C=1). Sequence: standing over $\to$ guiding (reverse of
@@ -1618,7 +1864,7 @@ Lucian, \textit{Navigium} 7; 9
 Israelite pillar-of-fire tradition
   & 1 & 0 & 1 & 0 \\
 \multicolumn{5}{@{}p{\linewidth}@{}}{\quad\footnotesize\textit{LXX Exodus 13.21
-  + Numbers 14.14—same convention. Pillar goes before (\grk{προπορεύεσθαι});
+  + Numbers 14.14: same convention. Pillar goes before (\grk{προπορεύεσθαι});
   ongoing guidance only, no discrete stop or arrival.
   \textbf{C=1:} the cloud/pillar stands over (\grk{ἐπί}) the Tabernacle in three
   explicit passages using the same preposition as Matthew's \grk{ἐπάνω}: Exod~40.38
@@ -1634,7 +1880,7 @@ Israelite pillar-of-fire tradition
   literature and confirming it belongs to the divinely-sent luminous
   guide category rather than a purely fire-omen category.}}\\[4pt]
 %%
-%% ── Omen texts ────────────────────────────────────────────────────────────
+%% -- Omen texts ------------------------------------------------------------
 \midrule
 \multicolumn{5}{@{}p{\linewidth}@{}}{\textit{Stellar-omen texts (sensitivity analysis only; excluded from primary corpus)}} \\
 \midrule
@@ -1657,7 +1903,7 @@ Cicero, \textit{De Divinatione} 1.75
 \multicolumn{5}{@{}p{\linewidth}@{}}{\quad\footnotesize\textit{Same
   Aegospotami/Dioscuri tradition.}}\\[4pt]
 %%
-%% ── Matthean derivative ───────────────────────────────────────────────────
+%% -- Matthean derivative ---------------------------------------------------
 \midrule
 \multicolumn{5}{@{}p{\linewidth}@{}}{\textit{Matthean derivative (excluded)}} \\
 \midrule
@@ -1665,7 +1911,7 @@ Protoevangelium of James 21
   & --- & --- & --- & --- \\
 \multicolumn{5}{@{}p{\dimexpr\linewidth-2\tabcolsep\relax}@{}}{\quad\footnotesize\textit{Paraphrases Matt~2:9--10 verbatim; not an independent witness.}}\\[4pt]
 %%
-%% ── Supernatural descent texts ────────────────────────────────────────────
+%% -- Supernatural descent texts --------------------------------------------
 \midrule
 \multicolumn{5}{@{}p{\linewidth}@{}}{\textit{Supernatural descent texts (feature~C commentary only; not in BF corpora)}} \\
 \midrule
@@ -1673,16 +1919,16 @@ PGM~I.54--95
   & 0 & 1 & 0 & 1 \\
 \multicolumn{5}{@{}p{\linewidth}@{}}{\quad\footnotesize\textit{Descending
   star-god stands \grk{ἐν μέσῳ τοῦ δώματος} (``in the middle of the
-  housetop'')—\grk{ἐν μέσῳ}, not \grk{ἐπάνω} (C=0). No guidance (A=0).}}\\[2pt]
+  housetop''): \grk{ἐν μέσῳ}, not \grk{ἐπάνω} (C=0). No guidance (A=0).}}\\[2pt]
 \textit{Joseph and Aseneth} 14.4 (Burchard longer rec.)
   & 0 & 1 & 1 & 1 \\
 \multicolumn{5}{@{}p{\linewidth}@{}}{\quad\footnotesize\textit{Morning star
   descends as divine messenger (\grk{ἄγγελος}); stands \grk{ἔστη \textbf{ἐπάνω}
   τῆς κεφαλῆς αὐτῆς} (C=1). Departs eastward in solar chariot (star~=~messenger
   identity). Philonenko shorter rec.: \grk{ἐπί} (C=0). Genre: diaspora Jewish
-  \emph{novel}—same broad literary type as the gospels. No guidance (A=0).}}\\[4pt]
+  \emph{novel}: same broad literary type as the gospels. No guidance (A=0).}}\\[4pt]
 %%
-%% ── Summary rows ──────────────────────────────────────────────────────────
+%% -- Summary rows ----------------------------------------------------------
 \midrule
 \textbf{Feature frequency} (primary, $N=4$)
   & \textbf{4/4} & \textbf{2/4} & \textbf{2/4} & \textbf{3/4} \\
@@ -1692,12 +1938,12 @@ $P(\text{feat.} \mid H_\text{guide})$, Laplace $k=1$
   Joint: $P(A,B,C,D \mid H_\text{guide})
   = \tfrac{5}{6}\times\tfrac{3}{6}\times\tfrac{3}{6}\times\tfrac{4}{6}
   \approx 1.39\times10^{-1}$.
-  BF~$= 1.39\times10^{-1}/2.31\times10^{-5} \approx 6{,}012$ (exceeds 100 on the Jeffreys scale).
-  $P(A,B,C,D\mid H_\text{astro}) = \prod_i p_i = 2.31\times10^{-5}$
+  BF~$= 1.39\times10^{-1}/4.67\times10^{-8} \approx 3.0\times10^{6}$ (exceeds 100 on the Jeffreys scale).
+  $P(A,B,C,D\mid H_\text{astro}) = \prod_i p_i = 4.67\times10^{-8}$
   (product of individual Fisher exact probabilities; the Fisher combined tail-$p$
-  of $6.3\times10^{-3}$ is a meta-test statistic, not a joint data probability).
-  Sensitivity: $+$Josephus \& Dio ($N=6$): BF~$=2{,}537$; $+$all omen ($N=8$): BF~$=1{,}040$;
-  $k\in[0.5,3]$: BF~$\in 4{,}546$--$6{,}818$; $3\times$ denominator uncertainty: 2{,}004--18{,}038.
+  of $4.5\times10^{-5}$ is a meta-test statistic, not a joint data probability).
+  Sensitivity: $+$Josephus \& Dio ($N=6$): BF~$=1.3\times10^{6}$; $+$all omen ($N=8$): BF~$=5.1\times10^{5}$;
+  $k\in[0.5,3]$: BF~$\in 2.3$--$3.4\times10^{6}$; $3\times$ denominator uncertainty: $1.0$--$9.3\times10^{6}$.
   \textbf{Feature~C key finding:} \grk{ἐπι}-based localization (\grk{ἐπάνω} or
   structural equivalent) scores~0 in all astronomical texts, all omen texts, and
   PGM~I.54--95. It appears in exactly three non-Matthean texts: Lucian,
@@ -1711,46 +1957,103 @@ $P(\text{feat.} \mid H_\text{guide})$, Laplace $k=1$
   and omen corpora use \grk{ὑπὲρ} exclusively. Script: \texttt{guiding\_star\_bayes.py}.}\\
 \end{longtable}
 
-%%%%  ─────────────────────────────────────────────────────────────────────
+%%%%  ------------------------------------------------------------------, 
 \section{Software and computational environment}
-%%%%  ─────────────────────────────────────────────────────────────────────
+%%%%  , ------------------------------------------------------------------
 
 All orbital mechanics computations and statistical analyses were performed
 in Python~3.12. The principal libraries used were:
 
 \begin{itemize}
-  \item \texttt{astropy} v6.x\cite{astropy2022}—coordinate
+  \item \texttt{astropy} v6.x\cite{astropy2022} (coordinate
     transformations, JPL ephemeris access, time systems.
-  \item \texttt{NumPy}\cite{harris2020}—vectorised array operations
+  \item \texttt{NumPy}\cite{harris2020}) vectorised array operations
     and \texttt{einsum}-based orientation sweeps.
-  \item \texttt{SciPy}\cite{virtanen2020}—Fisher's exact test
+  \item \texttt{SciPy}\cite{virtanen2020}: Fisher's exact test
     (\texttt{scipy.stats.fisher\_exact}), Newton--Raphson utilities.
-  \item \texttt{matplotlib}\cite{hunter2007}—all figures.
+  \item \texttt{matplotlib}\cite{hunter2007}, all figures.
+  \item \texttt{Stellarium}\cite{stellarium2021}, independent cross-validation
+    of sky-position results at representative epochs; computed positions
+    agreed to within observational tolerances at all tested times.
+  \item \texttt{VSOP87} (via \texttt{PyMeeus}): Earth's heliocentric position
+    for all close-approach geometry.  The bundled modern DE ephemerides do not
+    extend to 5~BCE, and extrapolating the low-precision default series to that
+    epoch introduces an error of ${\approx}43''$ in Earth's position.  For
+    objects at ordinary heliocentric distances this is immaterial, but at a
+    geocentric distance of ${\sim}10^{5}$\,km it displaces the observer by
+    ${\approx}3\times10^{4}$\,km and swings the sightline by degrees, so the
+    close-flyby analyses use VSOP87 throughout.
 \end{itemize}
+
+\subsection{Reproducibility, and the tolerance on configuration counts}
+\label{subsec:reproducibility}
+
+Two kinds of number are reported from the surveys, and they carry different
+reproducibility.
+
+The \emph{result}, the number of configurations satisfying all criteria
+simultaneously, is exact and environment-independent.  It is zero, and reruns
+under different software builds return zero identically.  The extremal
+diagnostics are likewise reproducible bit-for-bit: best guidance score
+$0.0414^\circ$ and best stopping score $0.0376^\circ\,\mathrm{h}^{-1}$ agree to
+sixteen significant figures across environments.  This is expected, since the
+nearest candidate misses by a wide margin and no plausible numerical
+perturbation can move it across the criterion.
+
+The \emph{census} counts (how many configurations are classed as visible, or
+as passing one criterion in isolation) carry a small systematic tolerance.
+Each is a threshold test, so configurations lying within numerical noise of a
+boundary may fall on either side of it depending on the ephemeris
+implementation.  Re-running the fine survey under a different
+\texttt{astropy}/\texttt{pyerfa} build gives:
+
+\begin{center}
+\small
+\begin{tabular}{@{}lrr@{}}
+\toprule
+Census bin & Count & Tolerance \\
+\midrule
+Visible                       & 202{,}372{,}076 & $\pm 0.1\%$ \\
+Passing azimuth criterion     &     126{,}720   & $\pm 0.3\%$ \\
+Passing guidance-motion criterion &   6{,}278   & $\pm 0.7\%$ \\
+Passing stopping criterion    & 201{,}505{,}224 & $\pm 0.1\%$ \\
+\midrule
+\textbf{Satisfying all criteria} & \textbf{0} & \textbf{exact} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The tolerance is larger for the smaller bins simply because a fixed number of
+boundary configurations is a larger fraction of a smaller count.  These figures
+should therefore be read as $2.024\times10^{8}$ visible configurations to within
+a tenth of a percent, not as exact integers; the counts quoted throughout were
+produced with Python~3.12, \texttt{astropy}~6.x and the bundled
+\texttt{pyerfa}.  Only the final row is exact, and it is the only row on which
+the paper's conclusion depends.
 
 Code and data necessary to reproduce all figures and tables in the main
 paper and this Supplementary Information are available at \url{https://github.com/adairaar/sob_astro_test}.
 The repository includes:
 \begin{itemize}
-  \item \texttt{sob\_proof\_fine.py}—kinematic demonstration and exhaustive heliocentric orbital survey (5° angular grid, 529 million configurations)
-  \item \texttt{sob\_mc\_refined.py}—Monte Carlo refinement sweeps in continuous parameter space around the best-fit grid orbit and Matney's proposed 5~BCE comet; 2.25 million configurations sampled, zero satisfying all criteria
-  \item \texttt{sob\_epoch\_robustness.py}—multi-epoch survey across all
+  \item \texttt{sob\_proof\_fine.py} (kinematic demonstration and exhaustive heliocentric orbital survey (5° angular grid, 529 million configurations)
+  \item \texttt{sob\_mc\_refined.py}) Monte Carlo refinement sweeps in continuous parameter space around the best-fit grid orbit and Matney's proposed 5~BCE comet; 2.25 million configurations sampled, zero satisfying all criteria
+  \item \texttt{sob\_epoch\_robustness.py}: multi-epoch survey across all
     proposed Star of Bethlehem dates (12~BCE, 7~BCE, 5~BCE, 1~BCE), recomputing
     Earth positions and ENU matrices from the JPL ephemeris at each date;
     total 79,788 visible configurations across 7 epochs
-  \item \texttt{sob\_calcs.py}—Matney comet orbital analysis
-  \item \texttt{sob\_figures.py}—figure generation
-  \item \texttt{corpus\_pvalue.py}—Gaussian copula simulation and Brown's
+  \item \texttt{sob\_calcs.py}, Matney comet orbital analysis
+  \item \texttt{sob\_figures.py}, figure generation
+  \item \texttt{corpus\_pvalue.py}: Gaussian copula simulation and Brown's
     method for joint $p$-value robustness; $2\times10^6$ Monte Carlo draws
     per correlation level
-  \item \texttt{corpus\_linguistics.py}—Fisher's exact test and
+  \item \texttt{corpus\_linguistics.py}, Fisher's exact test and
     contingency tables
-  \item \texttt{data/}—parameter grids, survey outputs, corpus counts
+  \item \texttt{data/}, parameter grids, survey outputs, corpus counts
 \end{itemize}
 
-%%%%  ─────────────────────────────────────────────────────────────────────
+%%%%  ------------------------------------------------------------------, 
 \section{Supplementary discussion}
-%%%%  ─────────────────────────────────────────────────────────────────────
+%%%%  , ------------------------------------------------------------------
 
 \subsection{Corpus-linguistic finding in context}
 \label{subsec:supp_ling_context}
@@ -1765,13 +2068,15 @@ arriving (\grk{ἔρχομαι}), and standing over (\grk{ἵστημι ἐπά�
 the narrative register that Greek authors used for persons and supernatural
 agents. This has been observed qualitatively in prior
 scholarship\cite{adair2012,adair_jsnt}; the present analysis quantifies it
-with a Fisher combined $p \approx 6.3\times10^{-3}$ against the null hypothesis
+with a Fisher combined $p \approx 4.5\times10^{-5}$ against the null hypothesis
 that Matthew's usage is drawn from the same distribution as the astronomical
 corpus. When the alternative hypothesis is framed as the well-attested
 guiding-star narrative tradition of Greco-Roman and Jewish literature, the
-Bayes factor in favor of the narrative reading is $\mathrm{BF} \approx 6{,}012$
-(exceeding 100 on the Jeffreys scale), dropping to 1{,}040 under the most conservative
-sensitivity analysis that pools guiding and omen texts together.
+Bayes factor in favor of the narrative reading is $\mathrm{BF} \approx 3.0\times10^{6}$
+(exceeding 100 on the Jeffreys scale) under strict independence, and
+$5.1\times10^{5}$ if guiding and omen texts are pooled. Sensitivity to the
+dependence assumptions is treated separately in
+Table~\ref{tab:bfsens}, which is the range on which the conclusion rests.
 
 A potential methodological concern is that the lexical analysis (Fisher's
 exact tests against the astronomical corpus) and the Bayes factor comparison
@@ -1782,8 +2087,8 @@ inconsistent but complementary, because features A--D are genre-register
 markers at both levels simultaneously. The thematic robustness check
 (Table~S9) confirms that the null result holds at the thematic level:
 Greek astronomical and astrological texts do not describe celestial bodies
-guiding human travellers toward a destination, ceasing motion above a
-specific house, or arriving at a terrestrial address---at any level of
+guiding human travelers toward a destination, ceasing motion above a
+specific house, or arriving at a terrestrial address, at any level of
 description. The lexical and thematic analyses converge on the same genre
 classification. Because lexical and thematic features co-vary within genre
 by definition, the two are treated as convergent confirmation rather than
@@ -1791,8 +2096,8 @@ independent Bayes factors; their consistency confirms the genre-register
 signal.
 
 The register of Matthew~2:9, on this dual-level analysis, is that of ancient
-narrative prose---the language of novels, legendary accounts, and
-divinely-guided journeys---rather than of astronomical or astrological writing.
+narrative prose (the language of novels, legendary accounts, and
+divinely-guided journeys) rather than of astronomical or astrological writing.
 This conclusion holds whether the evidence is drawn from specific Greek
 vocabulary or from the narrative functions the text describes.
 
@@ -1833,7 +2138,7 @@ middle of the housetop''), not \grk{ἐπάνω}. In \textit{Joseph and Aseneth}
 the morning star descends, manifests as a radiant heavenly visitor, and
 departs eastward before sunrise; the longer recension uses \grk{ἐπάνω}, the
 shorter uses \grk{ἐπί}\cite{adair_jsnt}. Neither text involves guidance of
-travellers (features A, D), and neither enters the Bayes factor corpora. They
+travelers (features A, D), and neither enters the Bayes factor corpora. They
 do confirm that \grk{ἐπι}-based localization for a star-entity belongs
 exclusively to the legendary narrative register, not to observational or omen
 writing.
@@ -1848,17 +2153,17 @@ authors themselves treated as miraculous embellishment; Lucian's
 \textit{Navigium} is a satirical comic dialogue; and \textit{Joseph and Aseneth}
 is a diaspora Jewish novel. Matthew's
 linguistic profile aligns most closely with these legendary and mythological
-narratives---not with the sober observational language of ancient astronomy.
+narratives, not with the sober observational language of ancient astronomy.
 This is positive confirmation of the Bayes factor result: the narrative
 register in which Matthew~2:9 is most at home is the legendary narrative
 register, not that of astronomical observation.
 
-%%%%  ─────────────────────────────────────────────────────────────────────
+%%%%  ---------------------------------------------------------------------
 \subsection{Within-Matthew lexical consistency analysis}
 \label{subsec:within_matthew}
-%%%%  ─────────────────────────────────────────────────────────────────────
+%%%%  ---------------------------------------------------------------------
 
-The corpus Bayes factor ($\mathrm{BF}_\text{corpus} \approx 6{,}012$) tests whether
+The corpus Bayes factor ($\mathrm{BF}_\text{corpus} \approx 3.0\times10^{6}$) tests whether
 Matthew~2:9 belongs to the astronomical or the guiding-star narrative register by
 comparing those two external corpora drawn from the TLG and the guiding-star
 tradition. An independent second Bayes factor can be derived from an entirely
@@ -1869,10 +2174,144 @@ is highly improbable. Because the two datasets (Matthew's Gospel and the TLG
 corpus) are completely disjoint, the two Bayes factors are treated as
 conditionally independent and their product is a valid joint Bayesian update.
 
+\paragraph{Sensitivity of the Bayes factor to its independence assumptions.}
+
+Both Bayes factors are products over the same four features, and two
+independence assumptions are embedded in that product. Neither is exactly
+true, and the figures are therefore reported as a range rather than as a point
+estimate (Table~\ref{tab:bfsens}).
+
+\emph{Within a feature} ($\rho_w$). The estimate $p = 1/(N+1)$ is a rule of
+succession over $N$ trials with no successes, which is exact only if the $N$
+occurrences are independent opportunities. They are clustered by author: 98 of
+the 356 occurrences of \grk{ἔρχομαι} are Vettius Valens. Effective sample sizes
+are therefore computed with the Kish design effect for unequal clusters,
+$N_\mathrm{eff} = N / \left(1 + (\bar m - 1)\rho_w\right)$, where $\bar m$ is
+the size-weighted mean cluster size.
+
+Against this, the absence is replicated across sixteen authors, several
+centuries, and both mathematical astronomy and astrology. Were it an idiolect,
+between-author heterogeneity would be expected; none is observed, every author
+standing at zero. That uniformity is evidence that the constraint operates at
+the level of the register rather than the individual, and it bounds $\rho_w$
+from above. The tabulated range accordingly stops at $0.2$.
+
+\emph{Between features} ($\rho_b$). The four features are four properties of a
+single clause. This is already conceded above, and corrected for in the Fisher
+combination by the Gaussian copula of Table~\ref{tab:copula}. The same
+correction is applied here to the Bayes factor: the effective feature count is
+taken as $k_\mathrm{eff} = \mathrm{df}_\mathrm{Brown}/2$ and the
+independence product is downweighted geometrically to
+$\mathrm{BF}^{\,k_\mathrm{eff}/4}$. This is a heuristic rather than an exact
+result, and is reported as one.
+
+\begin{table}[h]
+\centering
+\begin{threeparttable}
+  \caption{Sensitivity of the Bayes factor and the Fisher combination to
+    within-feature clustering ($\rho_w$) and between-feature dependence
+    ($\rho_b$).}\label{tab:bfsens}
+\begin{tabular}{@{}ccccc@{}}
+\toprule
+$\rho_w$ & $\rho_b$ & $\mathrm{BF}_\text{corpus}$ &
+  $\mathrm{BF}_\text{joint}$ & Fisher $p$ \\
+\midrule
+0.0 & 0.0 & $3.0\times10^{6}$ & $2.6\times10^{11}$ & $4.5\times10^{-5}$ \\
+0.0 & 0.4 & $2.6\times10^{4}$ & $6.0\times10^{7}$  & $5.0\times10^{-4}$ \\
+0.0 & 0.5 & $5.5\times10^{3}$ & $3.9\times10^{6}$  & $1.1\times10^{-3}$ \\
+0.0 & 0.7 & $4.4\times10^{2}$ & $4.5\times10^{4}$  & $4.2\times10^{-3}$ \\
+\midrule
+0.1 & 0.0 & $1.1\times10^{5}$ & $9.9\times10^{9}$  & $6.5\times10^{-4}$ \\
+0.1 & 0.4 & $2.8\times10^{3}$ & $6.4\times10^{6}$  & $3.3\times10^{-3}$ \\
+0.1 & 0.5 & $8.3\times10^{2}$ & $5.9\times10^{5}$  & $5.8\times10^{-3}$ \\
+0.1 & 0.7 & $1.1\times10^{2}$ & $1.2\times10^{4}$  & $1.4\times10^{-2}$ \\
+\midrule
+0.2 & 0.0 & $2.5\times10^{4}$ & $2.2\times10^{9}$  & $2.1\times10^{-3}$ \\
+0.2 & 0.4 & $1.0\times10^{3}$ & $2.3\times10^{6}$  & $7.8\times10^{-3}$ \\
+0.2 & 0.5 & $3.5\times10^{2}$ & $2.5\times10^{5}$  & $1.2\times10^{-2}$ \\
+0.2 & 0.7 & $6.2\times10^{1}$ & $6.4\times10^{3}$  & $2.5\times10^{-2}$ \\
+\bottomrule
+\end{tabular}
+  \begin{tablenotes}
+    \footnotesize
+    \item Across the whole grid $\mathrm{BF}_\text{joint}$ spans
+    $6.4\times10^{3}$ to $2.6\times10^{11}$. \textbf{Every cell exceeds the
+    Jeffreys threshold for decisive evidence by at least an order of
+    magnitude, and every cell is significant at $\alpha=0.05$}; the
+    worst case is $p = 2.5\times10^{-2}$.
+    Taking $\rho_w \in [0, 0.2]$ and $\rho_b \in [0.4, 0.5]$ as the central
+    range gives $\mathrm{BF}_\text{joint}$ between $2.5\times10^{5}$ and
+    $6.0\times10^{7}$. Script: \texttt{sob\_bf\_sensitivity.py}.
+  \end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+The conclusion does not depend on where in this grid one stands. The
+independence assumptions govern how strongly the corpus absence should be
+quantified, not whether it is present: on every counting scheme, none of the
+four features occurs in the Matthean sense anywhere in the corpus.
+
+\paragraph{\grk{Φαίνομαι} in Matthew and the Gospels.}
+
+A separate question concerns the vocabulary Matthew uses of the Star
+\emph{outside} 2:9. At 2:7 Herod asks about the time \grk{τοῦ φαινομένου
+ἀστέρος}, ``of the appearing star,'' and it might be supposed that this places
+the Star in ordinary astronomical description. Matthew's own usage does not
+support that supposition. \grk{Φαίνω} occurs eight times in the Gospel:
+
+\begin{center}
+\begin{tabular}{@{}llp{6.4cm}@{}}
+\toprule
+Reference & Form & Subject \\
+\midrule
+Matt 1:20  & \grk{ἐφάνη}     & \grk{ἄγγελος κυρίου} (an angel of the Lord) \\
+Matt 2:7   & \grk{φαινομένου}& \grk{ἀστέρος} (the Star) \\
+Matt 2:13  & \grk{φαίνεται}  & \grk{ἄγγελος κυρίου} \\
+Matt 2:19  & \grk{φαίνεται}  & \grk{ἄγγελος κυρίου} \\
+Matt 9:33  & \grk{ἐφάνη}     & impersonal, of an exorcism: ``never was it so seen in Israel'' \\
+Matt 13:26 & \grk{ἐφάνη}     & \grk{τὰ ζιζάνια} (the weeds appeared) \\
+Matt 23:27 & \grk{φαίνονται} & whitewashed tombs \emph{appear} beautiful \\
+Matt 24:27 & \grk{φαίνεται}  & \grk{ἡ ἀστραπή} (lightning, as the figure of the \grk{παρουσία} of the Son of Man) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Three of the eight have an angel as subject, and all three fall in the same two
+chapters as the Star. A fourth is the unprecedented manifestation at 9:33 and a
+fifth is the lightning of 24:27, which Matthew uses precisely as an image of an
+eschatological advent. Only 13:26 and 23:27 are ordinary. In this author,
+\grk{φαίνω} is characteristically the verb of manifestation, and most often of
+supernatural manifestation.
+
+Matt 24:27 is worth quoting, because it contains both of the terms at issue:
+\grk{ὥσπερ γὰρ ἡ ἀστραπὴ ἐξέρχεται ἀπὸ ἀνατολῶν καὶ φαίνεται ἕως δυσμῶν, οὕτως
+ἔσται ἡ παρουσία τοῦ υἱοῦ τοῦ ἀνθρώπου}: ``for as the lightning comes out from
+the east and shines as far as the west, so will be the coming of the Son of
+Man.'' \grk{Ἀνατολή} and \grk{φαίνεται} occur together, in an explicitly
+eschatological simile, with no astronomical referent at all.
+
+The wider Gospel usage runs the same way. \grk{Ἐφάνη} is used of the risen
+Christ appearing to Mary Magdalene (Mark 16:9) and of Elijah having appeared
+(Luke 9:8); \grk{φαίνων} describes John the Baptist as the burning and shining
+lamp (John 5:35). The remaining instances are idiomatic uses meaning ``to seem''
+(Mark 14:64; Luke 24:11).
+
+\paragraph{What this does and does not establish.}
+It does not establish that the Star of 2:7 is a supernatural entity; that is not
+the argument. It establishes that \grk{φαινομένου} carries no astronomical
+weight, because in Matthew the verb is not astronomical vocabulary but the
+vocabulary of appearing, used most often of angels and of the parousia. A term
+distributed across both registers cannot discriminate between them, and it is
+for that reason, rather than for convenience, that it is not among the four
+features tested. The same reasoning applies to \grk{ἐν τῇ ἀνατολῇ}: a heliacal
+rising is what Num 24:17, T.~Levi 18:3 and T.~Judah 24:1 predicate of a star
+that is a person, and what \textit{Joseph and Aseneth} 14:1 predicates of a star
+that is explicitly an angel (\grk{ὁ ἀστὴρ οὗτος ἄγγελος καὶ κῆρυξ}).
+
 \paragraph{Independence of the two analyses.}
 
-$\mathrm{BF}_\text{corpus}$ is computed from the TLG astronomical corpus ($\approx$622{,}000 words
-in 25 texts) and the four guiding-star traditions; Matthew's Gospel contributes no
+$\mathrm{BF}_\text{corpus}$ is computed from the TLG astronomical corpus ($\approx$619{,}000 words
+in 24 texts) and the four guiding-star traditions; Matthew's Gospel contributes no
 data to that calculation. $\mathrm{BF}_\text{Matthew}$ (derived below) is computed
 entirely from Matthew's 27 other chapters; the TLG corpus contributes no data.
 The two datasets share no texts and test related but distinct aspects of the same
@@ -1889,8 +2328,8 @@ events described) are separable in principle: a writer can use non-technical
 vocabulary to describe astronomical events, and can use astronomical vocabulary
 metaphorically for terrestrial events (e.g., ``retrograde motion'' applied to
 cars being overtaken on a motorway). That Matthew's text fails the astronomical
-hypothesis at \emph{both} levels---non-astronomical vocabulary (features A--D)
-\emph{and} non-astronomical events (thematic operationalization, Table~\ref{tab:thematic})---from
+hypothesis at \emph{both} levels (non-astronomical vocabulary (features A--D)
+\emph{and} non-astronomical events (thematic operationalization, Table~\ref{tab:thematic}), from
 two independent datasets constitutes a double-hit that cannot be attributed to
 a single shared genre signal.
 
@@ -1985,25 +2424,30 @@ a direct object), which is what the astronomical reading would require.
 Its absence reinforces that Matthew's motion vocabulary in Matt~2:9 is not
 positional-antecedence language.
 
-\paragraph{Available alternative vocabulary for \grk{ἵστημι} (Feature B).}
+\paragraph{The complement of \grk{ἵστημι} (Feature B).}
 
-In Greek astronomical and astrological texts, the standard term for a planet
-reaching its stationary point (the moment of apparent reversal in the zodiac)
-is \grk{στηρίζω} and its cognates, not \grk{ἵστημι}.
-\grk{Στηρίζω} appears 17 times in the TLG corpus with this technical
-meaning; Matthew never uses it anywhere in his Gospel.
-If Matthew~2:9 intended an astronomical stationary point, the expected
-vocabulary was available and familiar to Hellenistic writers: \grk{στηρίζω},
-not the generic \grk{ἵστημι} of persons stopping at physical locations.
-Matthew's consistent avoidance of the astronomical term, and his exclusive
-use of \grk{ἵστημι} for persons and objects at concrete terrestrial places,
-is precisely the pattern expected under the legendary narrative reading and
-unexpected under the astronomical reading.
+\grk{Ἵστημι} belongs to the working vocabulary of Greek positional astronomy.
+Geminus, Theon of Smyrna, Paul of Alexandria and Hipparchus all use it of a
+planet ceasing its motion, and both Theon and Paul build the noun
+\grk{στηριγμός} out of the participle and infinitive of \grk{ἵστημι} when
+defining it. A writer who wished to say that a planet reached its station
+could say so with this verb.
+
+What distinguishes Matthew is the complement. Across 121 in-corpus
+occurrences, the thing a celestial body stands in, on, or above is always
+celestial or geometric: a zodiacal sign, a degree, an aspect, a chart angle, a
+fixed star. The nearest approach to a terrestrial complement is
+Cleomedes \textit{Caelestia} 2.1.271, where the sun \grk{στῇ} at exact noon
+while Syene is said to lie \emph{under Cancer}, and even there the city is
+tied to the sign by \grk{κεῖται}, not to the sun by \grk{ἵστημι}. Matthew's
+construction, a star standing \grk{ἐπάνω} the place where a child was, has no
+parallel in the corpus, and Matthew's own form \grk{ἐστάθη} does not occur in
+it at all.
 
 \paragraph{Physical-contact force of \grk{ἐπάνω} (Feature C).}
 
 Matt~28:2 is the key Matthean comparandum: the angel of the Lord descends and
-sits \grk{ἐπάνω} the stone---a heavenly being in point-contact with a physical
+sits \grk{ἐπάνω} the stone, a heavenly being in point-contact with a physical
 object. This is the usage register of Matt~2:9 (\grk{ἐπάνω οὗ ἦν τὸ παιδίον},
 ``above where the child was''), where a divine entity is localized to the
 building-level. Neither the angel's position in Matt~28:2 nor the Star's
@@ -2035,7 +2479,7 @@ occurrences), which means one could argue that even an astronomical description
 would happen to use it by chance. The within-Matthew evidence refutes this
 reasoning: Matthew does not use \grk{ἔρχομαι} of celestial bodies reaching
 celestial positions in any of his 86 other uses. Its overwhelmingly consistent
-referent is the arrival of a person or agent at a terrestrial location---exactly
+referent is the arrival of a person or agent at a terrestrial location, exactly
 the sense in Matt~2:9. The verb's frequency strengthens rather than weakens the
 within-Matthew inference: with 86 non-astronomical comparanda and zero uses in an
 astronomical positional sense, the probability that Matt~2:9 is drawing on an
@@ -2071,8 +2515,8 @@ Matthew never employs elsewhere.
 
 \paragraph{Historical validation of the genre classification.}
 
-The genre classification recovered by both Bayes factors---legendary narrative
-rather than astronomical report---is not a product of the statistical method.
+The genre classification recovered by both Bayes factors, legendary narrative
+rather than astronomical report, is not a product of the statistical method.
 No ancient or medieval commentator interpreted the Star's motion in Matt~2:9
 as a natural astronomical phenomenon\cite{adair2012}. Patristic and medieval
 exegetes universally understood the Star as a miraculous divine guide, not a
@@ -2091,25 +2535,27 @@ itself, not imposed by the analytical framework.
 
 Because $\mathrm{BF}_\text{Matthew}$ and $\mathrm{BF}_\text{corpus}$ are derived
 from entirely disjoint datasets (Matthew's Gospel versus the TLG corpus and
-guiding-star traditions), they are treated as conditionally independent, as they
-derive from non-overlapping corpora and distinct sampling frames.
-Their product is therefore the joint Bayes factor incorporating the linguistic
+guiding-star traditions), they are treated as conditionally independent of one
+another, as they derive from non-overlapping corpora and distinct sampling
+frames. Their product is the joint Bayes factor incorporating the linguistic
 evidence considered here:
 \begin{equation}
   \mathrm{BF}_\text{joint}
-    = \mathrm{BF}_\text{Matthew} \times \mathrm{BF}_\text{corpus}
-    = 87{,}696 \times 6{,}012
-    \approx 5.3 \times 10^8.
+    = \mathrm{BF}_\text{Matthew} \times \mathrm{BF}_\text{corpus},
+    \qquad \mathrm{BF}_\text{Matthew} = 87{,}696 .
   \label{eq:bf_joint}
 \end{equation}
-The conservative lower bound on $\mathrm{BF}_\text{corpus}$ (1{,}040, from the
-sensitivity analysis pooling guiding and omen texts) gives a conservative joint
-lower bound:
-\begin{equation}
-  \mathrm{BF}_\text{joint}^\text{conservative}
-    = 87{,}696 \times 1{,}040
-    \approx 9.1 \times 10^7.
-\end{equation}
+Each factor is itself a product over the same four features, and those features
+are four properties of a single clause. The joint factor is therefore reported
+as the sensitivity range of Table~\ref{tab:bfsens} rather than as a point
+estimate. At the independence corner of that grid
+($\rho_w = \rho_b = 0$) it is $87{,}696 \times 3.0\times10^{6} \approx
+2.6\times10^{11}$; at the opposite corner ($\rho_w = 0.2$, $\rho_b = 0.7$) it
+is $6.4\times10^{3}$. Taking $\rho_w \in [0, 0.2]$ and
+$\rho_b \in [0.4, 0.5]$ as the central range gives $\mathrm{BF}_\text{joint}$
+between $2.5\times10^{5}$ and $6.0\times10^{7}$. Every cell of the grid
+exceeds the Jeffreys threshold for decisive evidence by at least an order of
+magnitude.
 
 The two Bayes factors address related but distinct questions.
 $\mathrm{BF}_\text{corpus}$ asks: given two external reference corpora (TLG
@@ -2117,14 +2563,14 @@ astronomical texts and the guiding-star traditions), to which is Matt~2:9's
 vocabulary pattern more similar? $\mathrm{BF}_\text{Matthew}$ asks: given
 Matthew's own lexical habits across his Gospel, how much more probable is the
 narrative reading than the astronomical reading of Matt~2:9? The fact that two
-independent datasets---one external to Matthew's Gospel, one internal to
-it---converge on the same conclusion strengthens the genre classification beyond
-what either could show alone. Notably, the combined result is robust to the
-feature-independence assumption within each BF: even if inter-feature correlation
-within the TLG analysis is as high as $\rho = 0.77$ (where $\mathrm{BF}_\text{corpus}$
-remains significant; see copula sensitivity table), the joint factor
-$87{,}696 \times \mathrm{BF}_\text{corpus}(\rho{=}0.77)$ still enormously
-exceeds any conventional threshold.
+independent datasets (one external to Matthew's Gospel, one internal to
+it) converge on the same conclusion strengthens the genre classification beyond
+what either could show alone. The combined result is robust to the
+feature-independence assumption within each Bayes factor: the copula
+sensitivity analysis carries inter-feature correlation as far as
+$\rho = 0.95$, and the Fisher combination remains below $\alpha = 0.05$
+throughout, while every cell of Table~\ref{tab:bfsens} remains decisive on the
+Jeffreys scale.
 
 For completeness, the frequentist summary of the within-Matthew evidence is the
 Fisher combined statistic: $X = -2\sum_i \ln(1/(n_i+2)) = 23.42$,
@@ -2132,10 +2578,10 @@ $\mathrm{df} = 8$, $p \approx 3\times10^{-3}$. This confirms the direction of
 the Bayesian result but, as with any $p$-value, understates the magnitude of the
 evidence because it does not incorporate the numerator of the likelihood ratio.
 
-%% ─────────────────────────────────────────────────────────────────────────────
+%% -----------------------------------------------------------------------------
 \subsection{Nighttime close-flyby comet survey and optimizer}
 \label{subsec:closeflyby}
-%% ─────────────────────────────────────────────────────────────────────────────
+%% -----------------------------------------------------------------------------
 
 \paragraph{Motivation.}
 The primary-impossibility argument of \S\,S1.9 shows that for $d \gtrsim 0.1$\,AU
@@ -2154,10 +2600,10 @@ Script \texttt{sob\_close\_flyby\_mc.py} (available in the online repository)
 sampled $N_\mathrm{MC} = 10{,}000{,}000$ heliocentric orbits. Orbital parameters:
 \begin{itemize}
   \item Perihelion distance: $q \in [0.30, 1.40]$\,AU (uniform).
-  \item Eccentricity: stratified across three groups---high-elliptic
+  \item Eccentricity: stratified across three groups: high-elliptic
     ($e \in [0.70, 1.00)$, one-third of orbits), near-parabolic
     ($e \in [1.00, 1.01)$, one-sixth), and hyperbolic ($e \in [1.01, 5.00)$,
-    one-half)---to ensure dense sampling near $e = 1$ where cometary orbits
+    one-half), to ensure dense sampling near $e = 1$ where cometary orbits
     concentrate.
   \item Inclination: stratified to concentrate sampling in the low-inclination
     zone that first principles and the prior optimizer result ($i = 2.2^\circ$)
@@ -2205,8 +2651,8 @@ the full-sky tail needed to assess close-flyby base rates.
 \paragraph{Numerical optimizer.}
 Script \texttt{sob\_close\_flyby\_opt.py} used tight Nelder--Mead polish of
 the known-best orbit (identified in a prior survey pass) followed by
-100~diverse Nelder--Mead restarts---60\% biased toward $i\!\in\![0^\circ,20^\circ]$
-and 40\% across the full parameter range---to minimize a composite cost function:
+100~diverse Nelder--Mead restarts (60\% biased toward $i\!\in\![0^\circ,20^\circ]$
+and 40\% across the full parameter range) to minimize a composite cost function:
 \begin{equation}
   \mathcal{C} = \mathcal{C}_A + \mathcal{C}_{BC} + \mathcal{C}_C + \mathcal{C}_D,
 \end{equation}
@@ -2224,8 +2670,8 @@ After 100 restarts all converging to the same cost basin, the optimizer found:
 \end{equation*}
 with $d_\mathrm{min} = 0.00092$\,AU. This orbit satisfies night visibility
 ($\mathcal{C}_{BC} = 0$) and stopping ($\mathcal{C}_D = 0$) but achieves only
-$G_\mathrm{dur} = 0.583$\,h~(${\approx}\,35$\,min) of guidance---58\% of the
-required 1.0~h minimum---giving $\mathcal{C}_C = 4.17$ and total cost
+$G_\mathrm{dur} = 0.583$\,h~(${\approx}\,35$\,min) of guidance, 58\% of the
+required 1.0~h minimum, giving $\mathcal{C}_C = 4.17$ and total cost
 $\mathcal{C} = 4.17 \gg 0$. Every one of the 100~diverse restarts converged
 to the same or higher cost, confirming this is the global minimum of the
 cost landscape.
@@ -2238,22 +2684,22 @@ instructive.
 
 During the full nighttime window (Sun below $-6^\circ$) the comet rises in the
 east-southeast at azimuth $\approx\!150^\circ$ with altitude $\approx\!41^\circ$,
-then sweeps westward under diurnal motion --- but remains \emph{east of the road
+then sweeps westward under diurnal motion, but remains \emph{east of the road
 corridor} ($\mathrm{az} < 190^\circ$) for the entire night until the final
 $\approx\!1$~h before closest approach. The azimuth reaches $190^\circ$ only
-in the final hour, and peaks at $\approx\!195^\circ$---penetrating only
+in the final hour, and peaks at $\approx\!195^\circ$, penetrating only
 $5^\circ$ into the $20^\circ$-wide corridor $[190^\circ, 210^\circ]$ before
 reversing under the growing ICRS proper motion. The comet never reaches the
 corridor center ($200^\circ$), let alone the far boundary ($210^\circ$).
 
 Two short guidance segments (28~min then 18~min) surround an 8-minute stopping
 window. During guidance the azimuth drift rate is $|d\mathrm{az}/dt| \leq
-1.50^\circ\,\mathrm{h}^{-1}$ --- saturating the criterion at its limit ---
+1.50^\circ\,\mathrm{h}^{-1}$, saturating the criterion at its limit,
 while the altitude changes slowly ($|d\mathrm{alt}/dt| \approx 0.3$ to
 $1.2^\circ\,\mathrm{h}^{-1}$). The ground-frame apparent velocity during
 guidance is only $0.3$--$1.7^\circ\,\mathrm{h}^{-1}$: comparable to the Moon's
 motion against the stars, and far below any threshold that would be called
-``going before'' a group of travellers. The stopping window itself reaches a
+``going before'' a group of travelers. The stopping window itself reaches a
 minimum apparent velocity of $\omega_\mathrm{app} = 0.21^\circ\,\mathrm{h}^{-1}$
 and lasts only 8~minutes at $d = 0.00091$\,AU ($\approx\!0.35$ lunar distances).
 
@@ -2273,7 +2719,7 @@ corridor's eastern boundary ($190^\circ$) from below as it moves westward under
 diurnal motion. The rate at which diurnal motion carries the comet through
 azimuth at its observed altitude ($\approx\!35^\circ$) is $|d\mathrm{az}/dt|
 \approx 0.87^\circ\,\mathrm{h}^{-1}$. A 20°-wide corridor traversed at this
-rate would take $20^\circ / 0.87^\circ\,\mathrm{h}^{-1} \approx 23$~h --- but
+rate would take $20^\circ / 0.87^\circ\,\mathrm{h}^{-1} \approx 23$~h, but
 the comet only penetrates $\approx\!5^\circ$ into the corridor before closest
 approach, so the full width is never available.
 Only the narrow entry region near $190^\circ$--$195^\circ$ contributes, limiting guidance to:
@@ -2290,11 +2736,11 @@ The guidance criterion requires $|d\mathrm{az}/dt| < 1.5^\circ\,\mathrm{h}^{-1}$
 This is \emph{already saturated} for the best orbit: measured values reach
 $1.50^\circ\,\mathrm{h}^{-1}$. Any perturbation that widens the corridor entry
 angle simultaneously increases the drift rate past the threshold, eliminating
-those time steps from the guidance window. The two constraints ---
-enter the corridor AND stay below the drift limit --- are antiparallel: the
+those time steps from the guidance window. The two constraints (
+enter the corridor AND stay below the drift limit) are antiparallel: the
 only way to enter the corridor at a lower drift rate is to slow the azimuth
 motion, which requires the comet to approach from a direction that keeps it
-east of the corridor for longer. Optimising over all orbital parameters cannot
+east of the corridor for longer. Optimizing over all orbital parameters cannot
 break this because the approach direction is fixed by the requirement to stop
 near $\mathrm{az}\!\approx\!190$--$210^\circ$ (the corridor must contain the
 stopping point).
@@ -2318,22 +2764,22 @@ The Tisserand parameter with respect to Jupiter for the best-fit orbit is
 \end{equation}
 placing it squarely in the \emph{Jupiter-family comet} (JFC) class ($2 < T_J < 3$).
 The semi-major axis $a = q/(1-e) = 3.43$\,AU gives a period of $P = a^{3/2} = 6.4$\,yr
-and an aphelion of $Q = a(1+e) = 5.87$\,AU---right at Jupiter's orbit, as expected
+and an aphelion of $Q = a(1+e) = 5.87$\,AU, right at Jupiter's orbit, as expected
 for a JFC whose orbit is sculpted by repeated Jovian encounters.
 This is \emph{not} an Oort Cloud comet: long-period comets arriving from the Oort
 Cloud have $e \approx 1$ and isotropically distributed inclinations; the best-fit
 eccentricity of $e = 0.71$ requires many Jupiter interactions to have circularised
 the orbit from its original near-parabolic state.
 
-To assess empirical plausibility we queried the JPL Small Body Database (SBDB),
+To assess empirical plausibility I queried the JPL Small Body Database (SBDB),
 which catalogues 4{,}063 comets with published orbital solutions. Restricting to
 $q \in [0.80, 1.20]$\,AU, $e \in [0.55, 0.85]$, and $i < 10^\circ$ yields only 13
 comets (0.32\% of the sample), the closest analogs being 320P/McNaught
 ($q = 0.985$\,AU, $e = 0.682$, $i = 4.89^\circ$, $T_J = 2.80$, $P = 5.5$\,yr),
 289P/Blanpain ($q = 0.959$, $e = 0.685$, $i = 5.90^\circ$, $P = 5.3$\,yr), and
 15P/Finlay ($q = 0.977$, $e = 0.720$, $i = 6.80^\circ$, $P = 6.5$\,yr).
-Tightening the inclination constraint to $i < 3^\circ$---the near-ecliptic geometry
-the optimizer confirms is necessary---yields \emph{zero} comets in the entire 4{,}063-object
+Tightening the inclination constraint to $i < 3^\circ$, the near-ecliptic geometry
+the optimizer confirms is necessary, yields \emph{zero} comets in the entire 4{,}063-object
 catalog with $q < 1.2$\,AU and $e \in [0.60, 0.80]$ simultaneously.
 The best-fit orbital combination, while belonging to a physically recognized
 dynamical class, is essentially unpopulated in the modern comet census.
@@ -2344,9 +2790,9 @@ the nearest known cometary approach to Earth at $0.0151$\,AU. Its orbital elemen
 bracket the best-fit orbit in inclination and eccentricity, differing primarily in
 perihelion distance. Lexell's trajectory in 1770 provides an instructive natural
 experiment: despite its extreme proximity, extraordinarily low inclination, and bright
-naked-eye appearance, no contemporary observer---in Europe, Asia, or the Middle
-East---described it as exhibiting guiding behavior. This is consistent with our
-analysis: the orbital mechanics of close-flyby comets categorically preclude the
+naked-eye appearance, no contemporary observer (in Europe, Asia, or the Middle
+East) described it as exhibiting guiding behavior. This is consistent with the
+analysis presented here: the orbital mechanics of close-flyby comets categorically preclude the
 guidance window required by Matthew~2:9, regardless of how close or bright the comet.
 
 A further astrophysical concern is dynamical longevity. JFC perihelia are modified
@@ -2362,14 +2808,14 @@ near-stopping alignment, and none of which is recorded in Babylonian, Chinese,
 or other ancient astronomical archives as a notable guiding phenomenon.
 
 \paragraph{Conclusion.}
-The nighttime close-flyby loophole is closed. No comet orbit---regardless of
-eccentricity, orientation, or perihelion epoch---satisfies the
+The nighttime close-flyby loophole is closed. No comet orbit (regardless of
+eccentricity, orientation, or perihelion epoch) satisfies the
 guidance\,$\to$\,stopping constraint of Matthew~2:9 in the nighttime Bethlehem
 corridor. The best achievable orbit (Fig.~S\ref{fig:flyby_bestorbit}) penetrates only
 $5^\circ$ into the $[190^\circ, 210^\circ]$ road corridor, reaching a maximum
 azimuth of $\approx\!195^\circ$, with two brief guidance segments totalling
-$\approx\!46$~min at most---well under half the minimum required 1~h contiguous
-window---and never reaching the corridor center ($200^\circ$) nor its far
+$\approx\!46$~min at most, well under half the minimum required 1~h contiguous
+window, and never reaching the corridor center ($200^\circ$) nor its far
 boundary ($210^\circ$) at any point during the night. That this is the best-case scenario underscores the
 impossibility: an observer watching this comet would not perceive it as guiding
 them toward Bethlehem at all. This result complements the primary impossibility
@@ -2400,6 +2846,361 @@ completing the exhaustive closure of all candidate orbit classes.
     Green shading = guidance windows; red shading = stopping window.}
   \label{fig:flyby_bestorbit}
 \end{figure}
+
+%%%%  ---------------------------------------------------------------------
+\subsection{Analysis of reviewer-proposed cometary orbits}
+\label{subsec:r2orbits}
+%%%%  ---------------------------------------------------------------------
+
+\paragraph{Background.}
+During peer review, a referee proposed two specific cometary orbits as
+candidate explanations for the Star of Bethlehem, arguing that bodies on
+such trajectories could exhibit behavior consistent with Matthew~2:9.
+The orbital elements are reproduced in Table~\ref{tab:r2orbits} for
+reference and independent verification.
+Orbit~1 shares its angular elements with Matney's 5~BCE comet proposal;
+Orbit~2 has a distinct argument of perihelion ($\omega = 220.6361^\circ$)
+that places it on a different trajectory.  An earlier draft of this
+analysis transcribed Orbit~2's angular elements incorrectly, duplicating
+those of Orbit~1; the referee identified the error and supplied the
+original configuration, from which the values in
+Table~\ref{tab:r2orbits} are taken.
+
+\begin{table}[h]
+  \centering
+  \caption{Referee-proposed cometary orbital elements (J2000 ecliptic,
+  reference JDE~1\,719\,708.5 = 22~April 5~BCE Julian).
+  Orbit~2 values are from the referee's corrected Stellarium configuration
+  (\textit{orbit\_ArgOfPericenter}, etc.).}
+  \label{tab:r2orbits}
+  \small
+  \begin{tabular}{@{}lrr@{}}
+    \toprule
+    Parameter & Orbit~1 & Orbit~2 \\
+    \midrule
+    Eccentricity $e$ & 0.8070114 & 0.9668455 \\
+    Perihelion distance $q$ (AU) & 1.00284101 & 0.9008354 \\
+    Perihelion epoch (JDE, TT) & 1\,719\,718.38394 & 1\,719\,735.20246 \\
+    Inclination $i$ (°) & 10.9963 & 10.9153 \\
+    Ascending node $\Omega$ (°) & 56.1727 & 56.1658 \\
+    Arg.\ of perihelion $\omega$ (°) & 193.7693 & 220.6361 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\paragraph{Method.}
+Sky positions were computed with Earth's heliocentric position taken from
+VSOP87, which retains full accuracy across antiquity; the bundled modern
+DE ephemerides do not extend to 5~BCE.  Orbital elements are referred to
+the J2000 ecliptic and equinox, matching the convention of the referee's
+Stellarium\cite{stellarium2021} configuration.  Coordinates are carried
+explicitly through each frame (J2000 ecliptic, J2000 equatorial,
+equinox-of-date equatorial (IAU~1976 precession), then topocentric
+alt/az) because at the small geocentric distances involved here both the
+precession transformation and the topocentric parallax correction are
+first-order effects rather than refinements: for an object near lunar
+distance the observer's displacement from Earth's center alone shifts the
+apparent position by of order a degree.  Comet epochs are TT and sidereal
+time is computed from UT1, with $\mathrm{TT}-\mathrm{UT1}=0.12236$\,d.
+
+The pipeline was validated against the referee's independently generated
+Stellarium positions for Orbit~2 at three epochs on 22~April 5~BCE.
+Agreement is $2.8^\circ$ RMS in position and ${\approx}7\%$ in geocentric
+distance.  This residual is expected rather than anomalous: at a geocentric
+distance of ${\approx}2.3\times10^{5}$\,km, the ${\approx}43''$ difference
+between independent implementations of Earth's orbit displaces the observer
+by ${\approx}3\times10^{4}$\,km, which is itself of order the residual.
+Both implementations agree that these objects pass within a lunar distance
+of Earth, and agree on the angular rates to well within the margins that
+matter for the criteria below.
+
+The observer location was Bethlehem (lat~$31.7^\circ$N, lon~$35.2^\circ$E).
+For the night of 22~April 5~BCE (Julian), sunset falls at $18{:}29$ and
+sunrise at $05{:}25$ local mean solar time, giving $10.1$\,h of usable
+darkness.
+
+Two distinct rate quantities are reported below, and they are not
+interchangeable.  The \emph{inertial} rate is motion against the background
+stars, the quantity to which the lunar bound of
+${\approx}0.5^\circ\,\mathrm{h}^{-1}$ (\S\,2.3) applies, and the sense in
+which a star-like object can be said to stand still.  The \emph{ground}
+rate is motion relative to the horizon, which includes diurnal rotation;
+apparent rest in that frame would require cancelling Earth's
+${\approx}15^\circ\,\mathrm{h}^{-1}$ spin.
+
+\paragraph{Orbit~1: results and failure modes.}
+Orbit~1 passes within $8.50\times10^{4}$\,km of Earth
+($5.68\times10^{-4}$\,AU, $0.22$ lunar distances) shortly after local
+midnight on 22~April.  Its inertial angular rate is at a minimum of
+$0.93^\circ\,\mathrm{h}^{-1}$ at nightfall, with the comet at
+azimuth~$57^\circ$ (ENE) and altitude~$52^\circ$, and rises
+\emph{monotonically} thereafter: $2.0^\circ\,\mathrm{h}^{-1}$ two hours
+before midnight, $4.8^\circ\,\mathrm{h}^{-1}$ an hour after,
+$31.9^\circ\,\mathrm{h}^{-1}$ by the end of the night.  The ground-frame
+rate never falls below $7.7^\circ\,\mathrm{h}^{-1}$.  Orbit~1 fails all
+three criteria:
+
+\begin{enumerate}
+  \item \textit{Stopping.}~The minimum inertial rate,
+    $0.93^\circ\,\mathrm{h}^{-1}$, is roughly twice the lunar bound and is
+    never approached again; in the ground frame the minimum,
+    $7.7^\circ\,\mathrm{h}^{-1}$, exceeds the apparent-rest threshold by a
+    factor of~$26$.  Decisively, the object \emph{accelerates} throughout
+    the entire night.  The aorist \grk{ἐστάθη} denotes a transition from
+    motion to rest, and this trajectory admits no such transition in either
+    frame.
+  \item \textit{Sequential order.}~The rate minimum occurs at nightfall,
+    before any guidance phase could begin, and the motion is monotonically
+    increasing from that point on.  The object is at its slowest at the
+    start of the night and its fastest at the end, the inverse of the
+    required guidance-then-stopping sequence.
+  \item \textit{Direction.}~The comet begins the night in the ENE
+    (azimuth~$57^\circ$), climbs across the northern sky through the
+    meridian region near azimuth~$0^\circ$, and descends into the SW,
+    reaching azimuth~$229^\circ$ at the end of the night.  It never enters
+    the Jerusalem--Bethlehem corridor $[190^\circ, 210^\circ]$ while
+    visible.  A traveler following it would be led north, then west.
+\end{enumerate}
+
+\paragraph{Orbit~2: results and failure modes.}
+Orbit~2 is the more interesting of the two, and it is the stronger form of
+the cometary proposal.  It passes within $2.26\times10^{5}$\,km of Earth
+($1.51\times10^{-3}$\,AU, $0.59$ lunar distances) and, unlike Orbit~1, it
+does traverse the correct part of the sky: beginning the night in the east
+(azimuth~$88^\circ$), it sweeps south and spends ${\approx}1.5$\,h within
+the Jerusalem--Bethlehem corridor $[190^\circ, 210^\circ]$ before ending the
+night at azimuth~$213^\circ$.  The directional requirement, which excludes
+most candidates outright, is therefore satisfied.
+
+It nonetheless fails, and it fails on rate.  The inertial angular rate
+begins at $1.5^\circ\,\mathrm{h}^{-1}$ at nightfall and increases
+monotonically all night, reaching $15.8^\circ\,\mathrm{h}^{-1}$ by dawn;
+while the comet occupies the corridor it is moving at
+$6.7$--$10.9^\circ\,\mathrm{h}^{-1}$.  The minimum inertial rate at any
+point of visibility is $1.5^\circ\,\mathrm{h}^{-1}$, three times the lunar
+bound; the minimum ground-frame rate is $8.4^\circ\,\mathrm{h}^{-1}$,
+twenty-eight times the apparent-rest threshold.
+
+\begin{enumerate}
+  \item \textit{Stopping.}~The rate never falls below three times the lunar
+    bound, and at no point in the night does it decrease at all.  The
+    aorist \grk{ἐστάθη} requires a transition from motion to rest; a
+    monotonically accelerating object admits no such transition.  This is
+    the decisive failure.
+  \item \textit{Sequential order.}~As with Orbit~1, the slowest moment is
+    the first moment of visibility and the fastest is the last.  Even
+    granting the corridor passage as a guidance phase, what follows
+    guidance is acceleration, not arrest: the required order is inverted.
+  \item \textit{Direction.}~\emph{This criterion is satisfied.}  The comet
+    occupies the corridor for approximately $1.5$\,h in the second half of
+    the night.  This is recorded explicitly rather than contested.
+\end{enumerate}
+
+\paragraph{Summary.}
+Orbit~1 fails all three criteria.  Orbit~2 satisfies the directional
+criterion and fails on rate: it is never slower than three times the lunar
+bound, and it accelerates monotonically from dusk to dawn, so no stopping
+event in the sense required by \grk{ἐστάθη} occurs.
+
+That Orbit~2 satisfies the directional criterion is worth stating plainly,
+because it locates precisely where the cometary hypothesis is strongest and
+where it breaks.  A comet close enough to be conspicuous, and both of these
+pass within a lunar distance, is necessarily moving quickly across the sky;
+the same proximity that supplies the brightness supplies the angular speed.
+The two requirements of the narrative, that the object be seen and that it
+be seen to stop, pull in opposite directions.  Direction can be arranged by
+choosing the orbit's orientation; rate cannot, because it is fixed by the
+geometry that made the object visible in the first place.
+These results are consistent with and complementary to the general
+nighttime close-flyby survey (\S\,\ref{subsec:closeflyby}):
+the present analysis demonstrates that specific representative orbits in
+the relevant cometary parameter space fail for concrete, orbit-specific
+reasons, not merely because of a broad statistical exclusion.
+
+%%%%  ---------------------------------------------------------------------
+\subsection{Survey-scale sweep of the guidance and stopping criteria}
+\label{subsec:sweep}
+%%%%  ---------------------------------------------------------------------
+
+\paragraph{Purpose.}
+A referee proposed that stopping be measured not as an instantaneous angular
+rate but as a finite angular \emph{displacement} accumulated over a window, on
+the argument that an observer judges rest by comparing positions rather than by
+sensing a derivative. That is the better criterion and it is adopted here. The
+referee further proposed a threshold in the range $1$--$5^\circ$ per hour. This
+section reports the result of applying it, at survey scale and with the
+remaining criteria loosened as far as they can be loosened.
+
+\paragraph{Design.}
+$10^{9}$ orbits were drawn and propagated, yielding $6{,}116$ close flybys
+(minimum geocentric distance below the flyby threshold). Every close flyby was
+evaluated on a grid of $525$ parameter combinations: guidance corridor widened
+from $20^\circ$ to $60^\circ$ (five values), azimuth-drift tolerance raised from
+$1.5$ to $30^\circ\,\mathrm{h}^{-1}$ (seven values), guidance leg shortened from
+two hours to fifteen minutes (five values), and stopping window stretched to
+eight hours (three values). The whole campaign was repeated under flat priors
+(isotropic inclination and log-uniform perihelion distance) as a control on
+the stratified sampling used in the main survey.
+
+\paragraph{Two commitments.}
+The result rests on exactly two requirements, and everything else is loosened
+to the extreme.
+
+\begin{enumerate}
+  \item Stopping is a finite angular displacement, not an instantaneous rate.
+    This is the referee's own proposal.
+  \item The stop must occur at the bearing along which the object guided.
+    Matthew has the Star stand over the house to which it has led the Magi, so
+    guidance and stopping are linked in azimuth.
+\end{enumerate}
+
+Requirement~2 is a \emph{tightening} of the test as originally specified, in
+which the two conditions were not linked in azimuth. It is stated here
+explicitly, and its effect is given in Table~\ref{tab:corridorlink}, so that
+the reader may judge it on the text rather than on the outcome it produces.
+
+\begin{table}[h]
+\centering
+\begin{threeparttable}
+  \caption{Effect of requiring the stop to occur within the guidance
+    corridor.}\label{tab:corridorlink}
+\begin{tabular}{@{}lcc@{}}
+\toprule
+Configuration & Stop anywhere & Stop in corridor \\
+\midrule
+corr.\ $170$--$210^\circ$, drift $15^\circ\,\mathrm{h}^{-1}$, guide $0.25$\,h
+  & 1 orbit, min $3.88^\circ$ & \textbf{0}, min $7.81^\circ$ \\
+corr.\ $150$--$210^\circ$, drift $30^\circ\,\mathrm{h}^{-1}$, guide $0.25$\,h
+  & 1 orbit, min $3.88^\circ$ & \textbf{0}, min $8.08^\circ$ \\
+\bottomrule
+\end{tabular}
+\end{threeparttable}
+\end{table}
+
+\paragraph{Result.}
+Across $10^{9}$ sampled orbits and $6{,}116$ close flybys, no orbit satisfies
+the displacement criterion at any of the $525$ parameter combinations tested:
+$0$ of $525$ cells. The tightest in-corridor displacement achieved anywhere is
+$\mathbf{6.94^\circ}$ per hour, against $5^\circ$ at the loosest end of the
+referee's range, a margin of $1.39\times$. Under flat priors the corresponding
+figure is $8.71^\circ$, from $450$ close flybys, again with $0$ of $525$ cells
+passing. The conclusion is not an artefact of the stratified sampling.
+
+Figure~\ref{fig:sweep} presents the sweep. Panel~(a) is the load-bearing
+result: what binds is the azimuth-drift tolerance, not the stopping threshold.
+No configuration admits a guidance window at all until the drift tolerance is
+raised to $10^\circ\,\mathrm{h}^{-1}$, roughly seven times the published value.
+Panel~(b) shows the tightest in-corridor displacement over the surviving
+configurations; every populated cell lies between $6.9$ and $8.0^\circ$, and
+none approaches the criterion.
+
+\paragraph{The one apparent exception, and why it is not one.}
+On the unconstrained metric, stopping permitted at any bearing, exactly one
+orbit of the $6{,}116$ reaches $3.88^\circ$, inside the referee's range.
+Candidate \#1178 is examined directly in Figure~\ref{fig:falsepos}. It fails on
+three independent grounds.
+
+\emph{It is not a comet.} $q = 1.018$\,au, $e = 4.06$, closest approach
+$6.2\times10^{5}$\,km ($1.6$ lunar distances), and a hyperbolic excess velocity
+of $52\,\mathrm{km\,s^{-1}}$, against $26$ for 1I/ʻOumuamua and $32$ for
+2I/Borisov. This is not a Solar System body.
+
+\emph{It does not stop.} The total apparent motion reaches a minimum of
+$3.85^\circ\,\mathrm{h}^{-1}$ and never falls below it at any point in the
+night. What vanishes is only the altitude component: at the best-displacement
+epoch $98\%$ of the residual motion is azimuthal
+($|\dot{\mathrm{alt}}| = 0.80$, $|\dot{\mathrm{az}}|\cos\mathrm{alt} = 3.92
+^\circ\,\mathrm{h}^{-1}$), and the altitude turning point proper falls half an
+hour later still, where the total rate is $3.85^\circ\,\mathrm{h}^{-1}$.
+
+\emph{It is not over the house.} Guidance ends at azimuth $209.5^\circ$; the
+minimum occurs at azimuth $233.5^\circ$, $24^\circ$ west of the corridor edge
+and $3.8$\,hours later.
+
+A criterion that scores this track as a stop is measuring the moment a
+descending object levels out, not a body coming to rest above a place. This is
+the diagnostic value of the rate metric, and the reason the displacement
+criterion with the corridor link is the one the claim rests on.
+
+\paragraph{The two-leg itinerary, with a turn toward the house.}
+A referee further proposed that the Magi's journey need not have held a single
+bearing throughout. Taking the Church of the Nativity as a convenient example
+of an off-road destination, the final stretch would have required a shift in
+azimuth to something nearer $170^\circ$ for the last half hour or so, which
+opens up many more permutations of possible Star motion.
+
+Widening the corridor to a single static window does not test that scenario. A
+static corridor still demands low azimuth drift throughout, so a star swinging
+from $200^\circ$ to $170^\circ$ is excluded however wide the window is made,
+while the scenario positively requires that swing. The journey is therefore
+modeled here in two legs: the road from Jerusalem, with azimuth held in
+$[190^\circ, 210^\circ]$; a free transition of up to an hour in which the
+azimuth may swing without constraint; an approach leg with azimuth held in a
+second corridor, taken as $[160^\circ,180^\circ]$, $[140^\circ,180^\circ]$ or
+$[120^\circ,180^\circ]$ so as to run from due south round to the south-east;
+and only then the stopping test. Leg durations were swept at $1.5$, $1.0$ and
+$0.5$\,h for the road and $0.5$ and $0.25$\,h for the approach, drift tolerance
+within each leg at seven values from $1.5$ to $30^\circ\,\mathrm{h}^{-1}$, and
+the stopping threshold at the same six values as above: $756$ combinations,
+over the same $6{,}116$ close flybys. This is more permissive than any geometry
+tested elsewhere in this work.
+
+\emph{Result.} No parameter set admits a two-leg itinerary. The reason is
+directional. The referee's own figure places the final leg near azimuth
+$170^\circ$, which lies east of the $190$--$210^\circ$ bearing held along the
+road, so the turn requires the Star to swing \emph{eastward}. Diurnal motion
+carries objects the other way:
+
+\begin{center}
+\begin{tabular}{@{}lc@{}}
+\toprule
+Orbits whose azimuth increases (westward) through $120$--$210^\circ$ & 2{,}024 \\
+Orbits whose azimuth decreases (eastward) & \textbf{0} \\
+\midrule
+Leg pairs in which the approach leg \emph{precedes} the road leg & 835 \\
+Leg pairs in the order the scenario requires & \textbf{0} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Where both bearings occur they occur in the reverse order: the Star stands at
+$170^\circ$ first and at $200^\circ$ afterwards. An object that turned east to
+follow the Magi off the road would have to run against the rotation of the sky
+for the last half hour of the journey. The scenario is therefore not merely
+unmet but inverted. Script: \texttt{sob\_finalleg\_sweep.py}.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\linewidth]{fig_criteria_sweep}
+  \caption{\textbf{Survey-scale sweep of the guidance and stopping criteria.}
+    \textbf{(a)}~Orbit-configurations admitting a guidance window, over
+    guidance corridor and azimuth-drift tolerance. The drift tolerance is what
+    binds: nothing appears until it is raised roughly sevenfold above the
+    published value (red line). \textbf{(b)}~Tightest $1$\,h displacement with
+    the stop required to fall within the corridor, over drift tolerance and
+    guidance duration demanded; every populated cell lies at $6.9$--$8.0^\circ$
+    against a $5^\circ$ criterion. \textbf{(c)}~Cumulative distributions of both
+    stopping metrics over all close-flyby candidates, showing that the floor is
+    a property of the population rather than of a few orbits. \textbf{(d)}~The
+    same comparison under stratified and flat sampling priors.}
+  \label{fig:sweep}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\linewidth]{fig_false_positive}
+  \caption{\textbf{Anatomy of the single orbit passing the unconstrained
+    metric.} \textbf{(a)}~The apparent path over Bethlehem. Guidance ends at
+    azimuth $209.5^\circ$; the minimum-displacement epoch occurs $24^\circ$
+    further west and $3.8$\,h later, well outside the corridor.
+    \textbf{(b)}~The two components of the apparent motion. The altitude
+    component passes through zero, but the azimuthal component does not, and
+    the total apparent motion never falls below
+    $3.85^\circ\,\mathrm{h}^{-1}$.}
+  \label{fig:falsepos}
+\end{figure}
+
+
 
 \bibliographystyle{sn-nature}
 \bibliography{sob_refs}

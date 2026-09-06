@@ -90,6 +90,10 @@ def comet_pos(dt_days):
     r    = a * (1 - ECC*np.cos(Ev))
     return np.outer(Pvec, r*np.cos(nu)) + np.outer(Qvec, r*np.sin(nu))
 
+from sob_precession import (precess_unit_vectors as _precess_vec,
+                            precess_radec as _precess_radec)
+
+
 def gmst_rad(jd_utc):
     T = (jd_utc - 2451545.0) / 36525.0
     return np.radians((280.46061837 + 360.98564736629*(jd_utc-2451545.0)
@@ -121,22 +125,26 @@ def compute_orbit():
     jd_utc = jd_utc_midnight + dt_h / 24.0
     jd_tdb = jd_utc + DT_TDB_UTC / 86400.0
 
-    times_tdb = Time(jd_tdb, format='jd', scale='tdb')
-    times_utc = Time(jd_utc, format='jd', scale='utc')
-    eb        = get_body_barycentric('earth', times_tdb)
-    sb        = get_body_barycentric('sun',   times_tdb)
-    earth_pos = (eb - sb).xyz.to(u.AU).value
-    sun_icrs  = get_sun(times_utc)
-    sun_ra    = sun_icrs.ra.rad
-    sun_dec   = sun_icrs.dec.rad
+    # VSOP87 Earth, not astropy's bundled ephemeris — see sob_flyby_detail.py
+    # and sob_frames for why this matters at close-flyby distances.
+    import sob_frames as _sf
+    earth_ecl = _sf.earth_helio_ecl_j2000(jd_tdb)
+    earth_pos = _sf.ecl_to_equ(earth_ecl)
+    sun_vec   = _sf.ecl_to_equ(-earth_ecl)
+    sun_n     = np.linalg.norm(sun_vec, axis=0)
+    sun_ra    = np.arctan2(sun_vec[1], sun_vec[0]) % (2*np.pi)
+    sun_dec   = np.arcsin(np.clip(sun_vec[2]/sun_n, -1, 1))
     lst       = lst_rad(jd_utc)
-    sun_alt, sun_az = altaz(sun_ra, sun_dec, lst)
+    sun_ra_d, sun_dec_d = _precess_radec(sun_ra, sun_dec, jd_tdb.mean())
+    sun_alt, sun_az = altaz(sun_ra_d, sun_dec_d, lst)
 
     dt_from_peri = jd_tdb - T_peri_jd
     r_c  = comet_pos(dt_from_peri)
     rho  = r_c - earth_pos
     d    = np.linalg.norm(rho, axis=0)
+    # Precess J2000 -> equinox of date before forming hour angles against `lst`.
     rhat = rho / d
+    rhat = _precess_vec(rhat, jd_tdb.mean())
     ra_r  = np.arctan2(rhat[1], rhat[0]) % (2*np.pi)
     dec_r = np.arcsin(np.clip(rhat[2], -1, 1))
     alt, az = altaz(ra_r, dec_r, lst)

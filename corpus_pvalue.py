@@ -33,7 +33,7 @@ N_SIM = 2_000_000   # Monte Carlo samples per rho value
 # ─── observed individual p-values ────────────────────────────────────────
 LABELS = [
     'A  proago        (narrative guidance — star leads travellers)',
-    'B  sterizo proxy (stopping word — planet at stationary pt)',
+    'B  histemi       (stopping word — body comes to rest above place)',
     'C  epano         (locative prep. — above terrestrial place)',
     'D  erchomai      (celestial arrival at terrestrial location)',
 ]
@@ -65,7 +65,22 @@ LABELS = [
 #    building or person.  Corrected from 0.063 (AI-estimated).
 #
 # See tlg_corpus_results.md for full passage-level citations and classification notes.
-P_OBS = np.array([0.100, 0.056, 0.033, 0.125])
+#
+# 2026-09-04 re-verification. The 2026-05-10 values were produced with TLG's
+# "Lemma" mode, which in that interface prefix-matches the headword rather
+# than expanding the lemma (a search on λέγω returns λέγων and λέγωσι but not
+# λέγει or ἔλεγεν), and with Diacritics-sensitive matching OFF. Both counts
+# were therefore wrong: too narrow on inflection, too broad on accent.
+# Re-run by exact wordform search over the full paradigm, Exact Match and
+# Diacritics sensitive both enabled:
+#     A  προάγω    N = 11   (was 9 asserted / 11 in the per-author table)
+#     B  ἵστημι    N = 121  (was 17, on the στηρίζω proxy)
+#     C  ἐπάνω     N = 40   (was 29; ἐπάνω is indeclinable, one exact search)
+#     D  ἔρχομαι   N = 356  (was 7 — the old search returned only the bare
+#                           form ἔρχομαι. The verb is suppletive; the aorist
+#                           stem ἦλθον/ἐλθ-, which supplies Matthew's own
+#                           ἐλθών, had never been searched at all.)
+P_OBS = np.array([1/12, 1/122, 1/41, 1/357])
 k = len(P_OBS)
 
 # ─── baseline under independence ─────────────────────────────────────────
@@ -228,9 +243,11 @@ print(f"""
 
   The joint linguistic conclusion is robust to positive correlation
   among the four features at any realistic dependence level.  The
-  corrected p remains below 0.05 up to rho ≈ 0.77, while the empirically
-  plausible range for distinct lexical categories in a genre study is
-  rho ≈ 0.4–0.6.  At rho = 0.5 the corrected p ≈ 0.028, well below
-  alpha = 0.05.  These are TLG-verified counts (2026-05-10); see
-  tlg_corpus_results.md for full passage citations.
+  corrected p remains below 0.05 across the entire tested range of rho
+  (up to 0.95), while the empirically plausible range for distinct
+  lexical categories in a genre study is rho ≈ 0.4–0.6.  At rho = 0.5
+  the corrected p ≈ 0.011, well below alpha = 0.05.  Counts re-verified
+  2026-09-04 by exact wordform search over the full paradigm; see
+  HISTEMI_CLASSIFICATION_2026-09-04.md and TLG_AUDIT_2026-09-04.md.
+  Feature D (erchomai) is provisional pending re-run.
 """)

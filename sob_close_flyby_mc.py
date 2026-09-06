@@ -40,6 +40,38 @@ R_EQ = np.array([                  # ecliptic → equatorial J2000
     [0,  np.sin(EPS),  np.cos(EPS)],
 ])
 
+# ── Precession: J2000 equatorial → equatorial of date ────────────────────────
+# Comet and Earth positions are built in the J2000 frame, but sidereal time
+# (gmst_rad below) is referred to the equinox OF DATE.  Combining the two
+# directly leaves the ~28° of general precession accumulated since 5 BCE
+# uncorrected, which enters as a spurious rotation of ~23° in azimuth.
+# Positions are therefore precessed to the equinox of date before any hour
+# angle is formed.
+#
+# Composition follows Meeus, Astronomical Algorithms ch. 21:
+#     P = Rz(z) · Ry(−θ) · Rz(ζ)
+# Note this is NOT the Rz(−z)Ry(θ)Rz(−ζ) form quoted in many references,
+# which assumes rotation of the axes rather than of the vector and yields the
+# inverse rotation.  Because ζ, z, θ are all negative for epochs before J2000,
+# using the wrong form does not produce an obvious sign flip — it produces a
+# doubled offset (~60° in RA at 5 BCE).  Validated in sob_frames.validate().
+
+def _rz(a):
+    c, s = np.cos(a), np.sin(a)
+    return np.array([[c, -s, 0.0], [s, c, 0.0], [0.0, 0.0, 1.0]])
+
+def _ry(a):
+    c, s = np.cos(a), np.sin(a)
+    return np.array([[c, 0.0, s], [0.0, 1.0, 0.0], [-s, 0.0, c]])
+
+def precession_matrix(jd_tt):
+    """Mean J2000 equator/equinox → mean equator/equinox of date."""
+    T = (jd_tt - 2451545.0) / 36525.0
+    zeta  = (2306.2181*T + 0.30188*T**2 + 0.017998*T**3) / 3600.0 * np.pi/180.0
+    z     = (2306.2181*T + 1.09468*T**2 + 0.018203*T**3) / 3600.0 * np.pi/180.0
+    theta = (2004.3109*T - 0.42665*T**2 - 0.041833*T**3) / 3600.0 * np.pi/180.0
+    return _rz(z) @ _ry(-theta) @ _rz(zeta)
+
 # ── Site ─────────────────────────────────────────────────────────────────────
 LAT_DEG = 31.70;  LON_DEG = 35.20;  ALT_M = 765.0
 LAT     = np.radians(LAT_DEG)
@@ -51,7 +83,8 @@ DT_TDB_UTC = 10572.0              # TDB - UTC in 5 BCE [s]
 JD_PRIMARY = 1719755.898
 
 # ── Survey parameters ─────────────────────────────────────────────────────────
-N_MC        = 10_000_000  # Monte Carlo samples
+import os
+N_MC        = int(os.environ.get("SOB_N_MC", 10_000_000))  # Monte Carlo samples
 D_REJECT    = 0.05        # AU — quick-reject threshold (generous)
 D_FLYBY     = 0.020       # AU — close-flyby threshold (criterion A)
 STEP_MIN    = 5           # minutes — timestep for detailed analysis
@@ -205,16 +238,21 @@ def precompute_sky(jd_event_tdb, window_hrs=WINDOW_HRS, step_min=STEP_MIN):
     jd_utc = jd_utc_midnight + dt_h / 24.0
     jd_tdb = jd_utc + DT_TDB_UTC / 86400.0
 
-    times_tdb = Time(jd_tdb, format='jd', scale='tdb')
-    times_utc = Time(jd_utc, format='jd', scale='utc')
+    # Earth from VSOP87, not astropy's bundled ephemeris.  ERFA's epv00 is only
+    # claimed valid 1900-2100 and is off by ~43" at 5 BCE.  Because this survey
+    # tests near-stationary configurations of objects a few hundred thousand km
+    # away, a 43" error in Earth's position displaces the observer by ~3e4 km
+    # and swings the sightline by degrees -- enough to create or destroy an
+    # apparent standstill.  Substituting the bundled ephemeris here produced a
+    # spurious "solution" in the companion optimiser.
+    import sob_frames as _sf
+    earth_ecl = _sf.earth_helio_ecl_j2000(jd_tdb)
+    earth_pos = _sf.ecl_to_equ(earth_ecl)          # (3, N) J2000 equatorial
 
-    eb = get_body_barycentric('earth', times_tdb)
-    sb = get_body_barycentric('sun',   times_tdb)
-    earth_pos = (eb - sb).xyz.to(u.AU).value       # (3, N)
-
-    sun_icrs = get_sun(times_utc)
-    sun_ra   = sun_icrs.ra.rad
-    sun_dec  = sun_icrs.dec.rad
+    sun_vec  = _sf.ecl_to_equ(-earth_ecl)
+    sun_n    = np.linalg.norm(sun_vec, axis=0)
+    sun_ra   = np.arctan2(sun_vec[1], sun_vec[0]) % (2*np.pi)
+    sun_dec  = np.arcsin(np.clip(sun_vec[2]/sun_n, -1, 1))
 
     lst = lst_rad(jd_utc)
     return jd_utc, earth_pos, sun_ra, sun_dec, lst
@@ -245,15 +283,24 @@ def evaluate_orbit(q, e, i_r, Om_r, om_r, T_jd,
     if d_min > D_FLYBY:
         return {'pass': False, 'reason': f'd_min={d_min:.4f}>{D_FLYBY}', 'd_min': d_min}
 
-    # RA, Dec of comet
+    # RA, Dec of comet — precessed from J2000 to the equinox of date so that
+    # the hour angle formed against `lst` (which is of-date) is frame-consistent.
     rhat = rho / np.maximum(d, 1e-12)
+    P    = precession_matrix(float(np.mean(jd_tdb)))
+    rhat = P @ rhat
     dec  = np.degrees(np.arcsin(np.clip(rhat[2], -1, 1)))
     ra   = np.degrees(np.arctan2(rhat[1], rhat[0])) % 360.0
 
     alt, az = altaz_analytic(np.radians(ra), np.radians(dec), lst)
 
-    # Sun altitude (analytic)
-    sun_alt, _ = altaz_analytic(sun_ra, sun_dec, lst)
+    # Sun altitude (analytic) — precessed to the same frame
+    sun_v = np.array([np.cos(sun_dec)*np.cos(sun_ra),
+                      np.cos(sun_dec)*np.sin(sun_ra),
+                      np.sin(sun_dec)])
+    sun_v = P @ sun_v
+    sun_ra_d  = np.arctan2(sun_v[1], sun_v[0]) % (2*np.pi)
+    sun_dec_d = np.arcsin(np.clip(sun_v[2], -1, 1))
+    sun_alt, _ = altaz_analytic(sun_ra_d, sun_dec_d, lst)
 
     # Apparent angular velocity in ground frame (finite differences)
     dt_h  = np.gradient(jd_utc) * 24.0          # hours per step (varies at edges)

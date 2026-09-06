@@ -112,6 +112,10 @@ def altaz(ra_r, dec_r, lst_r):
     az = np.arctan2(az_sin, az_cos) % (2*np.pi)
     return np.degrees(alt), np.degrees(az)
 
+from sob_precession import (precess_unit_vectors as _precess_vec,
+                            precess_radec as _precess_radec)
+
+
 def gmst(jd_utc):
     T = (jd_utc - 2451545.0)/36525.0
     g = (280.46061837 + 360.98564736629*(jd_utc - 2451545.0)
@@ -134,14 +138,24 @@ def get_sky(jd_event=JD_PRIMARY, step_min=STEP_MIN, window_hrs=13):
     dt_h  = np.arange(-window_hrs/2, window_hrs/2, step_min/60.0)
     jd_utc = jd_utc_midnight + dt_h/24.0
     jd_tdb = jd_utc + DT_TDB_UTC/86400.0
-    times_tdb = Time(jd_tdb, format='jd', scale='tdb')
     times_utc = Time(jd_utc, format='jd', scale='utc')
-    eb = get_body_barycentric('earth', times_tdb)
-    sb = get_body_barycentric('sun',   times_tdb)
-    earth_pos = (eb - sb).xyz.to(u.AU).value
-    sun_icrs  = get_sun(times_utc)
-    sun_ra    = sun_icrs.ra.rad
-    sun_dec   = sun_icrs.dec.rad
+
+    # Earth from VSOP87 rather than astropy's bundled ephemeris.  ERFA's epv00
+    # is only claimed valid 1900-2100 and is degraded by ~43" at 5 BCE.  That
+    # sounds negligible, but this optimiser searches for near-stationary
+    # configurations of objects a few hundred thousand km away, where a 43"
+    # error in Earth's position displaces the observer by ~3e4 km and swings
+    # the sightline by a couple of degrees -- enough to manufacture or destroy
+    # an apparent standstill.  Accuracy here is not a refinement; it decides
+    # whether a candidate is real.
+    import sob_frames as _sf
+    earth_ecl = _sf.earth_helio_ecl_j2000(jd_tdb)
+    earth_pos = _sf.ecl_to_equ(earth_ecl)          # J2000 equatorial, AU
+
+    sun_vec   = _sf.ecl_to_equ(-earth_ecl)
+    sun_n     = np.linalg.norm(sun_vec, axis=0)
+    sun_ra    = np.arctan2(sun_vec[1], sun_vec[0]) % (2*np.pi)
+    sun_dec   = np.arcsin(np.clip(sun_vec[2]/sun_n, -1, 1))
     lst_arr   = lst(jd_utc)
     _CACHE[key] = (jd_utc, earth_pos, sun_ra, sun_dec, lst_arr)
     return _CACHE[key]
@@ -179,11 +193,16 @@ def cost(params, jd_utc, earth_pos, sun_ra, sun_dec, lst_arr, verbose=False):
     # Criterion A: close flyby
     cost_A = max(0.0, d_min - D_FLYBY) * 1000.0
 
+    # Precess J2000 -> equinox of date before forming hour angles against
+    # lst_arr, which is of-date.  See sob_precession for why this is required.
     rhat = rho / np.maximum(d, 1e-12)
+    rhat = _precess_vec(rhat, jd_utc.mean())
     dec  = np.degrees(np.arcsin(np.clip(rhat[2], -1, 1)))
     ra   = np.degrees(np.arctan2(rhat[1], rhat[0])) % 360.0
     alt, az = altaz(np.radians(ra), np.radians(dec), lst_arr)
-    sun_alt, _ = altaz(sun_ra, sun_dec, lst_arr)
+
+    sun_ra_d, sun_dec_d = _precess_radec(sun_ra, sun_dec, jd_utc.mean())
+    sun_alt, _ = altaz(sun_ra_d, sun_dec_d, lst_arr)
 
     step_h = (jd_utc[1] - jd_utc[0]) * 24.0
     dt_h   = np.gradient(jd_utc) * 24.0

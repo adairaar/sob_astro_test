@@ -1,0 +1,57 @@
+# ---- OS / editor cruft -------------------------------------------------
+.DS_Store
+~$*
+.vscode/
+*.swp
+
+# ---- LaTeX build artifacts ---------------------------------------------
+*.aux
+*.log
+*.out
+*.blg
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+*.toc
+
+# ---- Peer-review correspondence (confidential, do not publish) ---------
+response_to_R2*
+response_to_reviewers*
+response_to_editor*
+Response_to_Reviewer*
+editor_response_R2*
+R2_LINGUISTIC_OBJECTION.md
+R2_RESULTS_WRITEUP.md
+revision_log.*
+cover_letter*
+paper_revision_notes.md
+
+# ---- Third-party copyrighted material (must not be redistributed) -----
+387-407_Matney_JBAA_2025-1*.pdf
+SOB 17 09glassbook.pdf
+
+# ---- Manuscripts under review elsewhere --------------------------------
+Adair_related_papers/
+Adair_related_papers.zip*
+matney_response.*
+observatory_letter.docx
+BAA Stellar Response*.docx
+Star_of_Bethlehem_Nature_paper.docx
+adair--response_to_matney*.zip
+
+# ---- Submission bundles (rebuildable, large) ---------------------------
+Adair_SoB_revision_*.zip
+sob_paper_latex.zip
+npj_manuscript*.zip
+npj_heritage_science_bundle.zip
+
+# ---- Large intermediate data (regenerable by the scripts) --------------
+_big_*.pkl
+_big_*.pkl.part
+*.pkl.part
+__pycache__/
+
+# ---- Scratch renders and temp files ------------------------------------
+page-*.jpg
+WITHDRAWN_*.bak
+survey_pid.txt

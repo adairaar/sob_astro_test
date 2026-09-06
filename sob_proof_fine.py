@@ -29,7 +29,7 @@ OUTER PARAMETER SPACE:
 
   Outer combinations: 18 × 15 × 42 × 9 = 102,060
   Inner pairs:        72 × 72 = 5,184
-  Total configurations: 102,060 × 5,184 = 529,014,240
+  Total configurations: 102,060 × 5,184 = 529,079,040
 
 NOTE ON INCLINATION RANGE [0°, 180°]:
   Inclination i is defined as the dihedral angle between the orbital plane
