@@ -17,6 +17,7 @@
 # ---- Peer-review correspondence (confidential, do not publish) ---------
 response_to_R2*
 response_to_reviewers*
+response_to_reviewer_*
 response_to_editor*
 Response_to_Reviewer*
 editor_response_R2*
@@ -34,6 +35,8 @@ SOB 17 09glassbook.pdf
 Adair_related_papers/
 Adair_related_papers.zip*
 matney_response.*
+matney_response_v2.*
+adair_matney_response_v2/
 observatory_letter.docx
 BAA Stellar Response*.docx
 Star_of_Bethlehem_Nature_paper.docx

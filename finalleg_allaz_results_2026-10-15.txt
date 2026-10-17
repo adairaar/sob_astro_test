@@ -1,0 +1,103 @@
+==============================================================================
+TWO-LEG ITINERARY SWEEP — Reviewer 2's off-road final approach
+==============================================================================
+  leg 1 corridor : 190-210 deg (the road)
+  leg 2 corridors: ['210-240', '210-270', '90-180'] deg
+  leg 1 duration : [1.5, 1.0, 0.5] h
+  leg 2 duration : [0.5, 0.25] h
+  drift tolerance: [1.5, 3.0, 5.0, 10.0, 15.0, 20.0, 30.0] deg/h (within each leg)
+  turn allowed   : up to 1 h, azimuth unconstrained
+  stopping window: 8 h after leg 2
+
+  candidate set: _big_stratified_1000000000_2026.pkl  (6,116 flybys)
+  close flybys: 6116
+
+==============================================================================
+PARAMETER SETS ADMITTING A TWO-LEG ITINERARY
+==============================================================================
+       leg2    T1    T2  drift    n  min rate  min shift  turn rate
+  --------------------------------------------------------------------
+   210-240   1.5   0.5     15  111     4.535      9.222        0.0
+   210-240   1.5   0.5     20  111     4.535      9.222        0.0
+   210-240   1.5   0.5     30  111     4.535      9.222        0.0
+   210-240   1.5  0.25     15  117     4.535      9.222        0.0
+   210-240   1.5  0.25     20  117     4.535      9.222        0.0
+   210-240   1.5  0.25     30  117     4.535      9.222        0.0
+   210-240     1   0.5     15  180     4.535      9.222       15.3
+   210-240     1   0.5     20  368     4.535      9.222       21.0
+   210-240     1   0.5     30  451     4.535      9.222        0.0
+   210-240     1  0.25     15  190     4.535      9.222       15.3
+   210-240     1  0.25     20  378     4.535      9.222       21.0
+   210-240     1  0.25     30  461     4.535      9.222        0.0
+   210-240   0.5   0.5     10    6     4.535      9.222        0.0
+   210-240   0.5   0.5     15  204     4.535      9.222       15.3
+   210-240   0.5   0.5     20  432     4.535      9.222       21.1
+   210-240   0.5   0.5     30  631     4.535      9.222       32.4
+   210-240   0.5  0.25     10    7     4.535      9.222        0.0
+   210-240   0.5  0.25     15  216     4.535      9.222       15.3
+   210-240   0.5  0.25     20  444     4.535      9.222       21.1
+   210-240   0.5  0.25     30  662     4.535      9.222       32.7
+   210-270     1   0.5     15  178     9.062      9.222       15.3
+   210-270     1   0.5     20  325     9.062      9.222       21.0
+   210-270     1   0.5     30  372     9.062      9.222        0.0
+   210-270     1  0.25     15  188     9.062      9.222       15.3
+   210-270     1  0.25     20  335     9.062      9.222       21.0
+   210-270     1  0.25     30  382     9.062      9.222        0.0
+   210-270   0.5   0.5     15  200     9.062      9.222       15.3
+   210-270   0.5   0.5     20  387     9.062      9.222       21.1
+   210-270   0.5   0.5     30  537     9.062      9.222       34.7
+   210-270   0.5  0.25     15  212     9.062      9.222       15.3
+   210-270   0.5  0.25     20  399     9.062      9.222       21.1
+   210-270   0.5  0.25     30  551     9.062      9.222       34.7
+   210-240   1.5   0.5     10    1     9.220      9.222        0.0
+   210-240   1.5  0.25     10    1     9.220      9.222        0.0
+   210-240     1   0.5     10    2     9.220      9.222        0.0
+   210-240     1  0.25     10    2     9.220      9.222        0.0
+   210-270   1.5   0.5     10    1     9.220      9.222        0.0
+   210-270   1.5   0.5     15  109     9.220      9.222        0.0
+   210-270   1.5   0.5     20  109     9.220      9.222        0.0
+   210-270   1.5   0.5     30  109     9.220      9.222        0.0
+   210-270   1.5  0.25     10    1     9.220      9.222        0.0
+   210-270   1.5  0.25     15  115     9.220      9.222        0.0
+   210-270   1.5  0.25     20  115     9.220      9.222        0.0
+   210-270   1.5  0.25     30  115     9.220      9.222        0.0
+   210-270     1   0.5     10    2     9.220      9.222        0.0
+   210-270     1  0.25     10    2     9.220      9.222        0.0
+   210-270   0.5   0.5     10    5     9.220      9.222        0.0
+   210-270   0.5  0.25     10    6     9.220      9.222        0.0
+
+  parameter sets with a viable two-leg itinerary : 48
+  ...of which best rate falls inside 1-5 deg/h    : 20
+
+  tightest stopping rate  anywhere : 4.535 deg/h
+  tightest angular shift  anywhere : 9.222 deg  (over 1 h)
+
+==============================================================================
+WHY: THE REQUIRED TURN RUNS AGAINST THE SKY
+==============================================================================
+  orbits whose azimuth increases (westward) through 120-210 deg : 2024
+  orbits whose azimuth decreases (eastward)                     : 0
+
+  leg pairs in which the approach leg PRECEDES the road leg     : 835
+  leg pairs in which the road leg precedes the approach leg      : 0
+
+  The referee's own figure puts the final leg near 170 deg, east of the
+  190-210 deg bearing held along the road from Jerusalem, so his final leg
+  requires the star to swing EASTWARD, from about 200 deg to about 170 deg. Diurnal motion
+  carries objects the other way. Every close-flyby orbit in the sample moves
+  westward through this range, so where both bearings occur they occur in the
+  reverse order: the star stands at 170 deg first and at 200 deg afterwards.
+  The scenario is therefore not merely unmet but inverted.
+
+==============================================================================
+READING THIS
+==============================================================================
+  This is the most permissive geometry yet tested. The star is allowed to
+  hold one bearing along the road, swing freely through a turn of up to an
+  hour, hold a second bearing anywhere from due south to the south-east while
+  the party walks the last stretch, and only then is it asked to stop.
+
+  'turn rate' reports the largest azimuth rate the star must exhibit during
+  the transition. If that number is large, the star is not merely drifting
+  but visibly swinging across the sky, which is itself difficult to reconcile
+  with an object that then appears to halt.
