@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this code or data, please cite it as below."
+title: "Code, data and manuscript files for \"Matthew's Star of Bethlehem is inconsistent with natural objects: evidence from orbital mechanics and corpus linguistics\""
+authors:
+  - family-names: Adair
+    given-names: Aaron M.
+    affiliation: "Department of Physics, Massachusetts Institute of Technology"
+    orcid: "https://orcid.org/0000-0003-3806-1047"
+version: "v1.0-revision-2026-10"
+date-released: 2026-10-23
+license: MIT
+repository-code: "https://github.com/adairaar/sob_astro_test"
+keywords:
+  - Star of Bethlehem
+  - orbital mechanics
+  - corpus linguistics
+  - archaeoastronomy

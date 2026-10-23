@@ -1,0 +1,29 @@
+{
+  "title": "Code, data and manuscript files for \"Matthew's Star of Bethlehem is inconsistent with natural objects: evidence from orbital mechanics and corpus linguistics\"",
+  "upload_type": "software",
+  "description": "Orbital-mechanics surveys (heliocentric grid of 529 million configurations, Monte Carlo refinement, geocentric survey, close-flyby campaigns over 10^9 sampled orbits, two-leg itineraries), corpus-linguistic records and statistical scripts, figure files, and the revised manuscript and Supplementary Information for the paper by A. M. Adair, under review at npj Heritage Science (2026).",
+  "creators": [
+    {
+      "name": "Adair, Aaron M.",
+      "affiliation": "Department of Physics, Massachusetts Institute of Technology",
+      "orcid": "0000-0003-3806-1047"
+    }
+  ],
+  "license": "MIT",
+  "keywords": [
+    "Star of Bethlehem",
+    "orbital mechanics",
+    "corpus linguistics",
+    "Matthew 2:9",
+    "archaeoastronomy",
+    "ancient Greek astronomy"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "10.21203/rs.3.rs-10944256/v1",
+      "relation": "isSupplementTo",
+      "scheme": "doi"
+    }
+  ],
+  "version": "v1.0-revision-2026-10"
+}

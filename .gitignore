@@ -24,6 +24,7 @@ editor_response_R2*
 R2_LINGUISTIC_OBJECTION.md
 R2_RESULTS_WRITEUP.md
 revision_log.*
+revision_log_*
 cover_letter*
 paper_revision_notes.md
 
@@ -50,6 +51,8 @@ npj_heritage_science_bundle.zip
 
 # ---- Large intermediate data (regenerable by the scripts) --------------
 _big_*.pkl
+!_big_stratified_1000000000_2026.pkl
+!_big_flat_1000000000_2026.pkl
 _big_*.pkl.part
 *.pkl.part
 __pycache__/
